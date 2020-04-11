@@ -1,0 +1,34 @@
+UNIT FILE                                  STATE   VENDOR PRESET
+org.cups.cupsd.path                        enabled disabled     
+acpid.service                              enabled disabled     
+autovt@.service                            enabled disabled     
+avahi-daemon.service                       enabled disabled     
+cronie.service                             enabled disabled     
+dbus-org.freedesktop.Avahi.service         enabled disabled     
+dbus-org.freedesktop.nm-dispatcher.service enabled disabled     
+dbus-org.freedesktop.timesync1.service     enabled disabled     
+display-manager.service                    enabled disabled     
+ebtables.service                           enabled disabled     
+getty@.service                             enabled enabled      
+libvirtd.service                           enabled disabled     
+lm_sensors.service                         enabled disabled     
+NetworkManager-dispatcher.service          enabled disabled     
+NetworkManager-wait-online.service         enabled disabled     
+NetworkManager.service                     enabled disabled     
+org.cups.cupsd.service                     enabled disabled     
+radeon-profile-daemon.service              enabled disabled     
+sddm.service                               enabled disabled     
+systemd-timesyncd.service                  enabled enabled      
+teamviewerd.service                        enabled disabled     
+tlp.service                                enabled disabled     
+avahi-daemon.socket                        enabled disabled     
+libvirtd-ro.socket                         enabled disabled     
+libvirtd.socket                            enabled disabled     
+org.cups.cupsd.socket                      enabled disabled     
+saned.socket                               enabled disabled     
+virtlockd.socket                           enabled disabled     
+virtlogd.socket                            enabled disabled     
+remote-fs.target                           enabled enabled      
+fstrim.timer                               enabled disabled     
+
+31 unit files listed.
