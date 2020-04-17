@@ -23,6 +23,7 @@ Plugin 'vimwiki/vimwiki'                            " Vim wiki
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'kovetskiy/sxhkd-vim'
+Plugin 'joshdick/onedark.vim'
 "Plugin 'klen/python-mode'                          " Python Mode
 
 call vundle#end()		" required, all plugins must appear before this line.
@@ -50,7 +51,7 @@ filetype plugin indent on    " required
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'onedark',
       \ }
 
 " Always show statusline
@@ -59,7 +60,8 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
-syntax enable   
+syntax enable
+colorscheme onedark
 set relativenumber
 let g:rehash256 = 1
 
