@@ -95,21 +95,21 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Aliases
 alias yt2mp3="youtube-dl -i --extract-audio --audio-format mp3 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s'"
 alias clear="clear && pfetch"
-alias volume="/run/media/nico/Volume/"
 alias ls="exa -lhg --color=always --group-directories-first --icons"
 alias dke="docker exec"
 alias vim="nvim"
 alias vi="nvim"
 alias mv='mv -i'
 alias rm='rm -i'
+alias upload='curl --upload-file'
 alias sxconf="$EDITOR ~/.config/sxhkd/sxhkdrc"
 alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
 
-# Add JetBrains Tools to PATH
-PATH=$PATH:~/.jetbrains-tools
+# Add JetBrains Tools to $PATH
+export PATH="$PATH:$HOME/.jetbrains-tools/"
 
-# Adds `~/.local/bin` to $PATH
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+# Add ~/.local/bin to $PATH
+export PATH="$PATH:$HOME/.local/bin/"
 
 # Don't write commands starting with a space to history
 setopt hist_ignore_space
@@ -118,7 +118,5 @@ setopt hist_ignore_dups
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 pfetch
