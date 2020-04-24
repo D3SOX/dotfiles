@@ -94,6 +94,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Aliases
 alias yt2mp3="youtube-dl -i --extract-audio --audio-format mp3 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s'"
+alias ytdl="youtube-dl -i -f bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]"
 alias clear="clear && pfetch"
 alias ls="exa -lhg --color=always --group-directories-first --icons"
 alias dke="docker exec"
@@ -104,6 +105,7 @@ alias rm='rm -i'
 alias upload='curl --upload-file'
 alias sxconf="$EDITOR ~/.config/sxhkd/sxhkdrc"
 alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
+alias ss="Mon2Cam"
 
 # Add JetBrains Tools to $PATH
 export PATH="$PATH:$HOME/.jetbrains-tools/"
