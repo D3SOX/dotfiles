@@ -1,0 +1,15 @@
+# /dev/sda6 LABEL=ROOT
+UUID=4804901e-c366-42cc-939c-b18d910f69a8	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda5 LABEL=EFI
+UUID=B945-C2C4      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sda7 LABEL=HOME
+UUID=b4bfe73e-2e12-4be3-912c-c6fb765f2051	/home     	ext4      	rw,relatime	0 2
+
+# /dev/sdc2 LABEL=Media
+UUID=ef4a10f9-a44c-4c52-87e6-524c62885336       /run/media/nico/Media   ext4            rw,relatime     0 2
+
+# /dev/sdc1
+UUID=420a3e21-1ebc-40ad-98e0-7326c160e6a5	none      	swap      	defaults  	0 0
+
