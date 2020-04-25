@@ -91,7 +91,6 @@ fwupd
 gamemode
 gawk
 gcc
-gconf
 gettext
 gifski
 gimp
@@ -129,7 +128,7 @@ imagemagick
 inetutils
 inkscape
 insomnia
-intel-ucode
+amd-ucode
 jd-gui-bin
 jdk8
 jdownloader2
@@ -170,7 +169,6 @@ konsole
 krename
 kscreen
 kscreenlocker
-ksnip-git
 ksshaskpass
 ksysguard
 kvantum-qt5
@@ -363,7 +361,7 @@ radeon-profile-git
 reflector
 remmina
 rlwrap
-rofi-git
+rofi
 rsync
 ruby-sass
 sane
@@ -373,14 +371,12 @@ scrcpy
 screen
 sddm-kcm
 sed
-shortwave
 sierrabreeze-kwin-decoration-git
 signal-desktop
 simple-scan
 skypeforlinux-stable-bin
 slack-desktop
 soundux-git
-soundwire
 sox
 speech-dispatcher
 spicetify-cli
@@ -409,7 +405,6 @@ timeshift
 tk
 tlp
 tlpui-git
-trizen
 ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
@@ -423,7 +418,6 @@ ttf-joypixels
 ttf-liberation
 ttf-linux-libertine
 ttf-meslo-nerd-font-powerlevel10k
-ttf-ms-win10
 ttf-opensans
 ttf-roboto
 ttf-symbola
@@ -447,11 +441,9 @@ vlc
 vpnc
 vscodium-bin
 wget
-whatsapp-nativefier
 which
 wine-gecko
 wine-mono
-wine-tkg-staging-fsync-vkd3d-git
 winetricks
 winscp
 wireless_tools
