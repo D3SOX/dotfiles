@@ -1,6 +1,7 @@
 acpid
 adobe-source-sans-pro-fonts
 alsa-utils
+amd-ucode
 amdvlk
 android-sdk-platform-tools
 anydesk-bin
@@ -17,6 +18,7 @@ aws-cli
 base
 binutils
 bison
+bluedevil
 brave-bin
 breeze
 breeze-gtk
@@ -34,7 +36,6 @@ coin-or-mp
 colord-kde
 composer
 crda
-cronie
 cups
 cups-filters
 cups-pdf
@@ -98,7 +99,6 @@ git
 glade
 gnome-icon-theme
 gnu-free-fonts
-go
 gptfdisk
 graphicsmagick
 grep
@@ -108,6 +108,7 @@ grub-customizer
 gsfonts
 gst-libav
 gst-plugins-bad
+gst-plugins-good
 gst-plugins-ugly
 gst-transcoder
 gstreamer-vaapi
@@ -118,17 +119,16 @@ gwenview
 gzip
 hack-font-ligature-nerd-font-git
 hddtemp
+hello-kde-git
 highlight
 htop
 hunspell-de
 hunspell-en_US
 hwinfo
 ifplugd
-imagemagick
 inetutils
 inkscape
 insomnia
-amd-ucode
 jd-gui-bin
 jdk8
 jdownloader2
@@ -213,7 +213,7 @@ lib32-openal
 lib32-sqlite
 lib32-v4l-utils
 lib32-vkd3d
-lib32-vulkan-icd-loader
+lib32-vulkan-radeon
 libatomic_ops
 libdbusmenu-glib
 libdvdcss
@@ -230,7 +230,6 @@ libudev0-shim
 libunrar
 libva-mesa-driver
 libvirt
-libxft
 linux
 linux-firmware
 linux-headers
@@ -259,7 +258,6 @@ mojave-gtk-theme
 mon2cam-git
 movit
 mpc
-mpg123
 mpv
 mtools
 multimc-git
@@ -295,6 +293,7 @@ os-prober
 otf-san-francisco-mono
 otf-san-francisco-pro
 ovmf
+oxygen
 p7zip
 packagekit-qt5
 pacman
@@ -377,6 +376,7 @@ simple-scan
 skypeforlinux-stable-bin
 slack-desktop
 soundux-git
+soundwire
 sox
 speech-dispatcher
 spicetify-cli
@@ -438,8 +438,8 @@ virtualbox
 virtualbox-host-dkms
 vkd3d
 vlc
-vpnc
 vscodium-bin
+vulkan-radeon
 wget
 which
 wine-gecko
