@@ -1,5 +1,6 @@
 acpid
 adobe-source-sans-pro-fonts
+alsa-firmware
 alsa-utils
 amd-ucode
 amdvlk
@@ -117,7 +118,7 @@ gtk-engines
 gutenprint
 gwenview
 gzip
-hack-font-ligature-nerd-font-git
+hardinfo
 hddtemp
 hello-kde-git
 highlight
@@ -213,6 +214,7 @@ lib32-openal
 lib32-sqlite
 lib32-v4l-utils
 lib32-vkd3d
+lib32-vulkan-icd-loader
 lib32-vulkan-radeon
 libatomic_ops
 libdbusmenu-glib
@@ -368,6 +370,7 @@ scanmem
 schedtool
 scrcpy
 screen
+screenkey
 sddm-kcm
 sed
 sierrabreeze-kwin-decoration-git
@@ -418,6 +421,7 @@ ttf-joypixels
 ttf-liberation
 ttf-linux-libertine
 ttf-meslo-nerd-font-powerlevel10k
+ttf-ms-win10
 ttf-opensans
 ttf-roboto
 ttf-symbola
