@@ -61,6 +61,7 @@ dynamic-wallpaper-catalina-kde-git
 dynamic-wallpaper-mojave-kde-git
 e2fsprogs
 ebtables
+edk2-ovmf
 efibootmgr
 elementary-icon-theme
 ethtool
@@ -172,6 +173,7 @@ kscreen
 kscreenlocker
 ksshaskpass
 ksysguard
+ksystemlog
 kvantum-qt5
 kwallet-pam
 kwalletmanager
@@ -294,7 +296,6 @@ opencv
 os-prober
 otf-san-francisco-mono
 otf-san-francisco-pro
-ovmf
 oxygen
 p7zip
 packagekit-qt5
@@ -406,8 +407,6 @@ testdisk
 texinfo
 timeshift
 tk
-tlp
-tlpui-git
 ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
@@ -448,6 +447,7 @@ wget
 which
 wine-gecko
 wine-mono
+wine-tkg-staging-fsync-vkd3d-git
 winetricks
 winscp
 wireless_tools

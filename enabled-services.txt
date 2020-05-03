@@ -20,7 +20,6 @@ radeon-profile-daemon.service              enabled disabled
 sddm.service                               enabled disabled     
 systemd-timesyncd.service                  enabled enabled      
 teamviewerd.service                        enabled disabled     
-tlp.service                                enabled disabled     
 avahi-daemon.socket                        enabled disabled     
 libvirtd-ro.socket                         enabled disabled     
 libvirtd.socket                            enabled disabled     
@@ -31,4 +30,4 @@ virtlogd.socket                            enabled disabled
 remote-fs.target                           enabled enabled      
 fstrim.timer                               enabled disabled     
 
-31 unit files listed.
+30 unit files listed.
