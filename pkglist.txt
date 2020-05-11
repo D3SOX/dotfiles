@@ -19,7 +19,6 @@ aws-cli
 base
 binutils
 bison
-bluedevil
 brave-bin
 breeze
 breeze-gtk
@@ -239,6 +238,8 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
+linux-zen
+linux-zen-headers
 lostfiles
 lrzip
 lua-lgi
@@ -261,14 +262,12 @@ mlocate
 mojave-gtk-theme
 mon2cam-git
 movit
-mpc
 mpv
 mtools
 multimc-git
 mumble
 nano
 nano-syntax-highlighting
-ncmpcpp
 neofetch
 neovim
 nerd-fonts-complete
@@ -330,7 +329,7 @@ plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu
 plasma5-applets-window-title
 polkit-kde-agent
-powerdevil
+powerdevil-light
 powerline-fonts
 print-manager
 protonvpn-cli-ng
@@ -383,6 +382,7 @@ soundux-git
 soundwire
 sox
 speech-dispatcher
+speedtest-cli
 spicetify-cli
 spotify
 spotify-qt
@@ -419,7 +419,6 @@ ttf-jetbrains-mono
 ttf-joypixels
 ttf-liberation
 ttf-linux-libertine
-ttf-meslo-nerd-font-powerlevel10k
 ttf-ms-win10
 ttf-opensans
 ttf-roboto
@@ -440,7 +439,6 @@ virt-viewer
 virtualbox
 virtualbox-host-dkms
 vkd3d
-vlc
 vscodium-bin
 vulkan-radeon
 wget
