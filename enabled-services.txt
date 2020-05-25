@@ -10,7 +10,6 @@ dbus-org.freedesktop.timesync1.service     enabled disabled
 display-manager.service                    enabled disabled     
 ebtables.service                           enabled disabled     
 getty@.service                             enabled enabled      
-libvirtd.service                           enabled disabled     
 lm_sensors.service                         enabled disabled     
 NetworkManager-dispatcher.service          enabled disabled     
 NetworkManager-wait-online.service         enabled disabled     
@@ -21,13 +20,9 @@ sddm.service                               enabled disabled
 systemd-timesyncd.service                  enabled enabled      
 teamviewerd.service                        enabled disabled     
 avahi-daemon.socket                        enabled disabled     
-libvirtd-ro.socket                         enabled disabled     
-libvirtd.socket                            enabled disabled     
 org.cups.cupsd.socket                      enabled disabled     
 saned.socket                               enabled disabled     
-virtlockd.socket                           enabled disabled     
-virtlogd.socket                            enabled disabled     
 remote-fs.target                           enabled enabled      
 fstrim.timer                               enabled disabled     
 
-30 unit files listed.
+25 unit files listed.

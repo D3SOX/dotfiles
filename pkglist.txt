@@ -11,6 +11,7 @@ appmenu-gtk-module
 arandr
 arch-install-scripts
 ark
+asio
 atomicparsley
 audacity
 autoconf
@@ -19,6 +20,7 @@ aws-cli
 base
 binutils
 bison
+boost
 brave-bin
 breeze
 breeze-gtk
@@ -80,7 +82,6 @@ findutils
 firefox-kde-opensuse-rpm
 flameshot
 flashplugin
-flat-remix
 flat-remix-gtk
 flite
 font-mathematica
@@ -130,7 +131,9 @@ ifplugd
 inetutils
 inkscape
 insomnia
+jack2
 jd-gui-bin
+jdk
 jdk8
 jdownloader2
 jetbrains-toolbox
@@ -141,6 +144,7 @@ kaccounts-providers
 kactivitymanagerd
 kate
 kcalc
+kcm-wacomtablet
 kcron
 kde-cli-tools
 kde-gtk-config
@@ -151,7 +155,6 @@ kdegraphics-thumbnailers
 kdenetwork-filesharing
 kdenlive
 kdeplasma-addons
-kdesvn
 kdf
 kdialog
 keditbookmarks
@@ -187,8 +190,7 @@ kwin-scripts-window-colors
 kwrited
 la-capitaine-icon-theme
 ladspa
-languagetool
-latte-dock
+latte-dock-git
 less
 lib32-alsa-lib
 lib32-alsa-plugins
@@ -295,7 +297,6 @@ opencv
 os-prober
 otf-san-francisco-mono
 otf-san-francisco-pro
-oxygen
 p7zip
 packagekit-qt5
 pacman
@@ -373,7 +374,6 @@ screen
 screenkey
 sddm-kcm
 sed
-sierrabreeze-kwin-decoration-git
 signal-desktop
 simple-scan
 skypeforlinux-stable-bin
@@ -397,9 +397,9 @@ sysfsutils
 system-config-printer
 systemsettings
 teams
+teamspeak
 teamspeak3
 teamspeak3-kde-link-fix-hack
-teamspeak5
 teamviewer
 telegram-desktop
 terminus-font
@@ -423,6 +423,7 @@ ttf-ms-win10
 ttf-opensans
 ttf-roboto
 ttf-symbola
+ttf-wps-fonts
 tutanota-desktop-bin
 unace
 unarchiver
@@ -441,6 +442,7 @@ virtualbox-host-dkms
 vkd3d
 vscodium-bin
 vulkan-radeon
+websocketpp
 wget
 which
 wine-gecko
@@ -450,6 +452,8 @@ winetricks
 winscp
 wireless_tools
 wol
+wps-office
+wps-office-mui-de-de
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-kde
@@ -460,6 +464,7 @@ xf86-input-evdev
 xf86-input-synaptics
 xf86-input-vmmouse
 xf86-input-void
+xf86-input-wacom
 xf86-video-amdgpu
 xorg-server
 xorg-xcursorgen
