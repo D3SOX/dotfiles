@@ -5,6 +5,7 @@ alsa-utils
 amd-ucode
 amdvlk
 android-sdk-platform-tools
+android-udev
 anydesk-bin
 apache
 appmenu-gtk-module
@@ -59,7 +60,6 @@ dotnet-runtime
 downgrade
 drkonqi
 dynamic-wallpaper-catalina-kde-git
-dynamic-wallpaper-mojave-kde-git
 e2fsprogs
 ebtables
 edk2-ovmf
@@ -98,7 +98,6 @@ gettext
 gifski
 gimp
 git
-glade
 gnome-icon-theme
 gnu-free-fonts
 gptfdisk
@@ -190,7 +189,7 @@ kwin-scripts-window-colors
 kwrited
 la-capitaine-icon-theme
 ladspa
-latte-dock-git
+latte-dock
 less
 lib32-alsa-lib
 lib32-alsa-plugins
@@ -279,9 +278,9 @@ network-manager-applet
 networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
+nextcloud-client
 nfs-utils
 ninja
-nitrogen
 nmap
 nordvpn-bin
 notification-daemon
@@ -436,7 +435,6 @@ vi
 vim
 vim-spell-en
 virt-manager
-virt-viewer
 virtualbox
 virtualbox-host-dkms
 vkd3d
