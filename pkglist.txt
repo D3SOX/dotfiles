@@ -32,6 +32,8 @@ capitaine-cursors
 ccache
 charles-bin
 chmlib
+chromeos-gtk-theme-git
+chromeos-kde-git
 chromium
 cmake
 cmatrix
@@ -44,7 +46,6 @@ cups-filters
 cups-pdf
 dbeaver
 dbeaver-plugin-office
-dconf-editor
 deepin-icon-theme
 devilspie
 dialog
@@ -82,7 +83,7 @@ findutils
 firefox-kde-opensuse-rpm
 flameshot
 flashplugin
-flat-remix-gtk
+flex
 flite
 font-mathematica
 fontforge
@@ -98,7 +99,6 @@ gettext
 gifski
 gimp
 git
-gnome-icon-theme
 gnu-free-fonts
 gptfdisk
 graphicsmagick
@@ -169,6 +169,7 @@ kmenuedit
 knetattach
 kompare
 konsole
+korla-icon-theme
 krename
 kscreen
 kscreenlocker
@@ -176,6 +177,7 @@ ksshaskpass
 ksysguard
 ksystemlog
 kvantum-qt5
+kvantum-theme-chromeos-git
 kwallet-pam
 kwalletmanager
 kwayland-integration
@@ -235,12 +237,12 @@ libunrar
 libva-mesa-driver
 libvirt
 linux
+linux-ck
+linux-ck-headers
 linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
-linux-zen
-linux-zen-headers
 lostfiles
 lrzip
 lua-lgi
@@ -400,6 +402,7 @@ teamspeak
 teamspeak3
 teamspeak3-kde-link-fix-hack
 teamviewer
+tela-icon-theme-git
 telegram-desktop
 terminus-font
 testdisk

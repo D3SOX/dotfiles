@@ -105,7 +105,7 @@ alias rm='rm -i'
 alias upload='curl --upload-file'
 alias sxconf="$EDITOR ~/.config/sxhkd/sxhkdrc"
 alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
-alias ss="Mon2Cam"
+alias ss="Mon2Cam -m 0"
 
 # Add JetBrains Tools to $PATH
 export PATH="$PATH:$HOME/.jetbrains-tools/"
