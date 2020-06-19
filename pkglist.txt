@@ -7,9 +7,7 @@ amdvlk
 android-sdk-platform-tools
 android-udev
 anydesk-bin
-apache
 appmenu-gtk-module
-arandr
 arch-install-scripts
 ark
 asio
@@ -21,15 +19,18 @@ aws-cli
 base
 binutils
 bison
+bluedevil
+bluez
+bluez-utils
 boost
 brave-bin
 breeze
 breeze-gtk
 bridge-utils
-burpsuite
 bytecode-viewer
 capitaine-cursors
 ccache
+cdrtools
 charles-bin
 chmlib
 chromeos-gtk-theme-git
@@ -40,6 +41,8 @@ cmatrix
 coin-or-mp
 colord-kde
 composer
+corectrl
+cpr-git
 crda
 cups
 cups-filters
@@ -57,11 +60,11 @@ docker
 docker-compose
 dolphin
 dosfstools
-dotnet-runtime
 downgrade
 drkonqi
 dynamic-wallpaper-catalina-kde-git
 e2fsprogs
+earlyoom
 ebtables
 edk2-ovmf
 efibootmgr
@@ -74,13 +77,14 @@ extra-cmake-modules
 fakeroot
 fatresize
 faudio
+ffmpeg
 ffmpeg-compat-57
 ffmpegthumbnailer
 ffmpegthumbs
 file
 filelight
 findutils
-firefox-kde-opensuse-rpm
+firefox-kde-opensuse-bin
 flameshot
 flashplugin
 flex
@@ -99,7 +103,9 @@ gettext
 gifski
 gimp
 git
+gnome-icon-theme
 gnu-free-fonts
+gnu-netcat
 gptfdisk
 graphicsmagick
 grep
@@ -132,7 +138,7 @@ inkscape
 insomnia
 jack2
 jd-gui-bin
-jdk
+jdk11-openjdk
 jdk8
 jdownloader2
 jetbrains-toolbox
@@ -154,6 +160,7 @@ kdegraphics-thumbnailers
 kdenetwork-filesharing
 kdenlive
 kdeplasma-addons
+kdesvn
 kdf
 kdialog
 keditbookmarks
@@ -186,7 +193,6 @@ kwin-effects-appear1
 kwin-effects-disappear1
 kwin-effects-yet-another-magic-lamp
 kwin-scripts-forceblur
-kwin-scripts-parachute
 kwin-scripts-window-colors
 kwrited
 la-capitaine-icon-theme
@@ -210,6 +216,7 @@ lib32-libva-mesa-driver
 lib32-libxcomposite
 lib32-libxinerama
 lib32-libxslt
+lib32-mangohud
 lib32-mesa
 lib32-mesa-vdpau
 lib32-mpg123
@@ -219,9 +226,9 @@ lib32-sqlite
 lib32-v4l-utils
 lib32-vkd3d
 lib32-vulkan-icd-loader
-lib32-vulkan-radeon
 libatomic_ops
 libdbusmenu-glib
+libdbusmenu-gtk2
 libdvdcss
 libkscreen
 libksysguard
@@ -243,6 +250,8 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
+linux57-tkg-pds
+linux57-tkg-pds-headers
 lostfiles
 lrzip
 lua-lgi
@@ -253,7 +262,7 @@ maim
 make
 man-db
 man-pages
-mariadb
+mangohud
 materia-kde
 mcmojave-kde-theme-git
 mediainfo
@@ -270,10 +279,8 @@ mtools
 multimc-git
 mumble
 nano
-nano-syntax-highlighting
 neofetch
 neovim
-nerd-fonts-complete
 net-tools
 netctl
 network-manager-applet
@@ -311,8 +318,6 @@ pepper-flash
 perl-image-exiftool
 perl-json-xs
 pfetch-git
-php-apache
-phpmyadmin
 pidgin-otr
 piper
 pkgconf
@@ -331,7 +336,7 @@ plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu
 plasma5-applets-window-title
 polkit-kde-agent
-powerdevil-light
+powerdevil
 powerline-fonts
 print-manager
 protonvpn-cli-ng
@@ -346,6 +351,7 @@ python-pip
 python-psutil
 python-pycryptodome
 python-pygit2
+python-pynvim
 python-pyxdg
 python2-pip
 python2-pyxdg
@@ -359,8 +365,6 @@ qt5-websockets
 qt5-webview
 qt5-xmlpatterns
 qtcreator
-radeon-profile-daemon-git
-radeon-profile-git
 reflector
 remmina
 rlwrap
@@ -382,7 +386,6 @@ slack-desktop
 soundux-git
 soundwire
 sox
-speech-dispatcher
 speedtest-cli
 spicetify-cli
 spotify
@@ -442,7 +445,7 @@ virtualbox
 virtualbox-host-dkms
 vkd3d
 vscodium-bin
-vulkan-radeon
+vulkan-tools
 websocketpp
 wget
 which
@@ -477,11 +480,11 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xorg-xwininfo
+xournalpp
 xsel
 yarn
 yay
 youtube-dl
-zaproxy
 zenity
 zip
 zsh

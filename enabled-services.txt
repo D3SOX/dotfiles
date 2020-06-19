@@ -3,11 +3,14 @@ org.cups.cupsd.path                        enabled disabled
 acpid.service                              enabled disabled     
 autovt@.service                            enabled disabled     
 avahi-daemon.service                       enabled disabled     
+bluetooth.service                          enabled disabled     
 cronie.service                             enabled disabled     
+dbus-org.bluez.service                     enabled disabled     
 dbus-org.freedesktop.Avahi.service         enabled disabled     
 dbus-org.freedesktop.nm-dispatcher.service enabled disabled     
 dbus-org.freedesktop.timesync1.service     enabled disabled     
 display-manager.service                    enabled disabled     
+earlyoom.service                           enabled disabled     
 ebtables.service                           enabled disabled     
 getty@.service                             enabled enabled      
 lm_sensors.service                         enabled disabled     
@@ -15,8 +18,8 @@ NetworkManager-dispatcher.service          enabled disabled
 NetworkManager-wait-online.service         enabled disabled     
 NetworkManager.service                     enabled disabled     
 org.cups.cupsd.service                     enabled disabled     
-radeon-profile-daemon.service              enabled disabled     
 sddm.service                               enabled disabled     
+sshd.service                               enabled disabled     
 systemd-timesyncd.service                  enabled enabled      
 teamviewerd.service                        enabled disabled     
 avahi-daemon.socket                        enabled disabled     
@@ -25,4 +28,4 @@ saned.socket                               enabled disabled
 remote-fs.target                           enabled enabled      
 fstrim.timer                               enabled disabled     
 
-25 unit files listed.
+28 unit files listed.
