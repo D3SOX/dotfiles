@@ -9,6 +9,7 @@ android-udev
 anydesk-bin
 appmenu-gtk-module
 arch-install-scripts
+archlinux-wallpaper
 ark
 asio
 atomicparsley
@@ -20,7 +21,6 @@ base
 binutils
 bison
 bluedevil
-bluez
 bluez-utils
 boost
 brave-bin
@@ -52,6 +52,7 @@ dbeaver-plugin-office
 deepin-icon-theme
 devilspie
 dialog
+discord
 discord-canary
 dkms
 dmidecode
@@ -62,7 +63,6 @@ dolphin
 dosfstools
 downgrade
 drkonqi
-dynamic-wallpaper-catalina-kde-git
 e2fsprogs
 earlyoom
 ebtables
@@ -77,7 +77,6 @@ extra-cmake-modules
 fakeroot
 fatresize
 faudio
-ffmpeg
 ffmpeg-compat-57
 ffmpegthumbnailer
 ffmpegthumbs
@@ -104,7 +103,6 @@ gifski
 gimp
 git
 gnome-icon-theme
-gnu-free-fonts
 gnu-netcat
 gptfdisk
 graphicsmagick
@@ -188,6 +186,7 @@ kvantum-theme-chromeos-git
 kwallet-pam
 kwalletmanager
 kwayland-integration
+kwayland-server
 kwin
 kwin-effects-appear1
 kwin-effects-disappear1
@@ -244,12 +243,8 @@ libunrar
 libva-mesa-driver
 libvirt
 linux
-linux-ck
-linux-ck-headers
 linux-firmware
 linux-headers
-linux-lts
-linux-lts-headers
 linux57-tkg-pds
 linux57-tkg-pds-headers
 lostfiles
@@ -271,7 +266,6 @@ meson
 milou
 minecraft-launcher
 mlocate
-mojave-gtk-theme
 mon2cam-git
 movit
 mpv
@@ -281,6 +275,7 @@ mumble
 nano
 neofetch
 neovim
+nerd-fonts-complete
 net-tools
 netctl
 network-manager-applet
@@ -331,6 +326,7 @@ plasma-sdk
 plasma-thunderbolt
 plasma-vault
 plasma-workspace
+plasma-workspace-wallpapers
 plasma5-applets-latte-sidebar-button
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu
@@ -368,7 +364,6 @@ qtcreator
 reflector
 remmina
 rlwrap
-rofi
 rsync
 ruby-sass
 sane
@@ -394,7 +389,6 @@ spotifyd-bin-full
 spotifywm-git
 sshfs
 steam
-steam-acolyte
 subversion
 sudo
 sysfsutils
