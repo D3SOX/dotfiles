@@ -69,7 +69,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb archlinux git zsh-autosuggestions docker docker-compose)
+plugins=(adb archlinux git zsh-autosuggestions composer laravel npm docker zsh-interactive-cd docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,10 +78,14 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='nvim'
+# set default apps
+export EDITOR="nvim"
 export TERMINAL="konsole"
 export BROWSER="brave"
+# disable less history file
 export LESSHISTFILE="-"
+# move wget hosts file
+alias wget="wget --hsts-file ~/.config/wget-hsts"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -101,9 +105,6 @@ alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
 alias scs="Mon2Cam -m 0"
 alias sstart="sudo systemctl start"
 alias sstop="sudo systemctl stop"
-
-# Add JetBrains Tools to $PATH
-export PATH="$PATH:$HOME/.jetbrains-tools/"
 
 # Add ~/.local/bin to $PATH
 export PATH="$PATH:$HOME/.local/bin/"
