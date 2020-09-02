@@ -97,12 +97,16 @@ alias ls="exa -lhg --color=always --group-directories-first --icons"
 alias dke="docker exec"
 alias vim="nvim"
 alias vi="nvim"
-alias mv='mv -i'
-alias rm='rm -i'
+alias mv='mv -i -v'
+alias cp='cp -v'
+alias rm='rm -i -v'
+alias mkdir='mkdir -v'
+alias chmod='chmod -v'
+alias chown='chown -v'
 alias upload='curl --upload-file'
 alias sxconf="$EDITOR ~/.config/sxhkd/sxhkdrc"
 alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
-alias scs="Mon2Cam -m 0"
+alias scs="mon2cam -m 0"
 alias sstart="sudo systemctl start"
 alias sstop="sudo systemctl stop"
 

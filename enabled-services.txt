@@ -1,27 +1,26 @@
-UNIT FILE                                  STATE   VENDOR PRESET
-org.cups.cupsd.path                        enabled disabled     
-acpid.service                              enabled disabled     
-autovt@.service                            enabled disabled     
-avahi-daemon.service                       enabled disabled     
-bluetooth.service                          enabled disabled     
-cronie.service                             enabled disabled     
-dbus-org.bluez.service                     enabled disabled     
-dbus-org.freedesktop.Avahi.service         enabled disabled     
-dbus-org.freedesktop.nm-dispatcher.service enabled disabled     
-display-manager.service                    enabled disabled     
-earlyoom.service                           enabled disabled     
-ebtables.service                           enabled disabled     
-getty@.service                             enabled enabled      
-NetworkManager-dispatcher.service          enabled disabled     
-NetworkManager-wait-online.service         enabled disabled     
-NetworkManager.service                     enabled disabled     
-org.cups.cupsd.service                     enabled disabled     
-sddm.service                               enabled disabled     
-sshd.service                               enabled disabled     
-avahi-daemon.socket                        enabled disabled     
-org.cups.cupsd.socket                      enabled disabled     
-saned.socket                               enabled disabled     
-remote-fs.target                           enabled enabled      
-fstrim.timer                               enabled disabled     
+UNIT FILE                          STATE   VENDOR PRESET
+org.cups.cupsd.path                enabled disabled     
+acpid.service                      enabled disabled     
+auto-cpufreq.service               enabled disabled     
+avahi-daemon.service               enabled disabled     
+bluetooth.service                  enabled disabled     
+cronie.service                     enabled disabled     
+earlyoom.service                   enabled disabled     
+ebtables.service                   enabled disabled     
+fail2ban.service                   enabled disabled     
+getty@.service                     enabled enabled      
+NetworkManager-dispatcher.service  enabled disabled     
+NetworkManager-wait-online.service enabled disabled     
+NetworkManager.service             enabled disabled     
+org.cups.cupsd.service             enabled disabled     
+radeon-profile-daemon.service      enabled disabled     
+sddm.service                       enabled disabled     
+sshd.service                       enabled disabled     
+systemd-timesyncd.service          enabled enabled      
+avahi-daemon.socket                enabled disabled     
+org.cups.cupsd.socket              enabled disabled     
+saned.socket                       enabled disabled     
+remote-fs.target                   enabled enabled      
+fstrim.timer                       enabled disabled     
 
-24 unit files listed.
+23 unit files listed.
