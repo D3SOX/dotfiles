@@ -81,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # set default apps
 export EDITOR="nvim"
 export TERMINAL="konsole"
-export BROWSER="brave"
+export BROWSER="chromium"
 # disable less history file
 export LESSHISTFILE="-"
 # move wget hosts file
