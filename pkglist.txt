@@ -10,6 +10,7 @@ anydesk-bin
 appmenu-gtk-module
 arch-install-scripts
 archlinux-wallpaper
+aria2
 ark
 asio
 atomicparsley
@@ -22,6 +23,7 @@ base
 bat
 bind
 binutils
+binwalk
 bison
 bluedevil
 bluez-utils
@@ -33,7 +35,6 @@ bridge-utils
 burpsuite
 bytecode-viewer
 cadmus-deb
-capitaine-cursors
 ccache
 cdrtools
 celluloid
@@ -57,6 +58,7 @@ deepin-icon-theme
 deja-dup
 devilspie
 dialog
+dirbuster
 dirsearch
 discord-canary
 dkms
@@ -87,12 +89,12 @@ fail2ban
 fakeroot
 fatresize
 faudio
-fetchcord-git
 ffmpeg-compat-57
 ffmpegthumbnailer
 ffmpegthumbs
 file
 filelight
+findomain
 findutils
 firefox
 flameshot
@@ -106,8 +108,6 @@ freerdp
 fsearch-git
 fwupd
 fzf
-gamehub
-gamemode
 gawk
 gcc
 gettext
@@ -118,6 +118,7 @@ git
 gnome-disk-utility
 gnome-icon-theme
 gnu-netcat
+go
 gpart
 gparted
 gptfdisk
@@ -147,6 +148,7 @@ htop
 hunspell-de
 hunspell-en_US
 hwinfo
+hydra
 icoutils
 ifplugd
 img2pdf
@@ -192,7 +194,9 @@ knetattach
 kompare
 konsole
 korla-icon-theme
+krdc
 krename
+krfb
 kruler
 kscreen
 kscreenlocker
@@ -222,7 +226,6 @@ lib32-alsa-lib
 lib32-alsa-plugins
 lib32-amdvlk
 lib32-faudio
-lib32-gamemode
 lib32-giflib
 lib32-gnutls
 lib32-gst-plugins-base-libs
@@ -232,14 +235,12 @@ lib32-libldap
 lib32-libpng
 lib32-libpulse
 lib32-libva
-lib32-libva-mesa-driver
 lib32-libva-vdpau-driver
 lib32-libxcomposite
 lib32-libxinerama
 lib32-libxslt
 lib32-mangohud
-lib32-mesa
-lib32-mesa-vdpau
+lib32-mesa-tkg-git
 lib32-mpg123
 lib32-ocl-icd
 lib32-openal
@@ -247,7 +248,6 @@ lib32-sqlite
 lib32-v4l-utils
 lib32-vkd3d-proton-tkg-git
 lib32-vulkan-icd-loader
-lib32-vulkan-radeon
 libappimage
 libatomic_ops
 libdbusmenu-glib
@@ -266,9 +266,9 @@ libudev0-shim
 libuiohook
 libunity
 libunrar
-libva-mesa-driver
 libva-vdpau-driver
 libvirt
+libvncserver
 lightcord-bin
 linux
 linux-firmware
@@ -290,15 +290,13 @@ mangohud
 materia-gtk-theme
 materia-kde
 mediainfo
-mesa
-mesa-vdpau
+mesa-tkg-git
 meson
 metasploit
 milou
 minecraft-launcher
 minecraft-technic-launcher
 mlocate
-mon2cam-git
 movit
 mpv
 mtools
@@ -317,10 +315,10 @@ networkmanager-vpnc
 nextcloud-client
 nfs-utils
 ninja
+nlohmann-json
 nmap
 nodejs
 nomacs
-nordvpn-bin
 notification-daemon
 noto-fonts-cjk
 noto-fonts-emoji
@@ -362,13 +360,13 @@ plasma-sdk
 plasma-thunderbolt
 plasma-vault
 plasma-workspace
-plasma-workspace-wallpapers
 plasma5-applets-betterinlineclock-git
 plasma5-applets-latte-separator
 plasma5-applets-latte-sidebar-button
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu
 plasma5-applets-window-title
+plasmasur-dark-kde-theme-git
 polkit-kde-agent
 powerdevil
 powerline-fonts
@@ -424,6 +422,7 @@ slack-desktop
 soundux-git
 soundwire
 sox
+spectacle
 speedtest-cli
 spicetify-cli
 spotify
@@ -432,6 +431,7 @@ spotifywm-git
 sqlmap
 sshfs
 steam
+steghide
 subversion
 sudo
 svgpart
@@ -476,6 +476,7 @@ unzip
 usbutils
 user-manager
 uxplay-git
+v4l2loopback-dkms
 vde2
 vi
 vim
@@ -484,8 +485,6 @@ virt-manager
 virtualbox
 virtualbox-host-dkms
 vkd3d-proton-tkg-git
-vulkan-mesa-layers
-vulkan-radeon
 vulkan-tools
 websocketpp
 wget
@@ -496,7 +495,7 @@ whitesur-icon-theme-git
 whitesur-kde-theme-git
 wine-gecko
 wine-mono
-wine-tkg-staging-fsync-vkd3d-git
+wine-tkg-staging-fsync-git
 winetricks
 winscp
 wireless_tools
