@@ -1,13 +1,10 @@
 UNIT FILE                          STATE   VENDOR PRESET
 org.cups.cupsd.path                enabled disabled     
 acpid.service                      enabled disabled     
-auto-cpufreq.service               enabled disabled     
 avahi-daemon.service               enabled disabled     
-bluetooth.service                  enabled disabled     
 cronie.service                     enabled disabled     
 earlyoom.service                   enabled disabled     
 ebtables.service                   enabled disabled     
-fail2ban.service                   enabled disabled     
 getty@.service                     enabled enabled      
 NetworkManager-dispatcher.service  enabled disabled     
 NetworkManager-wait-online.service enabled disabled     
@@ -23,4 +20,4 @@ saned.socket                       enabled disabled
 remote-fs.target                   enabled enabled      
 fstrim.timer                       enabled disabled     
 
-23 unit files listed.
+20 unit files listed.
