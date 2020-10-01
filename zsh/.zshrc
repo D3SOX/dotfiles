@@ -109,6 +109,7 @@ alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
 alias scs="mon2cam -m 0"
 alias sstart="sudo systemctl start"
 alias sstop="sudo systemctl stop"
+alias ":q"="exit"
 
 # Add ~/.local/bin to $PATH
 export PATH="$PATH:$HOME/.local/bin/"
