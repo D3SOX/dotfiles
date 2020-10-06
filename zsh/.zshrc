@@ -69,7 +69,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb archlinux git zsh-autosuggestions composer laravel npm docker zsh-interactive-cd docker-compose)
+plugins=(adb archlinux git composer laravel npm docker zsh-interactive-cd docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,11 +84,21 @@ export TERMINAL="konsole"
 export BROWSER="chromium"
 # disable less history file
 export LESSHISTFILE="-"
+# XDG paths
+export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
+# Other config moves
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GOPATH="$XDG_DATA_HOME/go"
+
+# other plugins
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
 # move wget hosts file
 alias wget="wget --hsts-file ~/.config/wget-hsts"
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Aliases
 alias yt2mp3="youtube-dl -i --extract-audio --audio-format mp3 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s'"
 alias ytdl="youtube-dl -i -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]'"
