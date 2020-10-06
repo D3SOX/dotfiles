@@ -93,7 +93,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 
 # other plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
