@@ -82,6 +82,7 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="nvim"
 export TERMINAL="konsole"
 export BROWSER="chromium"
+export READER="okular"
 # disable less history file
 export LESSHISTFILE="-"
 # XDG paths
