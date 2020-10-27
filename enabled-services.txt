@@ -11,6 +11,7 @@ NetworkManager-wait-online.service enabled disabled
 NetworkManager.service             enabled disabled     
 org.cups.cupsd.service             enabled disabled     
 radeon-profile-daemon.service      enabled disabled     
+reflector.service                  enabled disabled     
 sddm.service                       enabled disabled     
 sshd.service                       enabled disabled     
 systemd-timesyncd.service          enabled enabled      
@@ -20,4 +21,4 @@ saned.socket                       enabled disabled
 remote-fs.target                   enabled enabled      
 fstrim.timer                       enabled disabled     
 
-20 unit files listed.
+21 unit files listed.
