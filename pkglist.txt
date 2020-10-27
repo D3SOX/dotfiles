@@ -159,7 +159,6 @@ kwallet-pam
 kwalletmanager
 kwayland-server
 kwin
-kwin-decoration-sierra-breeze-enhanced-git
 kwin-scripts-forceblur
 kwin-scripts-window-colors
 kwrited
@@ -322,6 +321,7 @@ sane
 scrcpy
 sddm-kcm
 sed
+sierrabreeze-kwin-decoration-git
 signal-desktop
 simple-scan
 slack-desktop
