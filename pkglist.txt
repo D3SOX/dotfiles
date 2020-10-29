@@ -67,6 +67,7 @@ extra-cmake-modules
 fakeroot
 fatresize
 faudio
+fd
 ffmpeg-compat-57
 ffmpegthumbs
 file
@@ -87,6 +88,7 @@ gettext
 gimp
 gimp-plugin-registry
 git
+gnome-icon-theme
 gnome-keyring
 gnu-netcat
 go
@@ -266,6 +268,7 @@ pacman-contrib
 papirus-icon-theme
 paprefs
 partitionmanager
+paru
 patch
 patchelf
 pavucontrol-qt
