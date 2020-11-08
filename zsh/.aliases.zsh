@@ -2,7 +2,11 @@
 alias wget="wget --hsts-file ~/.config/wget-hsts"
 alias yt2mp3="youtube-dl -i --extract-audio --audio-format mp3 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s'"
 alias ytdl="youtube-dl -i -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]'"
-alias clear="clear && pfetch"
+
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+    alias clear="clear && pfetch"
+fi
+
 alias ls="exa -lhg --color=always --group-directories-first --icons"
 alias dke="docker exec"
 alias vim="nvim"

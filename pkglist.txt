@@ -1,3 +1,4 @@
+aarch64-linux-gnu-gcc
 acpid
 adobe-source-sans-pro-fonts
 alacritty
@@ -19,6 +20,7 @@ automake
 awesome-terminal-fonts
 aws-cli
 base
+bash-completion
 bat
 betterlockscreen-git
 bind
@@ -36,6 +38,7 @@ clang
 cmake
 colord-kde
 composer
+crda
 cups
 cups-filters
 cups-pdf
@@ -74,6 +77,7 @@ file
 filelight
 findutils
 firefox
+fish
 flameshot
 flashplugin
 flatpak
@@ -82,12 +86,14 @@ foomatic-db
 foomatic-db-engine
 freerdp
 fzf
+gamescope
 gawk
 gcc
 gettext
 gimp
 gimp-plugin-registry
 git
+glfw-x11
 gnome-icon-theme
 gnome-keyring
 gnu-netcat
@@ -111,6 +117,7 @@ hardinfo
 hello-kde-git
 htop
 hydra
+i2c-tools
 icoutils
 ifplugd
 inetutils
@@ -122,6 +129,7 @@ jdk8-openjdk
 jdownloader2
 jetbrains-toolbox
 john
+jre11-openjdk
 jre8-openjdk
 jshon
 kactivitymanagerd
@@ -159,10 +167,11 @@ kvantum-qt5
 kvantum-theme-materia
 kwallet-pam
 kwalletmanager
+kwayland-integration
 kwayland-server
 kwin
+kwin-effects-yet-another-magic-lamp
 kwin-scripts-forceblur
-kwin-scripts-window-colors
 kwrited
 la-capitaine-icon-theme
 latte-dock-git
@@ -190,7 +199,7 @@ lib32-mpg123
 lib32-ocl-icd
 lib32-openal
 lib32-v4l-utils
-lib32-vkd3d
+lib32-vkd3d-tkg-git
 lib32-vulkan-icd-loader
 lib32-vulkan-radeon
 libappimage
@@ -210,10 +219,10 @@ lineageos-devel
 linux
 linux-firmware
 linux-headers
-linux58-tkg-upds
-linux58-tkg-upds-headers
-linux59-tkg-pds
-linux59-tkg-pds-headers
+linux59-tkg-bmq
+linux59-tkg-bmq-headers
+linux59-tkg-cfs
+linux59-tkg-cfs-headers
 lrzip
 lutris
 lxappearance
@@ -229,10 +238,11 @@ mesa-vdpau
 meson
 milou
 minecraft-launcher
+mingw-w64-gcc
 mlocate
-mon2cam-git
 mtools
 multimc5
+multipath-tools
 nano
 neofetch
 neovim
@@ -255,6 +265,7 @@ npm
 ntfs-3g
 obs-studio
 ocl-icd
+ocs-url
 okular
 onedrive-abraunegg
 onlyoffice-bin
@@ -273,6 +284,7 @@ patch
 patchelf
 pavucontrol-qt
 pdfarranger
+pdfsam
 peek
 pepper-flash
 pfetch-git
@@ -286,6 +298,7 @@ plasma-integration
 plasma-nm
 plasma-pa
 plasma-sdk
+plasma-systemmonitor
 plasma-thunderbolt
 plasma-vault
 plasma-workspace
@@ -294,7 +307,6 @@ plasma5-applets-latte-separator
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu-git
 plasma5-applets-window-title
-plasmasur-dark-kde-theme-git
 polkit-kde-agent
 polybar
 powerdevil
@@ -308,8 +320,8 @@ python-numpy
 python-pip
 python-pynvim
 qbittorrent
+qdirstat
 qemu
-qmlfmt-git
 qpm-bin
 qt5-virtualkeyboard
 qtcreator
@@ -319,6 +331,7 @@ reflector
 remmina
 rofi
 rsync
+ruby-sass
 rustscan
 sane
 scrcpy
@@ -346,7 +359,6 @@ system-config-printer
 systembus-notify
 systemsettings
 teams
-teamspeak
 teamspeak3
 telegram-desktop
 terminus-font
@@ -389,7 +401,7 @@ vi
 vim
 virt-manager
 visual-studio-code-bin
-vkd3d
+vkd3d-tkg-git
 vulkan-mesa-layers
 vulkan-radeon
 vulkan-tools
@@ -401,7 +413,7 @@ whitesur-icon-theme-git
 whitesur-kde-theme-git
 wine-gecko
 wine-mono
-wine-tkg-staging-fsync-vkd3d-git
+wine-tkg-staging-fsync-git
 winetricks
 winscp
 wireless_tools
