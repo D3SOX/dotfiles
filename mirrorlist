@@ -3,13 +3,13 @@
 ################################################################################
 
 # With:       reflector @/etc/xdg/reflector/reflector.conf
-# When:       2020-10-27 17:06:33 UTC
+# When:       2020-12-22 10:16:21 UTC
 # From:       https://www.archlinux.org/mirrors/status/json/
-# Retrieved:  2020-10-27 17:06:32 UTC
-# Last Check: 2020-10-27 16:32:09 UTC
+# Retrieved:  2020-12-22 10:16:05 UTC
+# Last Check: 2020-12-22 09:24:18 UTC
 
-Server = https://mirror.ubrco.de/archlinux/$repo/os/$arch
-Server = https://mirror.chaoticum.net/arch/$repo/os/$arch
-Server = https://mirror.pkgbuild.com/$repo/os/$arch
+Server = https://ftp.halifax.rwth-aachen.de/archlinux/$repo/os/$arch
+Server = https://mirror.bethselamin.de/$repo/os/$arch
 Server = https://mirror.f4st.host/archlinux/$repo/os/$arch
-Server = https://mirror.puzzle.ch/archlinux/$repo/os/$arch
+Server = https://mirror.pkgbuild.com/$repo/os/$arch
+Server = https://archlinux.thaller.ws/$repo/os/$arch
