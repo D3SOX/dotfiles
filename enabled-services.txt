@@ -1,24 +1,29 @@
-UNIT FILE                          STATE   VENDOR PRESET
-org.cups.cupsd.path                enabled disabled     
-acpid.service                      enabled disabled     
-avahi-daemon.service               enabled disabled     
-cronie.service                     enabled disabled     
-earlyoom.service                   enabled disabled     
-ebtables.service                   enabled disabled     
-getty@.service                     enabled enabled      
-NetworkManager-dispatcher.service  enabled disabled     
-NetworkManager-wait-online.service enabled disabled     
-NetworkManager.service             enabled disabled     
-org.cups.cupsd.service             enabled disabled     
-radeon-profile-daemon.service      enabled disabled     
-reflector.service                  enabled disabled     
-sddm.service                       enabled disabled     
-sshd.service                       enabled disabled     
-systemd-timesyncd.service          enabled enabled      
-avahi-daemon.socket                enabled disabled     
-org.cups.cupsd.socket              enabled disabled     
-saned.socket                       enabled disabled     
-remote-fs.target                   enabled enabled      
-fstrim.timer                       enabled disabled     
+UNIT FILE                               STATE   VENDOR PRESET
+var-lib-snapd-snap-core18-1944.mount    enabled disabled     
+var-lib-snapd-snap-multipass-2907.mount enabled disabled     
+var-lib-snapd-snap-snapcraft-5821.mount enabled disabled     
+var-lib-snapd-snap-snapd-10492.mount    enabled disabled     
+cups.path                               enabled disabled     
+acpid.service                           enabled disabled     
+avahi-daemon.service                    enabled disabled     
+cronie.service                          enabled disabled     
+cups.service                            enabled disabled     
+ebtables.service                        enabled disabled     
+getty@.service                          enabled enabled      
+NetworkManager-dispatcher.service       enabled disabled     
+NetworkManager-wait-online.service      enabled disabled     
+NetworkManager.service                  enabled disabled     
+radeon-profile-daemon.service           enabled disabled     
+reflector.service                       enabled disabled     
+sddm.service                            enabled disabled     
+snap.multipass.multipassd.service       enabled disabled     
+sshd.service                            enabled disabled     
+systemd-timesyncd.service               enabled enabled      
+avahi-daemon.socket                     enabled disabled     
+cups.socket                             enabled disabled     
+saned.socket                            enabled disabled     
+snapd.socket                            enabled disabled     
+remote-fs.target                        enabled enabled      
+fstrim.timer                            enabled disabled     
 
-21 unit files listed.
+26 unit files listed.
