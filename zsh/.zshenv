@@ -9,9 +9,9 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
 # Set default apps
 export EDITOR="nvim"
-export VISUAL="nvim"
+export VISUAL="${EDITOR}"
 export TERMINAL="konsole"
-export BROWSER="chromium"
+export BROWSER="firefox"
 export READER="okular"
 export VIDEO="mpv"
 export IMAGE="gwenview"

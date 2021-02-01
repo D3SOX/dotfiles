@@ -89,6 +89,10 @@ source ~/.aliases.zsh
 
 # Add ~/.local/bin to $PATH
 export PATH="$PATH:$HOME/.local/bin/"
+# Add local yarn packages to $PATH
+export PATH="$PATH:$HOME/.yarn/bin/"
+# Add local cargo packages to $PATH
+export PATH="$PATH:$HOME/.local/share/cargo/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
