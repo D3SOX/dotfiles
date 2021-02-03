@@ -26,9 +26,9 @@ betterlockscreen
 bind
 binutils
 bison
+bleachbit
 bluedevil
 boost
-brave-bin
 breeze
 breeze-gtk
 bspwm
@@ -37,6 +37,8 @@ celluloid
 charles-bin
 clang
 cmake
+code
+code-marketplace
 colord-kde
 composer
 controlloid-server-git
@@ -443,7 +445,6 @@ vim
 virt-manager
 virtualbox
 virtualbox-guest-iso
-visual-studio-code-bin
 vkd3d-tkg-git
 vulkan-headers
 vulkan-tools
