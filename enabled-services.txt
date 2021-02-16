@@ -15,7 +15,6 @@ NetworkManager-dispatcher.service       enabled disabled
 NetworkManager-wait-online.service      enabled disabled     
 NetworkManager.service                  enabled disabled     
 radeon-profile-daemon.service           enabled disabled     
-reflector.service                       enabled disabled     
 sddm.service                            enabled disabled     
 sshd.service                            enabled disabled     
 systemd-timesyncd.service               enabled enabled      
@@ -28,5 +27,6 @@ virtlockd.socket                        enabled disabled
 virtlogd.socket                         enabled disabled     
 remote-fs.target                        enabled enabled      
 fstrim.timer                            enabled disabled     
+reflector.timer                         enabled disabled     
 
 29 unit files listed.

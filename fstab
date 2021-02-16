@@ -3,23 +3,23 @@
 
 # <file system> <dir> <type> <options> <dump> <pass>
 # /dev/nvme0n1p2 LABEL=ROOT
-UUID=4aef34c6-e05b-4f87-aeef-8ae2ed2188c2	/         	ext4      	rw,relatime	0 1
+UUID=4aef34c6-e05b-4f87-aeef-8ae2ed2188c2	/	ext4	rw,noatime	0	1
 
 # /dev/nvme0n1p1 LABEL=EFI
-UUID=D9CA-1B02      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+UUID=D9CA-1B02	/boot/efi	vfat	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0	2
 
 # /dev/nvme0n1p3 LABEL=HOME
-UUID=d8e2f0a8-b9c1-4b1c-8ed9-b4eafe63961d	/home     	ext4      	rw,relatime	0 2
+UUID=d8e2f0a8-b9c1-4b1c-8ed9-b4eafe63961d	/home	ext4	rw,noatime	0	2
 
 # /dev/sdb1 LABEL=SWAP
-UUID=a0a9f10c-8938-44c2-b93b-25b4da498745       none            swap            defaults        0 0
+UUID=a0a9f10c-8938-44c2-b93b-25b4da498745	none	swap	defaults	0	0
 
 # /dev/sda1 LABEL=DATA
-UUID=e483b891-1dde-4bf7-93a5-9bc7867e7f4a       /run/media/nico/DATA    ext4            rw,nosuid,nodev,relatime,nofail     0 2
+UUID=e483b891-1dde-4bf7-93a5-9bc7867e7f4a	/run/media/nico/DATA	ext4	rw,nosuid,nodev,relatime,nofail	0	2
 
 # /dev/sdb2 LABEL=DATA_SSD
-UUID=91cb50c4-fc3f-4982-990b-ebd70247237d   /run/media/nico/DATA_SSD    ext4    rw,nosuid,nodev,relatime,nofail    0 2
+UUID=91cb50c4-fc3f-4982-990b-ebd70247237d	/run/media/nico/DATA_SSD	ext4	rw,nosuid,nodev,relatime,nofail	0	2
 
-# /dev/sdc1 LABEL=Media
-UUID=ef4a10f9-a44c-4c52-87e6-524c62885336   /run/media/nico/Media       ext4    rw,nosuid,nodev,relatime,nofail    0 2
+# /dev/sdc1 LABEL=MEDIA
+UUID=ef4a10f9-a44c-4c52-87e6-524c62885336	/run/media/nico/Media	ext4	rw,nosuid,nodev,relatime,nofail	0	2
 

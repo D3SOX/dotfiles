@@ -29,6 +29,7 @@ bison
 bleachbit
 bluedevil
 boost
+brave-bin
 breeze
 breeze-gtk
 bspwm
@@ -37,8 +38,8 @@ celluloid
 charles-bin
 clang
 cmake
-code
 code-marketplace
+code-transparent
 colord-kde
 composer
 controlloid-server-git
@@ -128,6 +129,8 @@ hardinfo
 hello-kde-git
 heroic-games-launcher-bin
 htop
+hunspell-de
+hunspell-en_US
 hydra
 i2c-tools
 icoutils
@@ -183,7 +186,7 @@ kwayland-integration
 kwayland-server
 kwin
 kwin-decoration-sierra-breeze-enhanced-git
-kwin-effects-yet-another-magic-lamp
+kwin-effects-yet-another-magic-lamp-git
 kwin-scripts-forceblur
 kwrited
 la-capitaine-icon-theme
@@ -227,12 +230,15 @@ libtool
 libva-vdpau-driver
 libvirt
 libvncserver
+lightly-git
 lineageos-devel
 linux
 linux-firmware
 linux-headers
 linux510-tkg-upds
 linux510-tkg-upds-headers
+linux511-tkg-pds
+linux511-tkg-pds-headers
 linux59-tkg-upds
 linux59-tkg-upds-headers
 lldb
@@ -274,6 +280,7 @@ nfs-utils
 ninja
 nitrogen
 nodejs
+nordic-kde-git
 noto-fonts-cjk
 noto-fonts-emoji
 npm
@@ -321,6 +328,7 @@ plasma-sdk
 plasma-systemmonitor
 plasma-thunderbolt
 plasma-vault
+plasma-wayland-session
 plasma-workspace
 plasma5-applets-betterinlineclock-git
 plasma5-applets-latte-separator
@@ -390,6 +398,7 @@ sqlmap
 sshfs
 steam
 steam-acolyte
+structorizer
 subversion
 sudo
 svgpart
@@ -404,7 +413,6 @@ tela-icon-theme
 telegram-desktop
 terminus-font
 texinfo
-tigervnc
 timeshift
 torbrowser-launcher
 ttf-bitstream-vera
@@ -428,6 +436,7 @@ ttf-ms-win10-zh_tw
 ttf-nerd-fonts-symbols
 ttf-opensans
 ttf-roboto
+tunnelto-bin
 tutanota-desktop-bin
 typescript
 ulauncher
