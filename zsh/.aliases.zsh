@@ -28,6 +28,5 @@ alias ga="git add"
 alias gc="git commit -v"
 alias gp="git push"
 alias ":q"="exit"
-alias yay="paru"
 alias yay-devel="yay -Syu --devel"
 alias type-clipboard='sh -c "sleep 0.5; xdotool type \"$(xclip -o -selection clipboard)\""'

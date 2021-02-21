@@ -7,6 +7,8 @@ export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
+# Set manpager
+export MANPAGER="nvim -c 'set ft=man' -"
 # Set default apps
 export EDITOR="nvim"
 export VISUAL="${EDITOR}"
@@ -20,6 +22,8 @@ export OPENER="xdg-open"
 export PAGER="less"
 # Disable less history file
 export LESSHISTFILE="-"
+# Disable node history file
+export NODE_REPL_HISTORY=""
 # Other config moves
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
