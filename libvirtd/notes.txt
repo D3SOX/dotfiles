@@ -1,0 +1,10 @@
+https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF
+
+https://github.com/joeknock90/Single-GPU-Passthrough
+https://passthroughpo.st/simple-per-vm-libvirt-hooks-with-the-vfio-tools-hook-helper/
+
+https://github.com/QaidVoid/Complete-Single-GPU-Passthrough
+https://github.com/cosminmocan/vfio-single-amdgpu-passthrough
+
+https://groupbcl.ca/blog/posts/2019/issues-encountered-setting-up-kde-on-fedora-31/
+https://www.reddit.com/r/VFIO/comments/enmnnj/trying_to_understand_amd_polaris_reset_bug/
