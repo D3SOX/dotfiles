@@ -31,8 +31,8 @@ modprobe -r amdgpu
 #modprobe -r drm_kms_helper
 #modprobe -r i2c_algo_bit
 #modprobe -r drm
-#modprobe -r snd_hda_intel
-# TODO: unload zenpower?
+modprobe -r snd_hda_intel
+modprobe -r v4l2loopback
 
 # Unbind the GPU from display driver
 virsh nodedev-detach $VIRSH_GPU_VIDEO

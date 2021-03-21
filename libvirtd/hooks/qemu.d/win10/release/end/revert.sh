@@ -9,7 +9,7 @@ source "/etc/libvirt/hooks/kvm.conf"
 modprobe -r vfio_pci
 modprobe -r vfio_iommu_type1
 modprobe -r vfio
-  
+
 # Reattach the GPU
 virsh nodedev-reattach $VIRSH_GPU_VIDEO
 virsh nodedev-reattach $VIRSH_GPU_AUDIO
@@ -32,7 +32,7 @@ modprobe amdgpu
 #modprobe drm_kms_helper
 #modprobe i2c_algo_bit
 #modprobe drm
-#modprobe snd_hda_intel
+modprobe snd_hda_intel
 
 # Start Display Manager
 systemctl start sddm.service
