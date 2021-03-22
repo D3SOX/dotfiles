@@ -10,7 +10,7 @@ control + alt + t
 
 # program launcher
 #super + s
-	rofi -show drun
+#	rofi -show drun
 
 # window switcher
 super + w
