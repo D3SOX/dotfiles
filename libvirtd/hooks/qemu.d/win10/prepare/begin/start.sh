@@ -6,7 +6,7 @@ set -x
 source "/etc/libvirt/hooks/kvm.conf"
 
 # Stop display manager
-systemctl stop sddm.service
+systemctl stop display-manager.service
 
 # Stop audio drivers
 pulse_pid=$(pgrep -u nico pulseaudio)
@@ -14,7 +14,7 @@ pipewire_pid=$(pgrep -u nico pipewire-media)
 kill $pulse_pid
 kill $pipewire_pid
 
-# Unbind VTconsoles
+# Unbind VT consoles
 echo 0 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind
 

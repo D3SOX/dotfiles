@@ -16,10 +16,9 @@ virsh nodedev-reattach $VIRSH_GPU_AUDIO
 
 # Rebind VT consoles
 echo 1 > /sys/class/vtconsole/vtcon0/bind
-# Some machines might have more than 1 virtual console. Add a line for each corresponding VTConsole
 echo 1 > /sys/class/vtconsole/vtcon1/bind
 
-# Bind EFI-framebuffer
+# Bind EFI-Framebuffer
 #echo "efi-framebuffer.0" > /sys/bus/platform/drivers/efi-framebuffer/bind
 
 # Avoid a Race condition by waiting a couple of seconds. This can be calibrated to be shorter or longer if required for your system
@@ -35,4 +34,4 @@ modprobe amdgpu
 modprobe snd_hda_intel
 
 # Start Display Manager
-systemctl start sddm.service
+systemctl start display-manager.service
