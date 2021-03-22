@@ -3,6 +3,7 @@ acpid
 adobe-source-sans-pro-fonts
 alacritty
 alsa-utils
+amazon-corretto-8
 amd-ucode
 amdvlk
 android-tools
@@ -34,12 +35,11 @@ breeze
 breeze-gtk
 bspwm
 ccache
+cdrtools
 celluloid
 charles-bin
 clang
 cmake
-code-marketplace
-code-transparent
 colord-kde
 composer
 controlloid-server-git
@@ -101,6 +101,7 @@ gawk
 gcc
 geforcenow-electron
 gettext
+gimagereader-qt
 gimp
 git
 git-lfs
@@ -117,6 +118,7 @@ groff
 grub
 gsfonts
 gst-libav
+gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-bad-libs
 gst-plugins-good
@@ -226,10 +228,13 @@ libkscreen
 libksysguard
 libreoffice-fresh
 libreoffice-fresh-de
+librespot
 libtool
 libva-vdpau-driver
 libvirt
 libvncserver
+lightdm
+lightdm-gtk-greeter
 lightly-git
 lineageos-devel
 linux
@@ -237,12 +242,13 @@ linux-firmware
 linux-headers
 linux510-tkg-upds
 linux510-tkg-upds-headers
-linux511-tkg-pds
-linux511-tkg-pds-headers
+linux511-tkg-upds
+linux511-tkg-upds-headers
 linux59-tkg-upds
 linux59-tkg-upds-headers
 lldb
 lrzip
+ludusavi
 lutris-git
 lxappearance
 lzop
@@ -260,6 +266,7 @@ milou
 minecraft-launcher
 mingw-w64-gcc
 mlocate
+mon2cam-git
 monero-gui
 mtools
 multimc5
@@ -308,12 +315,13 @@ paru
 patch
 patchelf
 pavucontrol-qt
+pcmanfm
 pdfarranger
 pdfmixtool
 pdftricks
 peek
 pfetch-git
-picom-jonaburg-git
+picom
 pika-backup
 piper
 pkgconf
@@ -347,7 +355,6 @@ pulseaudio-equalizer
 python-numpy
 python-pip
 python-pynvim
-python-pypresence
 qbittorrent
 qdirstat
 qemu
@@ -388,12 +395,11 @@ signal-desktop
 simple-scan
 skypeforlinux-stable-bin
 snapd
-soundux-git
+soundux
 soundwire
 spectacle
 spicetify-cli
-spotify
-spotifywm-git
+spotify-qt
 sqlmap
 sshfs
 steam
@@ -404,6 +410,7 @@ sudo
 svgpart
 sxhkd
 sysfsutils
+sysmontask
 system-config-printer
 systembus-notify
 systemsettings
@@ -412,6 +419,8 @@ teamspeak3
 tela-icon-theme
 telegram-desktop
 terminus-font
+tesseract-data-deu
+tesseract-data-eng
 texinfo
 timeshift
 torbrowser-launcher
@@ -455,6 +464,7 @@ virt-manager
 virtualbox
 virtualbox-guest-iso
 vkd3d-tkg-git
+vscode-transparent-insiders
 vulkan-headers
 vulkan-tools
 wget
@@ -489,7 +499,6 @@ xournalpp
 yarn
 yay
 youtube-dl
-zenmonitor
 zsh
 zsh-autosuggestions
 zsh-completions
