@@ -9,7 +9,7 @@ control + alt + t
 	alacritty
 
 # program launcher
-super + s
+#super + s
 	rofi -show drun
 
 # window switcher
@@ -31,6 +31,10 @@ Print
 ctrl + Print
 	flameshot gui -d 1000
 
+super + shift + s
+	flameshot gui
+
+# lockscreen
 super + l
 	betterlockscreen -r 1920x1080 -l dim
 
