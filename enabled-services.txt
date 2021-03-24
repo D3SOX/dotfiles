@@ -1,8 +1,6 @@
 UNIT FILE                            STATE   VENDOR PRESET
 var-lib-snapd-snap-core18-1988.mount enabled disabled     
 var-lib-snapd-snap-snapd-11107.mount enabled disabled     
-var-lib-snapd-snap-spotify-43.mount  enabled disabled     
-var-lib-snapd-snap-spotify-45.mount  enabled disabled     
 cups.path                            enabled disabled     
 acpid.service                        enabled disabled     
 avahi-daemon.service                 enabled disabled     
@@ -30,4 +28,4 @@ remote-fs.target                     enabled enabled
 fstrim.timer                         enabled disabled     
 reflector.timer                      enabled disabled     
 
-30 unit files listed.
+28 unit files listed.

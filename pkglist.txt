@@ -34,6 +34,8 @@ brave-bin
 breeze
 breeze-gtk
 bspwm
+cadence
+carla
 ccache
 cdrtools
 celluloid
@@ -42,7 +44,6 @@ clang
 cmake
 colord-kde
 composer
-controlloid-server-git
 crda
 cups
 cups-filters
@@ -96,7 +97,6 @@ foomatic-db-engine
 freerdp
 fzf
 gamemode
-gamescope
 gawk
 gcc
 geforcenow-electron
@@ -132,7 +132,7 @@ hello-kde-git
 heroic-games-launcher-bin
 htop
 hunspell-de
-hunspell-en_US
+hunspell-en_us
 hydra
 i2c-tools
 icoutils
@@ -187,7 +187,6 @@ kwalletmanager
 kwayland-integration
 kwayland-server
 kwin
-kwin-decoration-sierra-breeze-enhanced-git
 kwin-effects-yet-another-magic-lamp-git
 kwin-scripts-forceblur
 kwrited
@@ -234,7 +233,8 @@ libva-vdpau-driver
 libvirt
 libvncserver
 lightdm
-lightdm-gtk-greeter
+lightdm-webkit-theme-litarvan
+lightdm-webkit2-greeter
 lightly-git
 lineageos-devel
 linux
@@ -294,7 +294,6 @@ npm
 ntfs-3g
 obs-studio
 ocl-icd
-ocs-url
 okular
 onedrive-abraunegg
 onlyoffice-bin
@@ -352,13 +351,13 @@ protontricks
 protonvpn-cli-ng
 pulseaudio-alsa
 pulseaudio-equalizer
+pulseaudio-jack
 python-numpy
 python-pip
 python-pynvim
 qbittorrent
 qdirstat
 qemu
-qpm-bin
 qt5-doc
 qt5-virtualkeyboard
 qt6-3d
@@ -395,7 +394,7 @@ signal-desktop
 simple-scan
 skypeforlinux-stable-bin
 snapd
-soundux
+soundux-git
 soundwire
 spectacle
 spicetify-cli
@@ -404,7 +403,6 @@ sqlmap
 sshfs
 steam
 steam-acolyte
-structorizer
 subversion
 sudo
 svgpart
@@ -416,7 +414,6 @@ systembus-notify
 systemsettings
 teams
 teamspeak3
-tela-icon-theme
 telegram-desktop
 terminus-font
 tesseract-data-deu
