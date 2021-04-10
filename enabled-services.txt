@@ -1,31 +1,28 @@
-UNIT FILE                            STATE   VENDOR PRESET
-var-lib-snapd-snap-core18-1988.mount enabled disabled     
-var-lib-snapd-snap-snapd-11107.mount enabled disabled     
-cups.path                            enabled disabled     
-acpid.service                        enabled disabled     
-avahi-daemon.service                 enabled disabled     
-cronie.service                       enabled disabled     
-cups.service                         enabled disabled     
-ebtables.service                     enabled disabled     
-getty@.service                       enabled enabled      
-libvirtd.service                     enabled disabled     
-lightdm.service                      enabled disabled     
-NetworkManager-dispatcher.service    enabled disabled     
-NetworkManager-wait-online.service   enabled disabled     
-NetworkManager.service               enabled disabled     
-radeon-profile-daemon.service        enabled disabled     
-sshd.service                         enabled disabled     
-systemd-timesyncd.service            enabled enabled      
-avahi-daemon.socket                  enabled disabled     
-cups.socket                          enabled disabled     
-libvirtd-ro.socket                   enabled disabled     
-libvirtd.socket                      enabled disabled     
-saned.socket                         enabled disabled     
-snapd.socket                         enabled disabled     
-virtlockd.socket                     enabled disabled     
-virtlogd.socket                      enabled disabled     
-remote-fs.target                     enabled enabled      
-fstrim.timer                         enabled disabled     
-reflector.timer                      enabled disabled     
+UNIT FILE                          STATE   VENDOR PRESET
+cups.path                          enabled disabled
+acpid.service                      enabled disabled
+avahi-daemon.service               enabled disabled
+cronie.service                     enabled disabled
+cups.service                       enabled disabled
+ebtables.service                   enabled disabled
+getty@.service                     enabled enabled
+libvirtd.service                   enabled disabled
+NetworkManager-dispatcher.service  enabled disabled
+NetworkManager-wait-online.service enabled disabled
+NetworkManager.service             enabled disabled
+radeon-profile-daemon.service      enabled disabled
+sddm.service                       enabled disabled
+sshd.service                       enabled disabled
+systemd-timesyncd.service          enabled enabled
+avahi-daemon.socket                enabled disabled
+cups.socket                        enabled disabled
+libvirtd-ro.socket                 enabled disabled
+libvirtd.socket                    enabled disabled
+saned.socket                       enabled disabled
+virtlockd.socket                   enabled disabled
+virtlogd.socket                    enabled disabled
+remote-fs.target                   enabled enabled
+fstrim.timer                       enabled disabled
+reflector.timer                    enabled disabled
 
-28 unit files listed.
+25 unit files listed.

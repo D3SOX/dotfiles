@@ -35,6 +35,7 @@ breeze
 breeze-gtk
 bspwm
 cadence
+cadmus-deb
 carla
 ccache
 cdrtools
@@ -44,10 +45,13 @@ clang
 cmake
 colord-kde
 composer
+cpufetch-git
 crda
 cups
 cups-filters
 cups-pdf
+dash
+dashbinsh
 dbeaver
 dbeaver-plugin-office
 dconf-editor
@@ -61,7 +65,10 @@ docker-compose
 dolphin
 dolphin-plugins
 dosfstools
-dotnet-sdk-preview
+dotnet-host
+dotnet-runtime
+dotnet-sdk
+dotnet-targeting-pack
 downgrade
 drkonqi
 dunst
@@ -128,6 +135,7 @@ gutenprint
 gwenview
 gzip
 hardinfo
+heidisql
 hello-kde-git
 heroic-games-launcher-bin
 htop
@@ -223,6 +231,7 @@ libappimage
 libdbusmenu-glib
 libdbusmenu-gtk2
 libdvdcss
+libertinus-font
 libkscreen
 libksysguard
 libreoffice-fresh
@@ -232,9 +241,6 @@ libtool
 libva-vdpau-driver
 libvirt
 libvncserver
-lightdm
-lightdm-webkit-theme-litarvan
-lightdm-webkit2-greeter
 lightly-git
 lineageos-devel
 linux
@@ -320,7 +326,7 @@ pdfmixtool
 pdftricks
 peek
 pfetch-git
-picom
+picom-git
 pika-backup
 piper
 pkgconf
@@ -347,7 +353,6 @@ polybar
 powerdevil
 powerline-fonts
 print-manager
-protontricks
 protonvpn-cli-ng
 pulseaudio-alsa
 pulseaudio-equalizer
@@ -393,11 +398,11 @@ sed
 signal-desktop
 simple-scan
 skypeforlinux-stable-bin
-snapd
-soundux-git
+soundux
 soundwire
 spectacle
 spicetify-cli
+spotify
 spotify-qt
 sqlmap
 sshfs
@@ -430,7 +435,6 @@ ttf-font-awesome
 ttf-inconsolata
 ttf-jetbrains-mono
 ttf-joypixels
-ttf-linux-libertine
 ttf-ms-win10
 ttf-ms-win10-japanese
 ttf-ms-win10-korean
@@ -477,6 +481,7 @@ winetricks
 winscp
 wireless_tools
 wmctrl
+wmname
 xclip
 xdg-desktop-portal-kde
 xdg-user-dirs
