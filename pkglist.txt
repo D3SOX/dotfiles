@@ -263,7 +263,6 @@ milou
 minecraft-launcher
 mingw-w64-gcc
 mlocate
-mon2cam-git
 monero-gui
 mtools
 mullvad-vpn-bin
@@ -294,6 +293,7 @@ npm
 ntfs-3g
 obs-studio
 ocl-icd
+okteta
 okular
 onedrive-abraunegg
 onlyoffice-bin
@@ -496,6 +496,7 @@ xournalpp
 yarn
 yay
 youtube-dl
+zip
 zsh
 zsh-autosuggestions
 zsh-completions
