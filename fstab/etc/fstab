@@ -3,10 +3,10 @@
 
 # <file system> <dir> <type> <options> <dump> <pass>
 # /dev/nvme0n1p2 LABEL=ROOT
-UUID=4aef34c6-e05b-4f87-aeef-8ae2ed2188c2	/	ext4	rw,noatime	0	1
+UUID=e0b4ced8-3c75-4c14-b069-87d8214b2289	/         	ext4      	rw,noatime	0 1
 
 # /dev/nvme0n1p1 LABEL=EFI
-UUID=D9CA-1B02	/boot/efi	vfat	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0	2
+UUID=863D-0D6B      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
 
 # /dev/nvme0n1p3 LABEL=HOME
 UUID=d8e2f0a8-b9c1-4b1c-8ed9-b4eafe63961d	/home	ext4	rw,noatime	0	2
