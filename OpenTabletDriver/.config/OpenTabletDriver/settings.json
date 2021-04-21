@@ -30,7 +30,8 @@
     "Settings": [
       {
         "Property": "Property",
-        "Value": "Left"
+        "Value": "Left",
+        "HasValue": true
       }
     ],
     "Enable": true
@@ -40,6 +41,8 @@
     null
   ],
   "AuxButtons": [
+    null,
+    null,
     null,
     null,
     null,

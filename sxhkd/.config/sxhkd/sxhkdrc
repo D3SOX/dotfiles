@@ -22,7 +22,7 @@ super + Escape
 
 # file explorer
 super + e
-	dolphin
+	pcmanfm
 
 # screenshot
 Print

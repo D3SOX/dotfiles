@@ -40,6 +40,9 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Chromium:crx_nngceckbapebfimnlniiiahkandclblb state=floating follow=on
 
 
+# fix java windows (https://wiki.archlinux.org/index.php/Bspwm#Problems_with_Java_applications)
+wmname LG3D
+
 ### AUTOSTART ###
 
 # Kill programs
@@ -82,7 +85,7 @@ nm-applet &
 dunst &
 
 # Compositor
-picom --experimental-backends &
+picom --experimental-backends --blur-method dual_kawase --blur-strength 7 &
 
 # KDE Connect
 kdeconnect-indicator &
