@@ -64,6 +64,7 @@ docker
 docker-compose
 dolphin
 dolphin-plugins
+dos2unix
 dosfstools
 dotnet-host
 dotnet-runtime
@@ -71,6 +72,7 @@ dotnet-sdk
 dotnet-targeting-pack
 downgrade
 drkonqi
+droidcam
 e2fsprogs
 edk2-ovmf
 efibootmgr
@@ -80,6 +82,7 @@ exfat-utils
 expac
 extra-cmake-modules
 fakeroot
+fastfetch-git
 fatresize
 faudio
 fd
@@ -206,7 +209,6 @@ kwin-scripts-forceblur
 kwrited
 la-capitaine-icon-theme
 latte-dock-git
-layan-kde-git
 legendary
 less
 lib32-amdgpu-pro-libgl
@@ -234,6 +236,7 @@ lib32-openal
 lib32-v4l-utils
 lib32-vkd3d
 lib32-vulkan-amdgpu-pro
+lib32-vulkan-radeon
 libappimage
 libappindicator-gtk2
 libdbusmenu-gtk2
@@ -286,7 +289,6 @@ mumble
 nano
 neochat
 neofetch
-neovide
 neovim
 nerd-fonts-inter
 nerd-fonts-sf-mono
@@ -353,7 +355,6 @@ plasma-thunderbolt
 plasma-vault
 plasma-wayland-session
 plasma-workspace
-plasma5-applets-betterinlineclock-git
 plasma5-applets-latte-separator
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu-git
@@ -476,10 +477,10 @@ vkd3d
 vscode-transparent-insiders
 vulkan-amdgpu-pro
 vulkan-headers
+vulkan-radeon
 vulkan-tools
 wget
 which
-whitesur-cursor-theme-git
 wine-gecko
 wine-mono
 wine-tkg-staging-fsync-git
@@ -489,6 +490,7 @@ wireless_tools
 wmctrl
 wmname
 xclip
+xdelta3
 xdg-desktop-portal-kde
 xdg-user-dirs
 xdotool
