@@ -1,13 +1,10 @@
 aarch64-linux-gnu-gcc
 acpid
-adobe-source-sans-pro-fonts
+adobe-source-sans-fonts
 alacritty
 alsa-utils
 amazon-corretto-8
 amd-ucode
-amdgpu-pro-libgl
-amdvlk
-amf-amdgpu-pro
 android-tools
 android-udev
 anydesk-bin
@@ -16,7 +13,6 @@ arch-install-scripts
 aria2
 ark
 asciinema
-audacious
 autoconf
 automake
 awesome-terminal-fonts
@@ -48,13 +44,10 @@ crda
 cups
 cups-filters
 cups-pdf
-dart
 dash
 dashbinsh
-davinci-resolve
 dbeaver
 dbeaver-plugin-office
-dconf-editor
 dialog
 discord-canary
 dkms
@@ -98,7 +91,6 @@ flameshot
 flatpak
 flatpak-builder
 flex
-flutter
 fontforge
 foomatic-db
 foomatic-db-engine
@@ -123,6 +115,7 @@ gnu-netcat
 go
 gptfdisk
 gradle
+grapejuice-git
 grep
 groff
 gromit-mpx-git
@@ -190,6 +183,8 @@ kimageformats
 kinfocenter
 kio-fuse
 kmenuedit
+kodi
+kodi-addon-inputstream-adaptive
 kompare
 konsole
 kora-icon-theme
@@ -204,15 +199,13 @@ kwalletmanager
 kwayland-integration
 kwayland-server
 kwin
-kwin-effects-yet-another-magic-lamp-git
+kwin-effects-sliding-notifications
+kwin-effects-yet-another-magic-lamp
 kwin-scripts-forceblur
 kwrited
-la-capitaine-icon-theme
 latte-dock-git
 legendary
 less
-lib32-amdgpu-pro-libgl
-lib32-amdvlk
 lib32-faudio
 lib32-gamemode
 lib32-giflib
@@ -235,7 +228,6 @@ lib32-ocl-icd
 lib32-openal
 lib32-v4l-utils
 lib32-vkd3d
-lib32-vulkan-amdgpu-pro
 lib32-vulkan-radeon
 libappimage
 libappindicator-gtk2
@@ -258,10 +250,12 @@ linux-firmware
 linux-headers
 linux512-tkg-pds
 linux512-tkg-pds-headers
+linux513-tkg-pds
+linux513-tkg-pds-headers
 lldb
 lrzip
 ludusavi
-lutris-git
+lutris
 lxappearance
 lzop
 m4
@@ -271,8 +265,10 @@ man-db
 man-pages
 mangohud
 mariadb-clients
+masterpdfeditor-free
 materia-gtk-theme
 materia-kde
+mesa
 mesa-vdpau
 meson
 milou
@@ -288,7 +284,6 @@ multipath-tools
 mumble
 nano
 neochat
-neofetch
 neovim
 nerd-fonts-inter
 nerd-fonts-sf-mono
@@ -363,6 +358,7 @@ polkit-kde-agent
 polybar
 powerdevil
 powerline-fonts
+preload
 print-manager
 protontricks
 pulseaudio-alsa
@@ -378,8 +374,6 @@ qt6-3d
 qt6-5compat
 qt6-base
 qt6-declarative
-qt6-doc
-qt6-examples
 qt6-imageformats
 qt6-networkauth
 qt6-quick3d
@@ -398,7 +392,6 @@ remmina
 replay-sorcery
 rofi
 rsync
-rustscan
 sane
 schedtool
 scrcpy
@@ -407,7 +400,7 @@ sed
 signal-desktop
 simple-scan
 skypeforlinux-stable-bin
-soundux
+soundux-git
 soundwire
 spectacle
 spicetify-cli
@@ -427,6 +420,7 @@ system-config-printer
 systembus-notify
 systemsettings
 teams
+teamspeak
 telegram-desktop
 terminus-font
 tesseract-data-deu
@@ -475,7 +469,6 @@ virtualbox
 virtualbox-guest-iso
 vkd3d
 vscode-transparent-insiders
-vulkan-amdgpu-pro
 vulkan-headers
 vulkan-radeon
 vulkan-tools
