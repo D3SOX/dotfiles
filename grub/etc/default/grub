@@ -53,5 +53,3 @@ GRUB_THEME="/usr/share/grub/themes/tela/theme.txt"
 # setting 'GRUB_DEFAULT=saved' above.
 GRUB_SAVEDEFAULT="true"
 
-# Uncomment to make GRUB load os-prober entries.
-GRUB_DISABLE_OS_PROBER="yes"
