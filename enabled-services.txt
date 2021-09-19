@@ -2,6 +2,7 @@ UNIT FILE                          STATE   VENDOR PRESET
 cups.path                          enabled disabled
 acpid.service                      enabled disabled
 avahi-daemon.service               enabled disabled
+bluetooth.service                  enabled disabled
 cronie.service                     enabled disabled
 cups.service                       enabled disabled
 ebtables.service                   enabled disabled
@@ -26,4 +27,4 @@ remote-fs.target                   enabled enabled
 fstrim.timer                       enabled disabled
 reflector.timer                    enabled disabled
 
-26 unit files listed.
+27 unit files listed.
