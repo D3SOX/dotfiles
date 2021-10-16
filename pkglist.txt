@@ -26,6 +26,7 @@ bind
 binutils
 bison
 bleachbit
+blobsaver-bin
 bluedevil
 boost
 brave-bin
@@ -103,7 +104,6 @@ gettext
 gimagereader-qt
 gimp
 git
-git-chglog
 git-lfs
 github-cli
 glfw-x11
@@ -136,6 +136,7 @@ hardinfo
 haruna
 heidisql
 hello-kde-git
+helvum
 heroic-games-launcher-bin
 htop
 hunspell-de
@@ -228,6 +229,7 @@ libappindicator-gtk2
 libdbusmenu-gtk2
 libdvdcss
 libertinus-font
+libirecovery
 libkscreen
 libksysguard
 libreoffice-fresh
@@ -271,7 +273,7 @@ mon2cam-git
 monero-gui
 mpv
 mtools
-multimc-bin
+multimc5
 multipath-tools
 mumble
 nano
@@ -340,12 +342,14 @@ plasma-thunderbolt
 plasma-vault
 plasma-wayland-session
 plasma-workspace
+plasma-workspace-wallpapers
 plasma5-applets-latte-separator
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu-git
 plasma5-applets-window-title
 polkit-kde-agent
 polybar
+power-profiles-daemon
 powerdevil
 powerline-fonts
 preload
@@ -373,12 +377,12 @@ qt6-svg
 qt6-tools
 qt6-translations
 qt6-wayland
-qtox
 radeon-profile-daemon-git
 radeon-profile-git
 reflector
 remmina
 replay-sorcery
+revolt-desktop
 rofi
 rsync
 rust
@@ -440,13 +444,14 @@ ttf-roboto
 tunnelto-bin
 tutanota-desktop-bin
 typescript
+ufw
 unace
 unarchiver
 ungoogled-chromium
 unrar
 unzip
 usbutils
-uxplay-git
+uxplay
 v4l2loopback-dkms
 vde2
 virt-manager
