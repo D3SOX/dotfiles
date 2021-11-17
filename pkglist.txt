@@ -14,6 +14,7 @@ aria2
 ark
 asciinema
 asp
+aspnet-targeting-pack-5.0-bin
 autoconf
 automake
 awesome-terminal-fonts
@@ -62,9 +63,8 @@ dolphin-plugins
 dos2unix
 dosfstools
 dotnet-host
-dotnet-runtime
-dotnet-sdk
-dotnet-targeting-pack
+dotnet-runtime-5.0-bin
+dotnet-sdk-5.0-bin
 downgrade
 drkonqi
 e2fsprogs
@@ -89,7 +89,6 @@ firefox-i18n-en-us
 fish
 flameshot
 flatpak
-flatpak-builder
 flex
 fluent-icon-theme-git
 fontforge
@@ -111,7 +110,6 @@ gnome-icon-theme
 gnome-keyring
 gnome-themes-extra
 gnu-netcat
-go
 gptfdisk
 gradle
 grapejuice-git
@@ -272,7 +270,6 @@ milou
 minecraft-launcher
 mingw-w64-gcc
 mlocate
-mon2cam-git
 monero-gui
 mpv
 mtools
@@ -357,7 +354,7 @@ powerline-fonts
 preload
 print-manager
 protontricks
-protonup-git
+protonup-qt
 pulseaudio-alsa
 python-numpy
 python-pip
@@ -400,6 +397,7 @@ skypeforlinux-stable-bin
 soundux-git
 soundwire
 spectacle
+spicetify-cli
 spotify
 spotify-qt
 sqlmap
@@ -472,6 +470,7 @@ wine-tkg-staging-fsync-git
 winetricks-git
 winscp
 wireless_tools
+wireplumber
 wmctrl
 wmname
 wootility-lekker-beta-appimage
