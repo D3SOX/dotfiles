@@ -1,7 +1,7 @@
 # Move wget hosts file
 alias wget="wget --hsts-file ~/.config/wget-hsts"
-alias yt2mp3="youtube-dl -i --extract-audio --audio-format mp3 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s'"
-alias ytdl="youtube-dl -i -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]'"
+alias yt2mp3="yt-dlp -i --extract-audio --audio-format mp3 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s'"
+alias ytdl="yt-dlp -i -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]'"
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
     alias clear="clear && pfetch"
