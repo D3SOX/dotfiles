@@ -110,6 +110,7 @@ gnome-icon-theme
 gnome-keyring
 gnome-themes-extra
 gnu-netcat
+goverlay-bin
 gptfdisk
 gradle
 grapejuice-git
@@ -171,6 +172,7 @@ kdenlive
 kdeplasma-addons
 kdesdk-thumbnailers
 kdialog
+keditbookmarks
 keepassxc
 kfind
 kgamma5
@@ -186,6 +188,7 @@ kompare
 konsole
 kora-icon-theme
 kruler
+krusader
 kscreen
 kscreenlocker
 ksshaskpass
@@ -221,6 +224,7 @@ lib32-mpg123
 lib32-ocl-icd
 lib32-openal
 lib32-v4l-utils
+lib32-vkbasalt
 lib32-vkd3d
 lib32-vulkan-radeon
 libappimage
@@ -243,8 +247,6 @@ lightly-git
 linux
 linux-firmware
 linux-headers
-linux514-tkg-pds
-linux514-tkg-pds-headers
 linux515-tkg-pds
 linux515-tkg-pds-headers
 lrzip
@@ -255,7 +257,6 @@ lzop
 m4
 macchanger
 make
-makedeb-beta
 man-db
 man-pages
 mangohud
@@ -270,6 +271,7 @@ milou
 minecraft-launcher
 mingw-w64-gcc
 mlocate
+mon2cam-git
 monero-gui
 mpv
 mtools
@@ -292,7 +294,6 @@ nfs-utils
 ninja
 nitrogen
 nitrokey-app
-nodejs
 noisetorch
 nordic-kde-git
 noto-fonts-cjk
@@ -305,6 +306,7 @@ okular
 onedrive-abraunegg
 onlyoffice-bin
 opentabletdriver
+os-prober
 otf-san-francisco
 otf-san-francisco-mono
 p7zip
@@ -331,7 +333,6 @@ plasma-browser-integration
 plasma-desktop
 plasma-disks
 plasma-firewall
-plasma-hud-git
 plasma-integration
 plasma-nm
 plasma-pa
@@ -347,11 +348,13 @@ plasma5-applets-latte-sidebar-button
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu-git
 plasma5-applets-window-title
+pnpm-bin
 polkit-kde-agent
 polybar
 powerdevil
 powerline-fonts
 preload
+prettier
 print-manager
 protontricks
 protonup-qt
@@ -382,6 +385,7 @@ radeon-profile-git
 reflector
 remmina
 replay-sorcery
+reshade-shaders-git
 revolt-desktop
 rofi
 rsync
@@ -397,9 +401,11 @@ skypeforlinux-stable-bin
 soundux-git
 soundwire
 spectacle
+speedtest-cli
 spicetify-cli
 spotify
 spotify-qt
+sqlitebrowser
 sqlmap
 squashfs-tools
 sshfs
@@ -458,6 +464,8 @@ vde2
 virt-manager
 virtualbox
 virtualbox-guest-iso
+vivaldi
+vivaldi-ffmpeg-codecs
 vkd3d
 vulkan-headers
 vulkan-radeon

@@ -2,14 +2,14 @@
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/nvme0n1p2 LABEL=ROOT
-UUID=e0b4ced8-3c75-4c14-b069-87d8214b2289	/         	ext4      	rw,noatime	0 1
+# /dev/nvme1n1p2 LABEL=ROOT
+UUID=74210fd5-407c-4ee3-8668-ee100617f149	/         	ext4      	rw,noatime	0 1
 
-# /dev/nvme0n1p1 LABEL=EFI
-UUID=08D4-FDE9      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+# /dev/nvme1n1p1 LABEL=EFI
+UUID=166E-25BB     	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
 
-# /dev/nvme0n1p3 LABEL=HOME
-UUID=d8e2f0a8-b9c1-4b1c-8ed9-b4eafe63961d	/home	ext4	rw,noatime	0	2
+# /dev/nvme1n1p3 LABEL=HOME
+UUID=643b2977-778c-4e45-a3da-0da66b3e168f	/home	ext4	rw,noatime	0	2
 
 # /dev/sda1 LABEL=DATA
 UUID=e483b891-1dde-4bf7-93a5-9bc7867e7f4a	/run/media/nico/DATA	ext4	rw,nosuid,nodev,noatime,nofail	0	2
