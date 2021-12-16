@@ -34,3 +34,4 @@ alias yay-devel="paru -Syu --devel"
 alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -selection clipboard)\""'
 alias reboot-windows="sudo grub-reboot 'Windows Boot Manager (on /dev/nvme1n1p1)' && sudo reboot"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias restart-pipewire="systemctl --user daemon-reload && systemctl --user restart pipewire && systemctl --user restart pipewire-pulse"
