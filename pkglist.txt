@@ -14,7 +14,6 @@ aria2
 ark
 asciinema
 asp
-aspnet-targeting-pack-5.0-bin
 autoconf
 automake
 awesome-terminal-fonts
@@ -40,6 +39,7 @@ charles-bin
 clang
 cmake
 code
+code-features
 code-marketplace
 colord-kde
 composer
@@ -48,6 +48,7 @@ crda
 cups
 cups-filters
 cups-pdf
+dart-sass
 dash
 dashbinsh
 devtools
@@ -62,11 +63,9 @@ dolphin
 dolphin-plugins
 dos2unix
 dosfstools
-dotnet-host
-dotnet-runtime-5.0-bin
-dotnet-sdk-5.0-bin
 downgrade
 drkonqi
+duf
 e2fsprogs
 edk2-ovmf
 efibootmgr
@@ -118,6 +117,7 @@ grep
 groff
 grsync
 grub
+grub-customizer
 gsfonts
 gst-libav
 gst-plugin-pipewire
@@ -150,6 +150,8 @@ insomnia-bin
 inter-font
 iptables-nft
 iriunwebcam-bin
+java-openjfx
+java8-openjfx
 jdk8-openjdk
 jdownloader2
 jetbrains-toolbox
@@ -181,6 +183,7 @@ khotkeys
 kimageformats
 kinfocenter
 kio-fuse
+kmag
 kmenuedit
 kodi
 kodi-addon-inputstream-adaptive
@@ -247,8 +250,8 @@ lightly-git
 linux
 linux-firmware
 linux-headers
-linux515-tkg-pds
-linux515-tkg-pds-headers
+linux516-tkg-pds
+linux516-tkg-pds-headers
 lrzip
 ludusavi
 lutris
@@ -270,6 +273,7 @@ meson
 milou
 minecraft-launcher
 mingw-w64-gcc
+minidlna
 mlocate
 mon2cam-git
 monero-gui
@@ -358,10 +362,12 @@ prettier
 print-manager
 protontricks
 protonup-qt
+protonvpn-cli
 pulseaudio-alsa
 python-numpy
 python-pip
 python-pynvim
+qalculate-qt
 qbittorrent
 qdirstat
 qemu
@@ -395,6 +401,8 @@ schedtool
 scrcpy
 sddm-kcm
 sed
+sidequest-bin
+sierrabreeze-kwin-decoration-git
 signal-desktop
 simple-scan
 skypeforlinux-stable-bin
@@ -403,6 +411,7 @@ soundwire
 spectacle
 speedtest-cli
 spicetify-cli
+spicetify-themes-git
 spotify
 spotify-qt
 sqlitebrowser
@@ -412,6 +421,9 @@ sshfs
 steam
 steam-acolyte
 sudo
+suru-plus-dark-git
+suru-plus-folders-git
+suru-plus-git
 svgpart
 sxhkd
 sysfsutils
@@ -426,10 +438,12 @@ tesseract-data-deu
 tesseract-data-eng
 texinfo
 timeshift
+topgrade
 torbrowser-launcher
 ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
+ttf-exo-2
 ttf-fira-mono
 ttf-fira-sans
 ttf-font-awesome
@@ -460,6 +474,7 @@ unzip
 usbutils
 uxplay
 v4l2loopback-dkms
+variety
 vde2
 virt-manager
 virtualbox
@@ -504,6 +519,7 @@ yarn
 yt-dlp
 yt-dlp-drop-in
 zip
+zorin-desktop-themes
 zramd
 zsh
 zsh-autosuggestions
