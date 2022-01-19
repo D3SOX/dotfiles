@@ -1,55 +1,73 @@
 {
-  "OutputMode": {
-    "Path": "OpenTabletDriver.Desktop.Output.AbsoluteMode",
-    "Settings": [],
-    "Enable": true
-  },
-  "Filters": [],
-  "AutoHook": true,
+  "Profiles": [
+    {
+      "Tablet": "XP-Pen Star G640",
+      "OutputMode": {
+        "Path": "OpenTabletDriver.Desktop.Output.AbsoluteMode",
+        "Settings": [],
+        "Enable": true
+      },
+      "Filters": [],
+      "AbsoluteModeSettings": {
+        "Display": {
+          "Width": 1920.0,
+          "Height": 1080.0,
+          "X": 2880.0,
+          "Y": 540.0,
+          "Rotation": 0.0
+        },
+        "Tablet": {
+          "Width": 50.0,
+          "Height": 25.0,
+          "X": 31.339415,
+          "Y": 19.55279,
+          "Rotation": 0.0
+        },
+        "EnableClipping": true,
+        "EnableAreaLimiting": false,
+        "LockAspectRatio": false
+      },
+      "RelativeModeSettings": {
+        "XSensitivity": 10.0,
+        "YSensitivity": 10.0,
+        "RelativeRotation": 0.0,
+        "RelativeResetDelay": "00:00:00"
+      },
+      "Bindings": {
+        "TipActivationThreshold": 1.0,
+        "TipButton": {
+          "Path": "OpenTabletDriver.Desktop.Binding.MouseBinding",
+          "Settings": [
+            {
+              "Property": "Button",
+              "Value": "Left"
+            }
+          ],
+          "Enable": true
+        },
+        "EraserActivationThreshold": 0.0,
+        "EraserButton": null,
+        "PenButtons": [
+          null,
+          null
+        ],
+        "AuxButtons": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "MouseButtons": [],
+        "MouseScrollUp": null,
+        "MouseScrollDown": null
+      }
+    }
+  ],
   "LockUsableAreaDisplay": false,
   "LockUsableAreaTablet": false,
-  "DisplayWidth": 1920.0,
-  "DisplayHeight": 1080.0,
-  "DisplayXOffset": 2880.0,
-  "DisplayYOffset": 540.0,
-  "TabletWidth": 50.0,
-  "TabletHeight": 25.0,
-  "TabletXOffset": 31.339415,
-  "TabletYOffset": 19.55279,
-  "TabletRotation": 0.0,
-  "EnableClipping": true,
-  "EnableAreaLimiting": false,
-  "LockAspectRatio": false,
-  "XSensitivity": 10.0,
-  "YSensitivity": 10.0,
-  "RelativeRotation": 0.0,
-  "RelativeResetDelay": "00:00:00.1000000",
-  "TipActivationPressure": 1.0,
-  "TipButton": {
-    "Path": "OpenTabletDriver.Desktop.Binding.MouseBinding",
-    "Settings": [
-      {
-        "Property": "Property",
-        "Value": "Left",
-        "HasValue": true
-      }
-    ],
-    "Enable": true
-  },
-  "PenButtons": [
-    null,
-    null
-  ],
-  "AuxButtons": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ],
-  "Tools": [],
-  "Interpolators": []
+  "Tools": []
 }
