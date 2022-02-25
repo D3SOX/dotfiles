@@ -1,6 +1,7 @@
 aarch64-linux-gnu-gcc
 acpid
 adobe-source-sans-fonts
+akvcam-dkms
 alacritty
 alsa-utils
 amazon-corretto-8
@@ -51,6 +52,7 @@ cups-pdf
 dart-sass
 dash
 dashbinsh
+dbeaver
 devtools
 dialog
 discord-canary
@@ -68,6 +70,7 @@ drkonqi
 duf
 e2fsprogs
 edk2-ovmf
+edk2-shell
 efibootmgr
 element-desktop
 exa
@@ -79,8 +82,10 @@ fastfetch-git
 fatresize
 faudio
 fd
+ffmpeg
 ffmpeg-compat-57
 ffmpegthumbs
+figma-linux
 file
 findutils
 firefox
@@ -108,6 +113,7 @@ glfw-x11
 gnome-icon-theme
 gnome-keyring
 gnome-themes-extra
+gnu-efi
 gnu-netcat
 goverlay-bin
 gptfdisk
@@ -116,8 +122,6 @@ grapejuice-git
 grep
 groff
 grsync
-grub
-grub-customizer
 gsfonts
 gst-libav
 gst-plugin-pipewire
@@ -132,7 +136,7 @@ gtk3-classic
 gutenprint
 gwenview
 gzip
-hardinfo
+hardinfo-gtk3
 haruna
 heidisql
 hello-kde-git
@@ -191,6 +195,7 @@ kompare
 konsole
 kora-icon-theme
 kruler
+krunner-jetbrains-git
 krusader
 kscreen
 kscreenlocker
@@ -254,7 +259,7 @@ linux516-tkg-pds
 linux516-tkg-pds-headers
 lrzip
 ludusavi
-lutris
+lutris-git
 lxappearance
 lzop
 m4
@@ -303,6 +308,7 @@ nordic-kde-git
 noto-fonts-cjk
 noto-fonts-emoji
 npm
+ntfs-3g
 obs-studio
 ocl-icd
 okteta
@@ -317,12 +323,14 @@ p7zip
 packagekit-qt5
 pacman
 pacman-contrib
+papirus-folders
 papirus-icon-theme
 partitionmanager
 paru
 patch
 patchelf
 pavucontrol-qt
+payload-dumper-go-bin
 pdfarranger
 pdfmixtool
 pdftricks
@@ -351,6 +359,7 @@ plasma5-applets-latte-separator
 plasma5-applets-latte-sidebar-button
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu-git
+plasma5-applets-window-buttons
 plasma5-applets-window-title
 pnpm-bin
 polkit-kde-agent
@@ -386,11 +395,12 @@ qt6-svg
 qt6-tools
 qt6-translations
 qt6-wayland
+r2mod_cli
 radeon-profile-daemon-git
 radeon-profile-git
+refind
 reflector
 remmina
-replay-sorcery
 reshade-shaders-git
 revolt-desktop
 rofi
@@ -430,7 +440,7 @@ sysfsutils
 system-config-printer
 systembus-notify
 systemsettings
-teams
+teams-for-linux
 teamspeak
 telegram-desktop
 terminus-font
@@ -444,6 +454,7 @@ ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
 ttf-exo-2
+ttf-fira-code
 ttf-fira-mono
 ttf-fira-sans
 ttf-font-awesome
@@ -485,8 +496,10 @@ vkd3d
 vulkan-headers
 vulkan-radeon
 vulkan-tools
+webcamoid
 wget
 which
+winbar-git
 wine-gecko
 wine-mono
 wine-tkg-staging-fsync-git
