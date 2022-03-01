@@ -1,6 +1,7 @@
 aarch64-linux-gnu-gcc
 acpid
 adobe-source-sans-fonts
+adw-gtk3
 akvcam-dkms
 alacritty
 alsa-utils
@@ -100,6 +101,7 @@ foomatic-db
 foomatic-db-engine
 freerdp
 fzf
+gamescope
 gawk
 gcc
 geforcenow-electron
@@ -282,6 +284,7 @@ minidlna
 mlocate
 mon2cam-git
 monero-gui
+mono
 mpv
 mtools
 multimc5
@@ -314,6 +317,7 @@ ocl-icd
 okteta
 okular
 onedrive-abraunegg
+onefetch
 onlyoffice-bin
 opentabletdriver
 os-prober
@@ -380,6 +384,7 @@ qalculate-qt
 qbittorrent
 qdirstat
 qemu
+qpwgraph
 qt5-doc
 qt5-virtualkeyboard
 qt6-3d
@@ -415,6 +420,7 @@ sidequest-bin
 sierrabreeze-kwin-decoration-git
 signal-desktop
 simple-scan
+skanpage
 skypeforlinux-stable-bin
 soundux-git
 soundwire
@@ -538,5 +544,6 @@ zsh
 zsh-autosuggestions
 zsh-completions
 zsh-fast-syntax-highlighting
+zsh-fzf-plugin-git
 zsh-theme-powerlevel10k
 zsh-you-should-use

@@ -34,11 +34,6 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Plugins
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-
 # Theme
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
@@ -93,6 +88,12 @@ export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$HOME/.yarn/bin/"
 # Add local cargo packages to $PATH
 export PATH="$PATH:$HOME/.local/share/cargo/bin"
+
+# Plugins
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
