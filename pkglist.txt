@@ -23,6 +23,7 @@ aws-cli
 base
 bash-completion
 bat
+beekeeper-studio-appimage
 betterlockscreen
 bind
 binutils
@@ -35,6 +36,7 @@ brave-bin
 breeze
 breeze-gtk
 bspwm
+catppuccin-gtk-theme
 ccache
 cdrtools
 charles-bin
@@ -157,7 +159,6 @@ inter-font
 iptables-nft
 iriunwebcam-bin
 java-openjfx
-java8-openjfx
 jdk8-openjdk
 jdownloader2
 jetbrains-toolbox
@@ -233,6 +234,7 @@ lib32-mesa-vdpau
 lib32-mpg123
 lib32-ocl-icd
 lib32-openal
+lib32-openssl-1.0
 lib32-v4l-utils
 lib32-vkbasalt
 lib32-vkd3d
@@ -287,7 +289,6 @@ monero-gui
 mono
 mpv
 mtools
-multimc5
 multipath-tools
 mumble
 nano
@@ -319,6 +320,7 @@ okular
 onedrive-abraunegg
 onefetch
 onlyoffice-bin
+openssl-1.0
 opentabletdriver
 os-prober
 otf-san-francisco
@@ -368,6 +370,7 @@ plasma5-applets-window-title
 pnpm-bin
 polkit-kde-agent
 polybar
+polymc
 powerdevil
 powerline-fonts
 preload
@@ -444,6 +447,7 @@ svgpart
 sxhkd
 sysfsutils
 system-config-printer
+system-monitoring-center
 systembus-notify
 systemsettings
 teams-for-linux
