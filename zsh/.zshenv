@@ -8,7 +8,7 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
 # Set manpager
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER="nvim -c 'Man!' -"
 # Set default apps
 export EDITOR="nvim"
 export VISUAL="${EDITOR}"
