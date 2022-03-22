@@ -126,6 +126,7 @@ grapejuice-git
 grep
 groff
 grsync
+grub
 gsfonts
 gst-libav
 gst-plugin-pipewire
@@ -215,6 +216,7 @@ kwrited
 latte-dock
 legendary
 less
+lf
 lib32-faudio
 lib32-giflib
 lib32-gnutls
@@ -259,8 +261,8 @@ lightly-git
 linux
 linux-firmware
 linux-headers
-linux516-tkg-pds
-linux516-tkg-pds-headers
+linux517-tkg-pds
+linux517-tkg-pds-headers
 lrzip
 ludusavi
 lutris-git
@@ -307,7 +309,7 @@ nfs-utils
 ninja
 nitrogen
 nitrokey-app
-noisetorch
+noise-suppression-for-voice
 nordic-kde-git
 noto-fonts-cjk
 noto-fonts-emoji
@@ -406,7 +408,6 @@ qt6-wayland
 r2mod_cli
 radeon-profile-daemon-git
 radeon-profile-git
-refind
 reflector
 remmina
 reshade-shaders-git
@@ -415,6 +416,7 @@ rofi
 rsync
 rust
 sane
+saucer-cli-git
 schedtool
 scrcpy
 sddm-kcm
@@ -450,7 +452,6 @@ system-config-printer
 system-monitoring-center
 systembus-notify
 systemsettings
-teams-for-linux
 teamspeak
 telegram-desktop
 terminus-font
@@ -503,6 +504,7 @@ virtualbox-guest-iso
 vivaldi
 vivaldi-ffmpeg-codecs
 vkd3d
+vmware-workstation
 vulkan-headers
 vulkan-radeon
 vulkan-tools
