@@ -97,7 +97,6 @@ fish
 flameshot
 flatpak
 flex
-fluent-icon-theme-git
 fontforge
 foomatic-db
 foomatic-db-engine
@@ -252,6 +251,7 @@ libksysguard
 libreoffice-fresh
 libreoffice-fresh-de
 librespot
+librewolf-bin
 libtool
 libva-mesa-driver
 libva-vdpau-driver
@@ -442,9 +442,6 @@ sshfs
 steam
 steam-acolyte
 sudo
-suru-plus-dark-git
-suru-plus-folders-git
-suru-plus-git
 svgpart
 sxhkd
 sysfsutils
