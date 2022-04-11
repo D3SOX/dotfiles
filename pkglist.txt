@@ -48,7 +48,6 @@ code-marketplace
 colord-kde
 composer
 cpufetch-git
-crda
 cups
 cups-filters
 cups-pdf
@@ -158,7 +157,6 @@ insomnia-bin
 inter-font
 iptables-nft
 iriunwebcam-bin
-java-openjfx
 jdk8-openjdk
 jdownloader2
 jetbrains-toolbox
@@ -382,9 +380,11 @@ protontricks
 protonup-qt
 protonvpn-cli
 pulseaudio-alsa
+pyside2
 python-numpy
 python-pip
 python-pynvim
+python-service-identity
 qalculate-qt
 qbittorrent
 qdirstat
@@ -444,6 +444,7 @@ steam-acolyte
 sudo
 svgpart
 sxhkd
+syncplay
 sysfsutils
 system-config-printer
 system-monitoring-center
