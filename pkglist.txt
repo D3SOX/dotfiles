@@ -5,6 +5,7 @@ adw-gtk3
 akvcam-dkms
 alacritty
 alsa-utils
+amazon-corretto-17
 amazon-corretto-8
 amd-ucode
 android-tools
@@ -32,6 +33,7 @@ bleachbit
 blobsaver-bin
 bluedevil
 boost
+bottles
 brave-bin
 breeze
 breeze-gtk
@@ -95,12 +97,15 @@ firefox-i18n-en-us
 fish
 flameshot
 flatpak
+flatpak-builder
 flex
 fontforge
 foomatic-db
 foomatic-db-engine
 freerdp
+fuseiso
 fzf
+galaxybudsclient-bin
 gamescope
 gawk
 gcc
@@ -263,7 +268,7 @@ linux517-tkg-pds
 linux517-tkg-pds-headers
 lrzip
 ludusavi
-lutris-git
+lutris
 lxappearance
 lzop
 m4
@@ -433,7 +438,7 @@ spectacle
 speedtest-cli
 spicetify-cli
 spicetify-themes-git
-spotify
+spotify-edge
 spotify-qt
 sqlitebrowser
 sqlmap
@@ -521,6 +526,7 @@ wmctrl
 wmname
 wootility-lekker-beta-appimage
 xboxdrv
+xclicker
 xclip
 xdelta3
 xdg-desktop-portal-kde
