@@ -11,12 +11,12 @@ UUID=166E-25BB     	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,code
 # /dev/nvme1n1p3 LABEL=HOME
 UUID=643b2977-778c-4e45-a3da-0da66b3e168f	/home	ext4	rw,noatime	0	2
 
-# /dev/sda1 LABEL=DATA
+# /dev/sdb1 LABEL=DATA
 UUID=e483b891-1dde-4bf7-93a5-9bc7867e7f4a	/run/media/nico/DATA	ext4	rw,nosuid,nodev,noatime,nofail	0	2
 
-# /dev/sdb2 LABEL=DATA_SSD
+# /dev/sdc2 LABEL=DATA_SSD
 UUID=91cb50c4-fc3f-4982-990b-ebd70247237d	/run/media/nico/DATA_SSD	ext4	rw,nosuid,nodev,noatime,nofail	0	2
 
-# /dev/sdc1 LABEL=MEDIA
+# /dev/sda1 LABEL=MEDIA
 UUID=ef4a10f9-a44c-4c52-87e6-524c62885336	/run/media/nico/Media	ext4	rw,nosuid,nodev,noatime,nofail	0	2
 
