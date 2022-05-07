@@ -3,4 +3,7 @@
 	url = https://github.com/black7375/Firefox-UI-Fix.git
 [submodule "firefox/firefox-csshacks"]
 	path = firefox/firefox-csshacks
-	url = https://github.com/MrOtherGuy/firefox-csshacks
+	url = https://github.com/MrOtherGuy/firefox-csshacks.git
+[submodule "vim/.vim/bundle/Vundle.vim"]
+	path = vim/.vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
