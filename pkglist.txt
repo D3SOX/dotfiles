@@ -5,6 +5,7 @@ adw-gtk3
 akvcam-dkms
 alacritty
 alsa-utils
+alvr
 amazon-corretto-17
 amazon-corretto-8
 amd-ucode
@@ -38,6 +39,7 @@ brave-bin
 breeze
 breeze-gtk
 bspwm
+catppuccin-grub-theme-git
 catppuccin-gtk-theme
 ccache
 cdrtools
@@ -50,6 +52,7 @@ code-marketplace
 colord-kde
 composer
 cpufetch-git
+crossover
 cups
 cups-filters
 cups-pdf
@@ -86,10 +89,8 @@ fastfetch-git
 fatresize
 faudio
 fd
-ffmpeg
 ffmpeg-compat-57
 ffmpegthumbs
-figma-linux
 file
 findutils
 firefox
@@ -125,7 +126,7 @@ gnu-netcat
 goverlay-bin
 gptfdisk
 gradle
-grapejuice-git
+grapejuice
 grep
 groff
 grsync
@@ -201,7 +202,6 @@ kompare
 konsole
 kora-icon-theme
 kruler
-krunner-jetbrains-git
 krusader
 kscreen
 kscreenlocker
@@ -209,7 +209,6 @@ ksshaskpass
 kwallet-pam
 kwalletmanager
 kwayland-integration
-kwayland-server
 kwin
 kwin-effects-sliding-notifications
 kwin-effects-yet-another-magic-lamp
@@ -222,7 +221,9 @@ lf
 lib32-faudio
 lib32-giflib
 lib32-gnutls
+lib32-gst-plugins-base
 lib32-gst-plugins-base-libs
+lib32-gst-plugins-good
 lib32-gtk3-classic
 lib32-libjpeg-turbo
 lib32-libpng
@@ -232,7 +233,7 @@ lib32-libva-vdpau-driver
 lib32-libxcomposite
 lib32-libxinerama
 lib32-libxslt
-lib32-mangohud
+lib32-mangohud-x11
 lib32-mesa
 lib32-mesa-vdpau
 lib32-mpg123
@@ -276,7 +277,8 @@ macchanger
 make
 man-db
 man-pages
-mangohud
+mangohud-common-x11
+mangohud-x11
 mariadb-clients
 masterpdfeditor-free
 materia-gtk-theme
@@ -285,7 +287,6 @@ mesa
 mesa-vdpau
 meson
 milou
-minecraft-launcher
 mingw-w64-gcc
 minidlna
 mlocate
@@ -334,6 +335,7 @@ p7zip
 packagekit-qt5
 pacman
 pacman-contrib
+pandoc
 papirus-folders
 papirus-icon-theme
 partitionmanager
@@ -393,7 +395,7 @@ python-service-identity
 qalculate-qt
 qbittorrent
 qdirstat
-qemu
+qemu-desktop
 qpwgraph
 qt5-doc
 qt5-virtualkeyboard
@@ -424,6 +426,7 @@ sane
 saucer-cli-git
 schedtool
 scrcpy
+screenkey
 sddm-kcm
 sed
 sidequest-bin
@@ -436,7 +439,7 @@ soundux-git
 soundwire
 spectacle
 speedtest-cli
-spicetify-cli
+spicetify-cli-git
 spicetify-themes-git
 spotify-edge
 spotify-qt
@@ -461,6 +464,7 @@ terminus-font
 tesseract-data-deu
 tesseract-data-eng
 texinfo
+texlive-core
 timeshift
 topgrade
 torbrowser-launcher
