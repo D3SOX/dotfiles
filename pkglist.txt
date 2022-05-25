@@ -60,6 +60,7 @@ dart-sass
 dash
 dashbinsh
 dbeaver
+debuginfod
 devtools
 dialog
 discord-canary
@@ -385,7 +386,6 @@ prettier
 print-manager
 protontricks
 protonup-qt
-protonvpn-cli
 pulseaudio-alsa
 pyside2
 python-numpy
