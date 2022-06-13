@@ -39,8 +39,8 @@ brave-bin
 breeze
 breeze-gtk
 bspwm
-catppuccin-grub-theme-git
 catppuccin-gtk-theme
+catppuccin-mocha-grub-theme-git
 ccache
 cdrtools
 charles-bin
@@ -90,6 +90,7 @@ fastfetch-git
 fatresize
 faudio
 fd
+ffmpeg
 ffmpeg-compat-57
 ffmpegthumbs
 file
@@ -203,6 +204,7 @@ kompare
 konsole
 kora-icon-theme
 kruler
+krunner-firefox-git
 krusader
 kscreen
 kscreenlocker
@@ -234,7 +236,7 @@ lib32-libva-vdpau-driver
 lib32-libxcomposite
 lib32-libxinerama
 lib32-libxslt
-lib32-mangohud-x11
+lib32-mangohud
 lib32-mesa
 lib32-mesa-vdpau
 lib32-mpg123
@@ -266,8 +268,8 @@ lightly-git
 linux
 linux-firmware
 linux-headers
-linux517-tkg-pds
-linux517-tkg-pds-headers
+linux518-tkg-pds
+linux518-tkg-pds-headers
 lrzip
 ludusavi
 lutris
@@ -278,8 +280,8 @@ macchanger
 make
 man-db
 man-pages
-mangohud-common-x11
-mangohud-x11
+mangohud
+mangohud-common
 mariadb-clients
 masterpdfeditor-free
 materia-gtk-theme
@@ -290,6 +292,7 @@ meson
 milou
 mingw-w64-gcc
 minidlna
+miniserve
 mlocate
 mon2cam-git
 monero-gui
@@ -336,7 +339,6 @@ p7zip
 packagekit-qt5
 pacman
 pacman-contrib
-pandoc
 papirus-folders
 papirus-icon-theme
 partitionmanager
@@ -518,7 +520,6 @@ vulkan-tools
 webcamoid
 wget
 which
-winbar-git
 wine-gecko
 wine-mono
 wine-tkg-staging-fsync-git
