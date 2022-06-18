@@ -39,7 +39,6 @@ brave-bin
 breeze
 breeze-gtk
 bspwm
-catppuccin-gtk-theme
 catppuccin-mocha-grub-theme-git
 ccache
 cdrtools
@@ -335,6 +334,7 @@ opentabletdriver
 os-prober
 otf-san-francisco
 otf-san-francisco-mono
+oxygen-sounds
 p7zip
 packagekit-qt5
 pacman
@@ -553,7 +553,6 @@ yarn
 yt-dlp
 yt-dlp-drop-in
 zip
-zorin-desktop-themes
 zramd
 zsh
 zsh-autosuggestions
