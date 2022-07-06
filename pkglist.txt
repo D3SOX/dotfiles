@@ -119,7 +119,6 @@ git
 git-lfs
 github-cli
 glfw-x11
-gnome-icon-theme
 gnome-keyring
 gnome-themes-extra
 gnu-efi
@@ -441,8 +440,7 @@ soundux-git
 soundwire
 spectacle
 speedtest-cli
-spicetify-cli-git
-spicetify-themes-git
+spicetify-cli
 spotify-edge
 spotify-qt
 sqlitebrowser
@@ -493,7 +491,6 @@ ttf-ms-win11-zh_tw
 ttf-nerd-fonts-symbols
 ttf-opensans
 ttf-roboto
-tunnelto-bin
 tutanota-desktop-bin
 typescript
 ufw
@@ -535,6 +532,7 @@ xclicker
 xclip
 xdelta3
 xdg-desktop-portal-kde
+xdg-ninja
 xdg-user-dirs
 xdotool
 xf86-input-evdev
