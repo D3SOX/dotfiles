@@ -1,0 +1,8 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+GTK_USE_PORTAL=1
+FREETYPE_PROPERTIES="cff:no-stem-darkening=0"
+MOZ_ENABLE_WAYLAND=1
