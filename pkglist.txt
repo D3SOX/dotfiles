@@ -18,6 +18,7 @@ aria2
 ark
 asciinema
 asp
+audacity
 autoconf
 automake
 awesome-terminal-fonts
@@ -39,11 +40,11 @@ brave-bin
 breeze
 breeze-gtk
 bspwm
-catppuccin-mocha-grub-theme-git
 ccache
 cdrtools
 charles-bin
 clang
+clifm
 cmake
 code
 code-features
@@ -63,6 +64,7 @@ debuginfod
 devtools
 dialog
 discord-canary
+discord-screenaudio
 dkms
 dmidecode
 dnsmasq
@@ -79,11 +81,14 @@ e2fsprogs
 edk2-ovmf
 edk2-shell
 efibootmgr
+electron18
+electron19
 element-desktop
 exa
 exfat-utils
 expac
 extra-cmake-modules
+fail2ban
 fakeroot
 fastfetch-git
 fatresize
@@ -238,6 +243,7 @@ lib32-mangohud
 lib32-mesa
 lib32-mesa-vdpau
 lib32-mpg123
+lib32-obs-vkcapture-git
 lib32-ocl-icd
 lib32-openal
 lib32-openssl-1.0
@@ -266,8 +272,8 @@ lightly-git
 linux
 linux-firmware
 linux-headers
-linux518-tkg-pds
-linux518-tkg-pds-headers
+linux519-tkg-pds
+linux519-tkg-pds-headers
 lrzip
 ludusavi
 lutris
@@ -317,11 +323,13 @@ nitrogen
 nitrokey-app
 noise-suppression-for-voice
 nordic-kde-git
+notion-app-enhanced
 noto-fonts-cjk
 noto-fonts-emoji
 npm
 ntfs-3g
 obs-studio
+obs-vkcapture-git
 ocl-icd
 okteta
 okular
@@ -379,7 +387,7 @@ plasma5-applets-window-title
 pnpm-bin
 polkit-kde-agent
 polybar
-polymc
+polymc-qt5
 powerdevil
 powerline-fonts
 preload
@@ -419,7 +427,6 @@ radeon-profile-git
 reflector
 remmina
 reshade-shaders-git
-revolt-desktop
 rofi
 rsync
 rust
@@ -441,7 +448,7 @@ soundwire
 spectacle
 speedtest-cli
 spicetify-cli
-spotify-edge
+spotify-launcher
 spotify-qt
 sqlitebrowser
 sqlmap
@@ -515,6 +522,7 @@ vulkan-headers
 vulkan-radeon
 vulkan-tools
 webcamoid
+wf-recorder
 wget
 which
 wine-gecko
@@ -526,7 +534,7 @@ wireless_tools
 wireplumber
 wmctrl
 wmname
-wootility-lekker-beta-appimage
+wootility-lekker-appimage
 xboxdrv
 xclicker
 xclip
