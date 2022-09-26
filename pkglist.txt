@@ -1,4 +1,5 @@
 aarch64-linux-gnu-gcc
+abaddon-git
 acpid
 adobe-source-sans-fonts
 adw-gtk3
@@ -35,7 +36,6 @@ bleachbit
 blobsaver-bin
 bluedevil
 boost
-bottles
 brave-bin
 breeze
 breeze-gtk
@@ -74,6 +74,7 @@ dolphin
 dolphin-plugins
 dos2unix
 dosfstools
+dotnet-sdk
 downgrade
 drkonqi
 duf
@@ -81,7 +82,6 @@ e2fsprogs
 edk2-ovmf
 edk2-shell
 efibootmgr
-electron18
 electron19
 element-desktop
 exa
@@ -90,7 +90,7 @@ expac
 extra-cmake-modules
 fail2ban
 fakeroot
-fastfetch-git
+fastfetch
 fatresize
 faudio
 fd
@@ -113,7 +113,6 @@ freerdp
 fuseiso
 fzf
 galaxybudsclient-bin
-gamescope
 gawk
 gcc
 geforcenow-electron
@@ -160,6 +159,7 @@ htop
 hunspell-de
 hunspell-en_us
 i2c-tools
+i2p
 icoutils
 ifplugd
 inetutils
@@ -328,6 +328,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 ntfs-3g
+obs-gstreamer
 obs-studio
 obs-vkcapture-git
 ocl-icd
@@ -427,7 +428,6 @@ radeon-profile-git
 reflector
 remmina
 reshade-shaders-git
-rofi
 rsync
 rust
 sane
@@ -438,6 +438,7 @@ screenkey
 sddm-kcm
 sed
 sidequest-bin
+sidequestlite-bin
 sierrabreeze-kwin-decoration-git
 signal-desktop
 simple-scan
@@ -487,15 +488,8 @@ ttf-inconsolata
 ttf-jetbrains-mono
 ttf-joypixels
 ttf-liberation
-ttf-ms-win11
-ttf-ms-win11-japanese
-ttf-ms-win11-korean
-ttf-ms-win11-other
-ttf-ms-win11-sea
-ttf-ms-win11-thai
-ttf-ms-win11-zh_cn
-ttf-ms-win11-zh_tw
-ttf-nerd-fonts-symbols
+ttf-ms-win11-auto
+ttf-nerd-fonts-symbols-2048-em
 ttf-opensans
 ttf-roboto
 tutanota-desktop-bin
