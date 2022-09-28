@@ -31,6 +31,6 @@ alias gc="git commit -v"
 alias gp="git push"
 alias gsu="git submodule update --init --recursive"
 alias ":q"="exit"
-alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -selection clipboard)\""'
+alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -sel clip)\""'
 alias reboot-windows="sudo grub-reboot 'Windows Boot Manager (on /dev/nvme1n1p1)' && sudo reboot"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
