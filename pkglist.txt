@@ -112,6 +112,7 @@ freerdp
 fuseiso
 fzf
 galaxybudsclient-bin
+gamescope
 gawk
 gcc
 geforcenow-electron
@@ -148,7 +149,6 @@ gtk3-classic
 gutenprint
 gwenview
 gzip
-hardinfo-gtk3
 haruna
 heidisql
 hello-kde-git
@@ -273,6 +273,8 @@ linux-firmware
 linux-headers
 linux519-tkg-pds
 linux519-tkg-pds-headers
+linux60-tkg-pds
+linux60-tkg-pds-headers
 lrzip
 ludusavi
 lutris
@@ -294,7 +296,6 @@ mesa-vdpau
 meson
 milou
 mingw-w64-gcc
-minidlna
 miniserve
 mlocate
 mon2cam-git
@@ -504,8 +505,6 @@ v4l2loopback-dkms
 variety
 vde2
 virt-manager
-virtualbox
-virtualbox-guest-iso
 vivaldi
 vivaldi-ffmpeg-codecs
 vkd3d
