@@ -1,6 +1,7 @@
 UNIT FILE                          STATE   PRESET
 cups.path                          enabled disabled
 acpid.service                      enabled disabled
+ananicy-cpp.service                enabled disabled
 avahi-daemon.service               enabled disabled
 bluetooth.service                  enabled disabled
 cronie.service                     enabled disabled
@@ -28,4 +29,4 @@ remote-fs.target                   enabled enabled
 fstrim.timer                       enabled disabled
 reflector.timer                    enabled disabled
 
-28 unit files listed.
+29 unit files listed.

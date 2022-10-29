@@ -9,6 +9,8 @@ alvr
 amazon-corretto-17
 amazon-corretto-8
 amd-ucode
+ananicy-cpp
+ananicy-rules-git
 android-tools
 android-udev
 anydesk-bin
@@ -207,7 +209,6 @@ konsole
 kora-icon-theme
 kruler
 krunner-firefox-git
-krusader
 kscreen
 kscreenlocker
 ksshaskpass
@@ -271,8 +272,6 @@ lightly-git
 linux
 linux-firmware
 linux-headers
-linux519-tkg-pds
-linux519-tkg-pds-headers
 linux60-tkg-pds
 linux60-tkg-pds-headers
 lrzip
@@ -347,6 +346,7 @@ p7zip
 packagekit-qt5
 pacman
 pacman-contrib
+pacseek
 papirus-folders
 papirus-icon-theme
 partitionmanager
@@ -388,12 +388,12 @@ plasma5-applets-window-title
 pnpm-bin
 polkit-kde-agent
 polybar
-polymc-qt5
 powerdevil
 powerline-fonts
 preload
 prettier
 print-manager
+prismlauncher-qt5
 protontricks
 protonup-qt
 pulseaudio-alsa
@@ -526,6 +526,7 @@ wireplumber
 wmctrl
 wmname
 wootility-lekker-appimage
+xbox-cloud-gaming
 xboxdrv
 xclicker
 xclip
