@@ -40,12 +40,12 @@ boost
 brave-bin
 breeze
 breeze-gtk
+brightness-controller-git
 bspwm
 ccache
 cdrtools
 charles-bin
 clang
-clifm
 cmake
 code
 code-features
@@ -64,7 +64,7 @@ dbeaver
 debuginfod
 devtools
 dialog
-discord-canary
+discord
 discord-screenaudio
 dkms
 dmidecode
@@ -76,6 +76,7 @@ dolphin-plugins
 dos2unix
 dosfstools
 dotnet-sdk
+dotnet-sdk-6.0
 downgrade
 drkonqi
 duf
@@ -220,10 +221,9 @@ kwin-effects-sliding-notifications
 kwin-effects-yet-another-magic-lamp
 kwin-scripts-forceblur
 kwrited
-latte-dock
+latte-dock-git
 legendary
 less
-lf
 lib32-faudio
 lib32-giflib
 lib32-gnutls
@@ -246,7 +246,7 @@ lib32-mpg123
 lib32-obs-vkcapture-git
 lib32-ocl-icd
 lib32-openal
-lib32-openssl-1.0
+lib32-openssl-1.1
 lib32-v4l-utils
 lib32-vkbasalt
 lib32-vkd3d
@@ -265,6 +265,7 @@ librespot
 librewolf-bin
 libtool
 libva-mesa-driver
+libva-utils
 libva-vdpau-driver
 libvirt
 libvncserver
@@ -320,6 +321,7 @@ nfs-utils
 ninja
 nitrogen
 nitrokey-app
+nodejs-lts-hydrogen
 noise-suppression-for-voice
 nordic-kde-git
 notion-app-enhanced
@@ -425,6 +427,7 @@ qt6-wayland
 r2mod_cli
 radeon-profile-daemon-git
 radeon-profile-git
+rebuild-detector
 reflector
 remmina
 reshade-shaders-git
