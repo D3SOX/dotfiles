@@ -30,6 +30,7 @@ bash-completion
 bat
 beekeeper-studio-appimage
 betterlockscreen
+bibata-cursor-theme
 bind
 binutils
 bison
@@ -261,7 +262,6 @@ libkscreen
 libksysguard
 libreoffice-fresh
 libreoffice-fresh-de
-librespot
 librewolf-bin
 libtool
 libva-mesa-driver
@@ -318,6 +318,7 @@ networkmanager-pptp
 networkmanager-vpnc
 nextcloud-client
 nfs-utils
+nile-git
 ninja
 nitrogen
 nitrokey-app
@@ -338,6 +339,7 @@ okular
 onedrive-abraunegg
 onefetch
 onlyoffice-bin
+openrgb
 openssl-1.0
 opentabletdriver
 os-prober
@@ -348,7 +350,6 @@ p7zip
 packagekit-qt5
 pacman
 pacman-contrib
-pacseek
 papirus-folders
 papirus-icon-theme
 partitionmanager
@@ -402,6 +403,7 @@ pulseaudio-alsa
 pyside2
 python-numpy
 python-pip
+python-pynitrokey
 python-pynvim
 python-service-identity
 qalculate-qt
@@ -453,14 +455,15 @@ spectacle
 speedtest-cli
 spicetify-cli
 spotify-launcher
-spotify-qt
 sqlitebrowser
 sqlmap
 squashfs-tools
 sshfs
 steam
 steam-acolyte
+steam-boilr-gui
 sudo
+supertuxkart
 svgpart
 sxhkd
 syncplay
@@ -482,7 +485,6 @@ torbrowser-launcher
 ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
-ttf-exo-2
 ttf-fira-code
 ttf-fira-mono
 ttf-fira-sans
