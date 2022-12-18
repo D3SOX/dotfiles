@@ -3,7 +3,7 @@
 
 # Disable specific steps - same options as the command line flag
 #disable = ["system", "emacs"]
-disable = ["pip3", "spicetify", "node"]
+disable = ["pip3", "spicetify", "node", "yarn", "pnpm"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
@@ -13,6 +13,10 @@ disable = ["pip3", "spicetify", "node"]
 
 # Do not ask to retry failed steps (default: false)
 #no_retry = true
+
+# Run `sudo -v` to cache credentials at the start of the run; this avoids a
+# blocking password prompt in the middle of a possibly-unattended run.
+pre_sudo = true
 
 # Run inside tmux
 #run_in_tmux = true
@@ -61,7 +65,7 @@ disable = ["pip3", "spicetify", "node"]
 # Commands to run before anything
 [pre_commands]
 #"Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
-"Elevate" = "sudo echo" # So that I can type my password right away
+#"Elevate" = "sudo echo" # So that I can type my password right away
 "Firefox theme" = "~/scripts/update-firefox-theme.sh"
 
 # Custom commands
@@ -110,3 +114,8 @@ disable = ["pip3", "spicetify", "node"]
 [flatpak]
 # Use sudo for updating the system-wide installation
 #use_sudo = true
+
+[distrobox]
+#use_root = false
+#containers = ["archlinux-latest"]
+
