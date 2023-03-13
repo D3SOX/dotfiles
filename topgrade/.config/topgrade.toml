@@ -46,7 +46,7 @@ pre_sudo = true
 #skip_notify = true
 
 # Skip the preamble displayed when topgrade is run
-display_preamble = true
+display_preamble = false
 
 [git]
 #max_concurrency = 5
