@@ -20,12 +20,14 @@ aria2
 ark
 asciinema
 asp
+atomicparsley
 audacity
 autoconf
 automake
 awesome-terminal-fonts
 aws-cli
 base
+base-devel
 bash-completion
 bat
 beekeeper-studio-appimage
@@ -71,6 +73,7 @@ dkms
 dmidecode
 dnsmasq
 docker
+docker-buildx
 docker-compose
 dolphin
 dolphin-plugins
@@ -87,6 +90,7 @@ edk2-shell
 efibootmgr
 electron19
 element-desktop
+espeak-ng
 exa
 exfat-utils
 expac
@@ -98,7 +102,6 @@ fatresize
 faudio
 fd
 ffmpeg
-ffmpeg-compat-57
 ffmpegthumbs
 file
 findutils
@@ -108,6 +111,7 @@ fish
 flameshot
 flatpak
 flatpak-builder
+flatpak-kcm
 flex
 fontforge
 foomatic-db
@@ -162,7 +166,6 @@ htop
 hunspell-de
 hunspell-en_us
 i2c-tools
-i2p
 icoutils
 ifplugd
 inetutils
@@ -202,6 +205,7 @@ khotkeys
 kimageformats
 kinfocenter
 kio-fuse
+kirigami-addons
 kmag
 kmenuedit
 kodi
@@ -231,7 +235,7 @@ lib32-gnutls
 lib32-gst-plugins-base
 lib32-gst-plugins-base-libs
 lib32-gst-plugins-good
-lib32-gtk3-classic
+lib32-gtk3
 lib32-libjpeg-turbo
 lib32-libpng
 lib32-libpulse
@@ -262,7 +266,6 @@ libkscreen
 libksysguard
 libreoffice-fresh
 libreoffice-fresh-de
-librewolf-bin
 libtool
 libva-mesa-driver
 libva-utils
@@ -273,8 +276,8 @@ lightly-git
 linux
 linux-firmware
 linux-headers
-linux60-tkg-pds
-linux60-tkg-pds-headers
+linux62-tkg-pds
+linux62-tkg-pds-headers
 lrzip
 ludusavi
 lutris
@@ -324,8 +327,8 @@ nitrogen
 nitrokey-app
 nodejs-lts-hydrogen
 noise-suppression-for-voice
+nomachine
 nordic-kde-git
-notion-app-enhanced
 noto-fonts-cjk
 noto-fonts-emoji
 npm
@@ -339,8 +342,7 @@ okular
 onedrive-abraunegg
 onefetch
 onlyoffice-bin
-openrgb
-openssl-1.0
+opencv
 opentabletdriver
 os-prober
 otf-san-francisco
@@ -380,13 +382,14 @@ plasma-systemmonitor
 plasma-thunderbolt
 plasma-vault
 plasma-wayland-session
+plasma-welcome
 plasma-workspace
 plasma-workspace-wallpapers
 plasma5-applets-latte-separator
 plasma5-applets-latte-sidebar-button
 plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu-git
-plasma5-applets-window-buttons
+plasma5-applets-window-buttons-git
 plasma5-applets-window-title
 pnpm-bin
 polkit-kde-agent
@@ -394,18 +397,19 @@ polybar
 powerdevil
 powerline-fonts
 preload
-prettier
 print-manager
 prismlauncher-qt5
-protontricks
+protontricks-git
 protonup-qt
 pulseaudio-alsa
+pypeek-git
 pyside2
 python-numpy
 python-pip
 python-pynitrokey
 python-pynvim
 python-service-identity
+python-websockets
 qalculate-qt
 qbittorrent
 qdirstat
@@ -452,6 +456,7 @@ skypeforlinux-stable-bin
 soundux-git
 soundwire
 spectacle
+speech-dispatcher
 speedtest-cli
 spicetify-cli
 spotify-launcher
@@ -507,7 +512,6 @@ unzip
 usbutils
 uxplay
 v4l2loopback-dkms
-variety
 vde2
 virt-manager
 vivaldi
@@ -531,7 +535,6 @@ wireplumber
 wmctrl
 wmname
 wootility-lekker-appimage
-xbox-cloud-gaming
 xboxdrv
 xclicker
 xclip
