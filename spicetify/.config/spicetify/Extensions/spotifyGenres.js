@@ -1,0 +1,1 @@
+Spicetify-Extensions/Spotify-Genres/spotifyGenres.js

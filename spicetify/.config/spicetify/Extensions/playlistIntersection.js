@@ -1,0 +1,1 @@
+huh-spicetify-extensions/playlistIntersection/playlistIntersection.js

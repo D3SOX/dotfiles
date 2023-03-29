@@ -1,0 +1,1 @@
+theblockbuster1-spicetify-extensions/CoverAmbience/CoverAmbience.js

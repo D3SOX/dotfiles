@@ -1,0 +1,1 @@
+spicetify-hide-podcasts/hidePodcasts.js

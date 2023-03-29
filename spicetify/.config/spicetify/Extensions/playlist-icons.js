@@ -1,0 +1,1 @@
+spicetify-playlist-icons/playlist-icons.js
