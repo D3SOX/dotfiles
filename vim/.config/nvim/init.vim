@@ -131,8 +131,14 @@ set guioptions-=L  "remove left-hand scroll bar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set ttymouse=sgr
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Fixes resetting the cursor after exiting (Sets it back to a non-blinking I-beam cursor)
+" => https://github.com/neovim/neovim/issues/4396
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimLeave * set guicursor= | call chansend(v:stderr, "\x1b[6 q")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Removes pipes | that act as seperators on splits
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set fillchars+=vert:\ 
+
