@@ -94,6 +94,8 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
+# Zoxide
+eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -101,3 +103,13 @@ source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 if [ "$TERM_PROGRAM" != "vscode" ]; then
     pfetch
 fi
+
+# bun completions
+[ -s "/home/nico/.bun/_bun" ] && source "/home/nico/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/home/nico/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Intellishense
+[ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh

@@ -5,10 +5,9 @@ alias ytdl="yt-dlp -i -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=we
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
     alias clear="clear && pfetch"
-    #alias clear="clear && flashfetch"
 fi
 
-alias ls="exa -lhg --color=always --group-directories-first --icons"
+alias ls="eza -lhg --color=always --group-directories-first --icons"
 alias dke="docker exec"
 alias vim="nvim"
 alias vi="nvim"
@@ -22,13 +21,17 @@ alias chown="chown -c"
 alias upload="curl --upload-file"
 alias sxconf="$EDITOR ~/.config/sxhkd/sxhkdrc"
 alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
-alias scs="/usr/bin/mon2cam -e vdpau -m 0 -f 30"
 alias rrsync="rsync -uvrP"
 alias sstart="sudo systemctl start"
 alias sstop="sudo systemctl stop"
+alias sstatus="sudo systemctl status"
+alias sustart="systemctl --user start"
+alias sustop="systemctl --user stop"
+alias sustatus="systemctl --user status"
 alias ga="git add"
 alias gc="git commit -v"
 alias gp="git push"
+alias gspp="git stash && git pull && git stash pop"
 alias gsu="git submodule update --init --recursive"
 alias ":q"="exit"
 alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -sel clip)\""'
