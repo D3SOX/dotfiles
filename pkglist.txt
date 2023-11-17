@@ -31,6 +31,7 @@ beekeeper-studio-appimage
 betterlockscreen
 bibata-cursor-theme
 bind
+binder_linux-dkms
 binutils
 bison
 bleachbit
@@ -42,6 +43,7 @@ breeze
 breeze-gtk
 bspwm
 cachyos-ananicy-rules-git
+cameractrls
 ccache
 cdrtools
 charles-beta-bin
@@ -61,8 +63,6 @@ dbeaver
 debuginfod
 devtools
 dialog
-discord
-discord-screenaudio
 dkms
 dmidecode
 dnsmasq
@@ -128,7 +128,7 @@ gnome-keyring
 gnome-themes-extra
 gnu-efi
 gnu-netcat
-goverlay-bin
+goverlay
 gptfdisk
 gradle
 grep
@@ -166,6 +166,7 @@ ipscan
 iptables-nft
 iriunwebcam-bin
 jamesdsp
+jdk-openjdk
 jdk17-temurin
 jetbrains-toolbox
 john
@@ -287,7 +288,6 @@ meson
 milou
 mingw-w64-gcc
 miniserve
-mon2cam-git
 monero-gui
 mono
 mpv
@@ -306,10 +306,11 @@ networkmanager-pptp
 networkmanager-vpnc
 nextcloud-client
 nfs-utils
-nile-git
 ninja
 nitrogen
+nitrokey-app2
 nodejs
+nodejs-inshellisense
 noise-suppression-for-voice
 nordic-kde-git
 notesnook-bin
@@ -317,6 +318,8 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 ntfs-3g
+nvtop
+nyrna
 obs-gstreamer
 obs-studio
 obs-vkcapture-git
@@ -347,6 +350,7 @@ pdfmixtool
 pdftricks
 peek
 pfetch-git
+php-sqlite
 picom-git
 pika-backup
 piper
@@ -379,6 +383,7 @@ plocate
 pnpm
 polkit-kde-agent
 polybar
+portmaster-stub-bin
 powerdevil
 powerline-fonts
 preload
@@ -415,8 +420,6 @@ qt6-tools
 qt6-translations
 qt6-wayland
 r2mod_cli
-radeon-profile-daemon-git
-radeon-profile-git
 rebuild-detector
 reflector
 remmina
@@ -440,7 +443,7 @@ soundwire
 spectacle
 speech-dispatcher
 speedtest-cli
-spicetify-cli-git
+spicetify-cli
 spotify-launcher
 sqlitebrowser
 sqlmap
@@ -450,14 +453,13 @@ steam
 steam-boilr-gui
 sudo
 svgpart
+swtpm
 sxhkd
 syncplay
 sysfsutils
 systembus-notify
 systemsettings
 teams-for-linux
-teamspeak
-teamspeak3
 telegram-desktop
 terminus-font
 tesseract-data-deu
@@ -502,6 +504,8 @@ vmware-workstation
 vulkan-headers
 vulkan-radeon
 vulkan-tools
+waydroid
+waydroid-image
 webcamoid
 wf-recorder
 wget

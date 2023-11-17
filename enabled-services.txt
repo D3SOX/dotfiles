@@ -4,7 +4,6 @@ ananicy-cpp.service                enabled disabled
 avahi-daemon.service               enabled disabled
 bluetooth.service                  enabled disabled
 cronie.service                     enabled disabled
-docker.service                     enabled disabled
 ebtables.service                   enabled disabled
 fail2ban.service                   enabled disabled
 getty@.service                     enabled enabled
@@ -13,8 +12,8 @@ libvirtd.service                   enabled disabled
 NetworkManager-dispatcher.service  enabled disabled
 NetworkManager-wait-online.service enabled disabled
 NetworkManager.service             enabled disabled
+portmaster.service                 enabled disabled
 preload.service                    enabled disabled
-radeon-profile-daemon.service      enabled disabled
 sddm.service                       enabled disabled
 systemd-timesyncd.service          enabled enabled
 zramd.service                      enabled disabled
@@ -29,4 +28,4 @@ fstrim.timer                       enabled disabled
 plocate-updatedb.timer             enabled disabled
 reflector.timer                    enabled disabled
 
-29 unit files listed.
+28 unit files listed.
