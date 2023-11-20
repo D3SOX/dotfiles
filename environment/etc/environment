@@ -3,6 +3,7 @@
 #
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
-GTK_USE_PORTAL=1
 FREETYPE_PROPERTIES="cff:no-stem-darkening=0"
 MOZ_ENABLE_WAYLAND=1
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+POWERSHELL_TELEMETRY_OPTOUT=1
