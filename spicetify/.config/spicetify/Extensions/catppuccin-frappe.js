@@ -1,1 +1,0 @@
-../Themes/catppuccin/js/catppuccin-frappe.js

@@ -1,1 +1,0 @@
-huh-spicetify-extensions/fullAppDisplayModified/fullAppDisplayMod.js
