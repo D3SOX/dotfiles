@@ -23,6 +23,7 @@ Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'kovetskiy/sxhkd-vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'lambdalisue/suda.vim'
 
 call vundle#end()		" required, all plugins must appear before this line.
 
