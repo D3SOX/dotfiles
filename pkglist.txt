@@ -39,8 +39,8 @@ blobsaver-bin
 bluedevil
 boost
 brave-bin
-breeze
 breeze-gtk
+breeze5
 bspwm
 cachyos-ananicy-rules-git
 cameractrls
@@ -109,6 +109,7 @@ flatpak
 flatpak-builder
 flatpak-kcm
 flex
+flite
 fontforge
 freerdp
 fuseiso
@@ -119,7 +120,7 @@ gcc
 geforcenow-electron
 gettext
 gimagereader-qt
-gimp
+gimp-git
 git
 git-lfs
 github-cli
@@ -150,7 +151,6 @@ gwenview
 gzip
 haruna
 heidisql
-hello-kde-git
 heroic-games-launcher-bin
 htop
 hunspell-de
@@ -167,11 +167,11 @@ iptables-nft
 iriunwebcam-bin
 jamesdsp
 jdk-openjdk
-jdk17-temurin
 jetbrains-toolbox
 john
 jshon
 kactivitymanagerd
+kamoso
 kate
 kcalc
 kcolorchooser
@@ -190,7 +190,7 @@ kdialog
 keditbookmarks
 keepassxc
 kfind
-kgamma5
+kgamma
 kgpg
 khotkeys
 kimageformats5
@@ -292,6 +292,7 @@ monero-gui
 mono
 mpv
 mtools
+mullvad-vpn-bin
 multipath-tools
 nano
 neovim
@@ -309,8 +310,7 @@ nfs-utils
 ninja
 nitrogen
 nitrokey-app2
-nodejs
-nodejs-inshellisense
+nodejs-lts-iron
 noise-suppression-for-voice
 nordic-kde-git
 notesnook-bin
@@ -361,14 +361,12 @@ plasma-browser-integration
 plasma-desktop
 plasma-disks
 plasma-firewall
-plasma-integration
 plasma-nm
 plasma-pa
 plasma-sdk
 plasma-systemmonitor
 plasma-thunderbolt
 plasma-vault
-plasma-wayland-session
 plasma-welcome
 plasma-workspace
 plasma-workspace-wallpapers
@@ -378,6 +376,7 @@ plasma5-applets-latte-spacer
 plasma5-applets-window-appmenu-git
 plasma5-applets-window-buttons
 plasma5-applets-window-title
+plasma5-integration
 plasma5-shader-wallpaper
 plocate
 pnpm
@@ -387,7 +386,7 @@ portmaster-stub-bin
 powerdevil
 powerline-fonts
 preload
-prismlauncher-qt5
+prismlauncher
 protontricks-git
 protonup-qt
 pulseaudio-alsa
@@ -395,6 +394,7 @@ pypeek-git
 pyside2
 python-numpy
 python-pip
+python-pyclip
 python-pynitrokey
 python-pynvim
 python-service-identity
@@ -495,6 +495,7 @@ unzip
 usbutils
 uxplay
 v4l2loopback-dkms
+v4l2loopback-utils
 vde2
 vencord-desktop-git
 virt-manager
@@ -506,7 +507,6 @@ vulkan-radeon
 vulkan-tools
 waydroid
 waydroid-image
-webcamoid
 wf-recorder
 wget
 which

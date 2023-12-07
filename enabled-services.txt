@@ -1,31 +1,32 @@
-UNIT FILE                          STATE   PRESET
-acpid.service                      enabled disabled
-ananicy-cpp.service                enabled disabled
-avahi-daemon.service               enabled disabled
-bluetooth.service                  enabled disabled
-cronie.service                     enabled disabled
-ebtables.service                   enabled disabled
-fail2ban.service                   enabled disabled
-getty@.service                     enabled enabled
-gpm.service                        enabled disabled
-libvirtd.service                   enabled disabled
-NetworkManager-dispatcher.service  enabled disabled
-NetworkManager-wait-online.service enabled disabled
-NetworkManager.service             enabled disabled
-portmaster.service                 enabled disabled
-preload.service                    enabled disabled
-sddm.service                       enabled disabled
-systemd-timesyncd.service          enabled enabled
-zramd.service                      enabled disabled
-avahi-daemon.socket                enabled disabled
-libvirtd-ro.socket                 enabled disabled
-libvirtd.socket                    enabled disabled
-saned.socket                       enabled disabled
-virtlockd.socket                   enabled disabled
-virtlogd.socket                    enabled disabled
-remote-fs.target                   enabled enabled
-fstrim.timer                       enabled disabled
-plocate-updatedb.timer             enabled disabled
-reflector.timer                    enabled disabled
+UNIT FILE                           STATE   PRESET
+acpid.service                       enabled disabled
+ananicy-cpp.service                 enabled disabled
+avahi-daemon.service                enabled disabled
+bluetooth.service                   enabled disabled
+cronie.service                      enabled disabled
+ebtables.service                    enabled disabled
+fail2ban.service                    enabled disabled
+getty@.service                      enabled enabled
+gpm.service                         enabled disabled
+libvirtd.service                    enabled disabled
+mullvad-daemon.service              enabled disabled
+mullvad-early-boot-blocking.service enabled disabled
+NetworkManager-dispatcher.service   enabled disabled
+NetworkManager-wait-online.service  enabled disabled
+NetworkManager.service              enabled disabled
+preload.service                     enabled disabled
+sddm.service                        enabled disabled
+systemd-timesyncd.service           enabled enabled
+zramd.service                       enabled disabled
+avahi-daemon.socket                 enabled disabled
+libvirtd-ro.socket                  enabled disabled
+libvirtd.socket                     enabled disabled
+saned.socket                        enabled disabled
+virtlockd.socket                    enabled disabled
+virtlogd.socket                     enabled disabled
+remote-fs.target                    enabled enabled
+fstrim.timer                        enabled disabled
+plocate-updatedb.timer              enabled disabled
+reflector.timer                     enabled disabled
 
-28 unit files listed.
+29 unit files listed.

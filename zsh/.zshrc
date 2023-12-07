@@ -111,5 +111,3 @@ fi
 export BUN_INSTALL="/home/nico/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Intellishense
-[ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh
