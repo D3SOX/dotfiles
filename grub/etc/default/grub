@@ -3,7 +3,7 @@
 GRUB_DEFAULT="saved"
 GRUB_TIMEOUT=3
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="amd_iommu=on iommu=pt sysrq_always_enabled=1 loglevel=3 mitigations=off initcall_blacklist=acpi_cpufreq_init amdgpu.ppfeaturemask=0xffffffff" 
+GRUB_CMDLINE_LINUX_DEFAULT="amd_iommu=on iommu=pt sysrq_always_enabled=1 loglevel=3 mitigations=off initcall_blacklist=acpi_cpufreq_init amdgpu.ppfeaturemask=0xffffffff clearcpuid=514 resume=UUID=a71e5312-fb70-410b-bf09-e2f16674e606 resume_offset=263026688"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
