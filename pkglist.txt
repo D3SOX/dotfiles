@@ -27,7 +27,7 @@ base
 base-devel
 bash-completion
 bat
-beekeeper-studio-appimage
+beekeeper-studio-bin
 betterlockscreen
 bibata-cursor-theme
 bind
@@ -82,7 +82,9 @@ e2fsprogs
 edk2-ovmf
 edk2-shell
 efibootmgr
+electron
 electron22
+electron27
 element-desktop
 espeak-ng
 exfat-utils
@@ -120,11 +122,11 @@ gcc
 geforcenow-electron
 gettext
 gimagereader-qt
-gimp-git
+gimp
 git
 git-lfs
 github-cli
-glfw-x11
+glfw
 gnome-keyring
 gnome-themes-extra
 gnu-efi
@@ -192,12 +194,12 @@ keepassxc
 kfind
 kgamma
 kgpg
-khotkeys
 kimageformats5
 kinfocenter
 kio-admin
 kio-fuse
 kirigami-addons5
+klassy-git
 kmag
 kmenuedit
 kodi
@@ -272,7 +274,6 @@ lutris
 lxappearance
 lzop
 m4
-macchanger
 make
 man-db
 man-pages
@@ -318,6 +319,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 ntfs-3g
+ntfysh-bin
 nvtop
 nyrna
 obs-gstreamer
@@ -357,6 +359,7 @@ piper
 pipewire-pulse
 pipewire-screenaudio
 pkgconf
+plasma-applet-window-buttons
 plasma-browser-integration
 plasma-desktop
 plasma-disks
@@ -370,14 +373,9 @@ plasma-vault
 plasma-welcome
 plasma-workspace
 plasma-workspace-wallpapers
-plasma5-applets-latte-separator
-plasma5-applets-latte-sidebar-button
 plasma5-applets-latte-spacer
-plasma5-applets-window-appmenu-git
-plasma5-applets-window-buttons
-plasma5-applets-window-title
 plasma5-integration
-plasma5-shader-wallpaper
+plasma6-applets-window-title
 plocate
 pnpm
 polkit-kde-agent
@@ -419,7 +417,7 @@ qt6-svg
 qt6-tools
 qt6-translations
 qt6-wayland
-r2mod_cli
+r2modman-bin
 rebuild-detector
 reflector
 remmina
@@ -434,10 +432,9 @@ screenkey
 sddm-kcm
 sed
 session-desktop-bin
-sierrabreeze-kwin-decoration-git
 signal-desktop
 sipgate-softphone
-skypeforlinux-stable-bin
+skypeforlinux-bin
 soundux-git
 soundwire
 spectacle
@@ -497,7 +494,8 @@ uxplay
 v4l2loopback-dkms
 v4l2loopback-utils
 vde2
-vencord-desktop-git
+ventoy-bin
+vesktop-git
 virt-manager
 virt-viewer
 vkd3d
@@ -541,6 +539,7 @@ xorg-xrandr
 xorg-xwininfo
 xournalpp
 xsel
+xwaylandvideobridge
 yarn
 yt-dlp
 yt-dlp-drop-in
@@ -550,6 +549,7 @@ zip
 zoxide
 zramd
 zsh
+zsh-autocomplete
 zsh-autosuggestions
 zsh-completions
 zsh-fast-syntax-highlighting

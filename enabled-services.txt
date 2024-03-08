@@ -14,10 +14,10 @@ mullvad-early-boot-blocking.service enabled disabled
 NetworkManager-dispatcher.service   enabled disabled
 NetworkManager-wait-online.service  enabled disabled
 NetworkManager.service              enabled disabled
+portmaster.service                  enabled disabled
 preload.service                     enabled disabled
 sddm.service                        enabled disabled
 systemd-timesyncd.service           enabled enabled
-zramd.service                       enabled disabled
 avahi-daemon.socket                 enabled disabled
 libvirtd-ro.socket                  enabled disabled
 libvirtd.socket                     enabled disabled
