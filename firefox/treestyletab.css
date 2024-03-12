@@ -1,0 +1,14 @@
+/* Custom scrollbar colors */ 
+#tabbar {
+  border: 0;
+  scrollbar-color: auto;
+}
+
+/* Change styling of pending (unloaded) tabs */
+tab-item.discarded tab-item-substance {
+  opacity: 0.75;
+}
+/* https://github.com/serverwentdown/matched/blob/master/dark-firefox/manifest.json#L21 */
+tab-item:not(.discarded) tab-item-substance span {
+  color: rgb(195, 195, 195);
+}
