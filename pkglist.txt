@@ -39,6 +39,7 @@ blobsaver-bin
 bluedevil
 boost
 brave-bin
+breeze-grub
 breeze-gtk
 breeze5
 bspwm
@@ -196,6 +197,7 @@ kgamma
 kgpg
 kimageformats5
 kinfocenter
+kinit
 kio-admin
 kio-fuse
 kirigami-addons5
@@ -216,9 +218,9 @@ kwallet-pam
 kwalletmanager
 kwayland-integration
 kwin
+kwin-effects-forceblur-git
 kwin-effects-sliding-notifications
 kwin-effects-yet-another-magic-lamp
-kwin-scripts-forceblur
 kwrited
 legendary
 less
@@ -286,6 +288,7 @@ mediainfo
 mesa
 mesa-vdpau
 meson
+metadata-cleaner
 milou
 mingw-w64-gcc
 miniserve
@@ -352,6 +355,7 @@ pdfmixtool
 pdftricks
 peek
 pfetch-git
+phonon-qt6-gstreamer-git
 php-sqlite
 picom-git
 pika-backup
@@ -370,11 +374,12 @@ plasma-sdk
 plasma-systemmonitor
 plasma-thunderbolt
 plasma-vault
+plasma-wayland-protocols
 plasma-welcome
 plasma-workspace
 plasma-workspace-wallpapers
 plasma5-applets-latte-spacer
-plasma5-integration
+plasma6-applets-breeze-alphablack
 plasma6-applets-window-title
 plocate
 pnpm
@@ -409,6 +414,7 @@ qt6-5compat
 qt6-base
 qt6-declarative
 qt6-imageformats
+qt6-multimedia-gstreamer
 qt6-networkauth
 qt6-quick3d
 qt6-quicktimeline
@@ -417,6 +423,7 @@ qt6-svg
 qt6-tools
 qt6-translations
 qt6-wayland
+qt6-webview
 r2modman-bin
 rebuild-detector
 reflector
@@ -442,6 +449,7 @@ speech-dispatcher
 speedtest-cli
 spicetify-cli
 spotify-launcher
+spotifywm-git
 sqlitebrowser
 sqlmap
 squashfs-tools
@@ -505,6 +513,7 @@ vulkan-radeon
 vulkan-tools
 waydroid
 waydroid-image
+wayland-protocols
 wf-recorder
 wget
 which
@@ -516,12 +525,14 @@ winscp
 wireguard-tools
 wireless_tools
 wireplumber
+wl-clipboard
 wmctrl
 wmname
 wootility-lekker-appimage
 xboxdrv-stable-git
 xclip
 xdelta3
+xdg-desktop-portal-gtk
 xdg-desktop-portal-kde
 xdg-ninja
 xdg-user-dirs
