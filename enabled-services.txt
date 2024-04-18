@@ -8,6 +8,7 @@ ebtables.service                    enabled disabled
 fail2ban.service                    enabled disabled
 getty@.service                      enabled enabled
 gpm.service                         enabled disabled
+lactd.service                       enabled disabled
 libvirtd.service                    enabled disabled
 mullvad-daemon.service              enabled disabled
 mullvad-early-boot-blocking.service enabled disabled
@@ -29,4 +30,4 @@ fstrim.timer                        enabled disabled
 plocate-updatedb.timer              enabled disabled
 reflector.timer                     enabled disabled
 
-29 unit files listed.
+30 unit files listed.

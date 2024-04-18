@@ -8,6 +8,7 @@ amazon-corretto-17
 amazon-corretto-8
 amd-ucode
 amdgpu-pro-oglp
+an-anime-game-launcher-bin
 ananicy-cpp
 android-tools
 android-udev
@@ -195,19 +196,20 @@ keepassxc
 kfind
 kgamma
 kgpg
+kid3
 kimageformats5
 kinfocenter
 kinit
 kio-admin
 kio-fuse
 kirigami-addons5
-klassy-git
 kmag
 kmenuedit
 kodi
 kodi-addon-inputstream-adaptive
 kompare
 konsole
+kooha
 kora-icon-theme
 kruler
 krunner-firefox-git
@@ -218,10 +220,13 @@ kwallet-pam
 kwalletmanager
 kwayland-integration
 kwin
-kwin-effects-forceblur-git
+kwin-decoration-sierra-breeze-enhanced-git
+kwin-effects-burn-my-windows
+kwin-effects-forceblur
 kwin-effects-sliding-notifications
 kwin-effects-yet-another-magic-lamp
 kwrited
+lact
 legendary
 less
 lib32-faudio
@@ -277,6 +282,7 @@ lxappearance
 lzop
 m4
 make
+maliit-keyboard
 man-db
 man-pages
 mangohud
@@ -353,9 +359,9 @@ payload-dumper-go-bin
 pdfarranger
 pdfmixtool
 pdftricks
-peek
 pfetch-git
 phonon-qt6-gstreamer-git
+php-gd
 php-sqlite
 picom-git
 pika-backup
@@ -378,8 +384,8 @@ plasma-wayland-protocols
 plasma-welcome
 plasma-workspace
 plasma-workspace-wallpapers
-plasma5-applets-latte-spacer
 plasma6-applets-breeze-alphablack
+plasma6-applets-plasmusic-toolbar
 plasma6-applets-window-title
 plocate
 pnpm
@@ -393,8 +399,6 @@ prismlauncher
 protontricks-git
 protonup-qt
 pulseaudio-alsa
-pypeek-git
-pyside2
 python-numpy
 python-pip
 python-pyclip
@@ -409,6 +413,7 @@ qemu-desktop
 qpwgraph
 qt5-doc
 qt5-virtualkeyboard
+qt5-wayland
 qt6-3d
 qt6-5compat
 qt6-base
@@ -442,6 +447,7 @@ session-desktop-bin
 signal-desktop
 sipgate-softphone
 skypeforlinux-bin
+slurp
 soundux-git
 soundwire
 spectacle
@@ -458,6 +464,7 @@ steam
 steam-boilr-gui
 sudo
 svgpart
+swig-cli
 swtpm
 sxhkd
 syncplay
@@ -529,7 +536,7 @@ wl-clipboard
 wmctrl
 wmname
 wootility-lekker-appimage
-xboxdrv-stable-git
+xboxdrv
 xclip
 xdelta3
 xdg-desktop-portal-gtk
