@@ -197,6 +197,7 @@ kfind
 kgamma
 kgpg
 kid3
+kimageformats
 kimageformats5
 kinfocenter
 kinit
@@ -226,7 +227,7 @@ kwin-effects-forceblur
 kwin-effects-sliding-notifications
 kwin-effects-yet-another-magic-lamp
 kwrited
-lact
+lact-libadwaita
 legendary
 less
 lib32-faudio
@@ -360,7 +361,7 @@ pdfarranger
 pdfmixtool
 pdftricks
 pfetch-git
-phonon-qt6-gstreamer-git
+phonon-qt6-mpv
 php-gd
 php-sqlite
 picom-git
@@ -547,6 +548,7 @@ xdotool
 xf86-input-evdev
 xf86-input-synaptics
 xf86-video-amdgpu
+xmlstarlet
 xorg-server
 xorg-xfontsel
 xorg-xinit
