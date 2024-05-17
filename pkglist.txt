@@ -28,7 +28,7 @@ base
 base-devel
 bash-completion
 bat
-beekeeper-studio-bin
+beekeeper-studio-appimage
 betterlockscreen
 bibata-cursor-theme
 bind
@@ -321,9 +321,8 @@ nfs-utils
 ninja
 nitrogen
 nitrokey-app2
-nodejs-lts-iron
+nodejs
 noise-suppression-for-voice
-nordic-kde-git
 notesnook-bin
 noto-fonts-cjk
 noto-fonts-emoji
@@ -463,6 +462,7 @@ squashfs-tools
 sshfs
 steam
 steam-boilr-gui
+steamtinkerlaunch
 sudo
 svgpart
 swig-cli
@@ -536,7 +536,7 @@ wireplumber
 wl-clipboard
 wmctrl
 wmname
-wootility-lekker-appimage
+wootility-appimage
 xboxdrv
 xclip
 xdelta3
