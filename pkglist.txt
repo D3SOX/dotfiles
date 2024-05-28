@@ -102,6 +102,7 @@ faudio
 fd
 ferdium
 ffmpeg
+ffmpeg4.4
 ffmpegthumbs
 file
 filezilla
