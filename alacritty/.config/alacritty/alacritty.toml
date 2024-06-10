@@ -3,8 +3,12 @@ animation = "EaseOutExpo"
 color = "#ffffff"
 
 [shell]
-program = "/bin/sh"
-args = ["-c", "tmux new-session -s alacritty_$(date +%s%N)"]
+program = "/usr/bin/tmux"
+args = ["new-session"]
+
+[scrolling]
+history = 10000
+multiplier = 3
 
 [colors.bright]
 black = "0x5c6370"
