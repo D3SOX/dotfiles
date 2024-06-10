@@ -1,0 +1,70 @@
+[bell]
+animation = "EaseOutExpo"
+color = "#ffffff"
+
+[shell]
+program = "/bin/sh"
+args = ["-c", "tmux new-session -s alacritty_$(date +%s%N)"]
+
+[colors.bright]
+black = "0x5c6370"
+blue = "0x61afef"
+cyan = "0x56b6c2"
+green = "0x98c379"
+magenta = "0xc678dd"
+red = "0xe06c75"
+white = "0xffffff"
+yellow = "0xd19a66"
+
+[colors.normal]
+black = "0x1e2127"
+blue = "0x61afef"
+cyan = "0x56b6c2"
+green = "0x98c379"
+magenta = "0xc678dd"
+red = "0xe06c75"
+white = "0xabb2bf"
+yellow = "0xd19a66"
+
+[colors.primary]
+background = "0x1e2127"
+foreground = "0xabb2bf"
+
+[cursor.style]
+shape = "Beam"
+
+[font.bold]
+family = "SFMono Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "SFMono Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "SFMono Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "SFMono Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Control|Shift"
+action = "Quit"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+opacity = 0.5
+dimensions = { columns = 150, lines = 35 }
