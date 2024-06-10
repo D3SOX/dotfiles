@@ -65,6 +65,7 @@ dbeaver
 debuginfod
 devtools
 dialog
+discover
 dkms
 dmidecode
 dnsmasq
@@ -85,7 +86,6 @@ edk2-ovmf
 edk2-shell
 efibootmgr
 electron
-electron22
 electron27
 element-desktop
 espeak-ng
@@ -183,6 +183,7 @@ kcolorchooser
 kcron
 kde-cli-tools
 kde-gtk-config
+kde-material-you-colors
 kdeconnect
 kdecoration
 kdegraphics-mobipocket
@@ -225,7 +226,7 @@ kwin
 kwin-decoration-sierra-breeze-enhanced-git
 kwin-effects-burn-my-windows
 kwin-effects-forceblur
-kwin-effects-sliding-notifications
+kwin-effects-sliding-notifications-git
 kwin-effects-yet-another-magic-lamp
 kwrited
 lact-libadwaita
@@ -341,6 +342,7 @@ onedrive-abraunegg
 onefetch
 onlyoffice-bin
 opencv
+openrazer-daemon
 opentabletdriver
 os-prober
 otf-san-francisco
@@ -366,7 +368,6 @@ php-gd
 php-sqlite
 picom-git
 pika-backup
-piper
 pipewire-pulse
 pipewire-screenaudio
 pkgconf
@@ -392,6 +393,7 @@ plocate
 pnpm
 polkit-kde-agent
 polybar
+polychromatic
 portmaster-stub-bin
 powerdevil
 powerline-fonts
@@ -481,6 +483,7 @@ tesseract-data-eng
 texinfo
 texlive-basic
 timeshift
+tmux
 topgrade
 torbrowser-launcher
 ttf-bitstream-vera
