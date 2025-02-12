@@ -9,6 +9,8 @@ fi
 
 alias ls="eza -lhg --color=always --group-directories-first --icons"
 alias dke="docker exec"
+alias dkup="docker compose up -d"
+alias dkuplog='docker compose up -d && docker compose logs -f'
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
