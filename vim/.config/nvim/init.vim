@@ -24,6 +24,8 @@ Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'kovetskiy/sxhkd-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'lambdalisue/suda.vim'
+Plugin 'Exafunction/codeium.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()		" required, all plugins must appear before this line.
 
