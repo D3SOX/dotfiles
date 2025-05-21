@@ -14,20 +14,13 @@
   :is(menuitem, menu, .subviewbutton, toolbarbutton):not(#appMenu-fxa-status2):hover {
   background: transparent !important;
   background-color: transparent !important;
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.4) 0px,
-      transparent 0px
-    ),
-    linear-gradient(to left, rgba(255, 255, 255, 0.4) 0px, transparent 0px),
-    linear-gradient(to top, rgba(255, 255, 255, 0.3) 0px, transparent 0px),
-    linear-gradient(
-      to bottom,
-      rgba(247, 163, 247, 0.2),
-      rgba(246, 122, 246, 0.2)
-    ) !important;
+  background-image:
+	linear-gradient(to right, rgba(255,255,255,0.4) 0px, transparent 0px),
+	linear-gradient(to left, rgba(255,255,255,0.4) 0px, transparent 0px),
+	linear-gradient(to top, rgba(255,255,255,0.3) 0px, transparent 0px),
+	linear-gradient(to bottom, rgba(247,163,247,0.1), rgba(246,122,246,0.1)) !important;
   border-radius: 6px !important;
-  outline: 1px solid rgba(235, 178, 255, 0.7) !important;
+  outline: 1px solid rgba(206,124,206,0.4) !important;
   outline-radius: 3px !important;
   outline-offset: -1px !important;
 }
