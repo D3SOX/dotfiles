@@ -1,0 +1,31 @@
+/* Keep splitter invisible when not in use */
+#sidebar-splitter {
+  width: 1px !important;
+  background-color: transparent !important;
+  border: none !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  transition: opacity 0.2s !important;
+}
+
+/* Show splitter only when hovering near the edge */
+#sidebar-box:hover + #sidebar-splitter {
+  opacity: 1 !important;
+}
+
+/* Smooth the edge by adding a subtle shadow */
+#sidebar-box {
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Remove sharp edges */
+#sidebar-box,
+#sidebar,
+#sidebar-header {
+  border-right: none !important;
+}
+
+/* Hide sidebar header */
+#sidebar-header {
+  visibility: collapse;
+}

@@ -1,35 +1,56 @@
-/* Proton Fixes */
-@import "Firefox-UI-Fix/userChrome.css";
+/* Import your desired components first */
 
+/*@import url(chrome/window_control_placeholder_support.css);*/
+@import url(chrome/window_control_force_linux_system_style.css);
+/*@import url(chrome/hide_tabs_toolbar.css);*/
 
-/* CSS hacks */
+@import url(chrome/dark_checkboxes_and_radios.css);
 
-@import "firefox-csshacks/chrome/centered_tab_content.css";
-@import "firefox-csshacks/chrome/compact_urlbar_megabar.css";
+@import url(chrome/iconized_content_context_menu.css);
+@import url(chrome/iconized_main_menu.css);
+@import url(chrome/iconized_menubar_items.css);
+@import url(chrome/iconized_places_context_menu.css);
+@import url(chrome/iconized_tabs_context_menu.css);
+@import url(chrome/iconized_textbox_context_menu.css);
 
+/*@import url(chrome/centered_tab_content.css);*/
+/*@import url(chrome/urlbar_centered_text.css);*/
 
-/* TreeStyleTab */
+@import url(chrome/compact_urlbar_megabar.css);
+@import url(chrome/compact_proton.css);
+@import url(chrome/minimal_in-UI_scrollbars.css);
+@import url(chrome/navigation_buttons_inside_urlbar.css);
 
-/* Hide horizontal tabs at the top of the window #1349, #1672, #2147 */
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-  opacity: 0;
-  pointer-events: none;
-}
-#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-  visibility: collapse !important;
-}
+@import url(chrome/loading_indicator_bouncing_line.css);
+@import url(chrome/scrollable_urlbar_popup.css);
 
-/* If you still see a single, fine white line where the tabs used to be, you can remove it by also adding this rule */
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar .titlebar-spacer {
-  border-inline-end: none;
-}
+@import url(chrome/urlbar_results_in_two_rows.css);
+@import url(chrome/compact_extensions_panel.css);
+@import url(chrome/round_ui_items.css);
+@import url(chrome/hide_tabs_with_one_tab.css);
+@import url(chrome/tab_count_in_alltabs_button.css);
 
-/* Hide the "Tree Style Tab" header at the top of the sidebar */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
-  display: none;
-}
+@import url(CustomCSSforFx/current/css/generalui/findbar_on_top.css);
+@import url(CustomCSSforFx/current/css/generalui/findbar_compact.css);
+@import url(CustomCSSforFx/current/css/generalui/popup_compact_menus.css);
 
-/* Reduce minimum width of the sidebar #1373 */
-#sidebar {
-  min-width: 100px !important;
+@import url(CustomCSSforFx/current/css/toolbars/default_dark_theme_darker_v2.css);
+
+@import url(CustomCSSforFx/current/css/toolbars/top_toolbar_system_accent_colors.css);
+
+@import url(custom/hide-tabs.css);
+@import url(custom/sidebar.css);
+@import url(custom/popup_items_hover_appearance_mine.css);
+@import url(custom/ac_popup_megabar_result_highlighting_mine.css);
+@import url(custom/buttons_on_bookmarks_toolbar_mine_appearance.css);
+@import url(custom/buttons_on_navbar_mine_appearance.css);
+@import url(custom/urlbar_icons_mine_appearance.css);
+
+/*
+Apply your custom modifications after imports
+*/
+
+/* Use SF Pro Display font */
+* {
+  font-family: "SF Pro Display", sans-serif !important;
 }
