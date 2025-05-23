@@ -21,14 +21,13 @@
 @import url(chrome/minimal_in-UI_scrollbars.css);
 @import url(chrome/navigation_buttons_inside_urlbar.css);
 
-@import url(chrome/loading_indicator_bouncing_line.css);
 @import url(chrome/scrollable_urlbar_popup.css);
 
 @import url(chrome/urlbar_results_in_two_rows.css);
 @import url(chrome/compact_extensions_panel.css);
 @import url(chrome/round_ui_items.css);
 @import url(chrome/hide_tabs_with_one_tab.css);
-@import url(chrome/tab_count_in_alltabs_button.css);
+/* @import url(chrome/tab_count_in_alltabs_button.css); */
 
 @import url(CustomCSSforFx/current/css/generalui/findbar_on_top.css);
 @import url(CustomCSSforFx/current/css/generalui/findbar_compact.css);
@@ -45,6 +44,8 @@
 @import url(custom/buttons_on_bookmarks_toolbar_mine_appearance.css);
 @import url(custom/buttons_on_navbar_mine_appearance.css);
 @import url(custom/urlbar_icons_mine_appearance.css);
+@import url(custom/loading_indicator_bouncing_line_mine.css);
+@import url(custom/hamburger_menu_left.css);
 
 /*
 Apply your custom modifications after imports
