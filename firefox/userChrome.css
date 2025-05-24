@@ -19,7 +19,7 @@
 @import url(chrome/compact_urlbar_megabar.css);
 @import url(chrome/compact_proton.css);
 @import url(chrome/minimal_in-UI_scrollbars.css);
-@import url(chrome/navigation_buttons_inside_urlbar.css);
+/* @import url(chrome/navigation_buttons_inside_urlbar.css); */
 
 @import url(chrome/scrollable_urlbar_popup.css);
 
@@ -46,6 +46,7 @@
 @import url(custom/urlbar_icons_mine_appearance.css);
 @import url(custom/loading_indicator_bouncing_line_mine.css);
 @import url(custom/hamburger_menu_left.css);
+@import url(custom/extension_icon_overrides.css);
 
 /*
 Apply your custom modifications after imports
