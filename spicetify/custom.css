@@ -9,6 +9,16 @@
 /* Rotating cover art backup */
 /*@keyframes rotating {from {transform: rotate(0deg);}to {transform: rotate(360deg);}}.cover-art, .main-nowPlayingView-coverArtContainer::after, .main-nowPlayingView-coverArtContainer::before {animation: rotating 10s linear infinite;border-radius: 50%;}.cover-art {clip-path: circle(50% at 50% 50%);} .main-nowPlayingBar-left button {background: transparent;}*/
 
+/* My custom scrollbar */
+.os-scrollbar-handle { 
+  width: 0.65rem !important;
+  border-radius: 10rem !important; 
+  transition: width 300ms ease-in-out; 
+}
+.os-scrollbar-handle:focus, .os-scrollbar-handle:focus-within, .os-scrollbar-handle:hover { 
+  width: 0.85rem !important;
+}
+
 /* Rotating cover art paused on pause */
 .main-nowPlayingWidget-coverArt > .cover-art,
 .main-nowPlayingView-coverArt > .cover-art {
