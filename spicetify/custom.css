@@ -1,9 +1,16 @@
+/*TODO: fix expand now playing view cover: turntable needs to be disabled */
+
 /* Force both sidebars to the smallest size... (idk what keeps on resetting it) */
 * {
  --left-sidebar-width: 280 !important;
 }
 .Root__right-sidebar > div:first-child:not([style="width: 0px;"]) {
   width: 280px !important;
+}
+
+/* Fix spacing for right icons in tracklist */
+.main-trackList-rowSectionEnd {
+  gap: 8px;
 }
 
 /* Rotating cover art backup */
@@ -62,14 +69,3 @@ body:has([aria-label="Pause"]) .cover-art {
   align-items: center;
   vertical-align: middle;
 }
-
-/*[aria-label="Marketplace"] [data-encore-id="icon"] {*/
-/*  display: none;*/
-/*}*/
-
-/*[aria-label="Marketplace"] {*/
-/*  width: 32px;*/
-/*  height: 32px;*/
-/*  background-image: url(https://www.flaticon.com/download/icon/3162297?icon_id=3162297&author=450&team=450&keyword=Puzzle+piece&pack=3162094&style=Detailed+Outline&style_id=1219&format=png&color=%23000000&colored=1&size=128&selection=1&type=standard&token=03AFcWeA5anN9ww7bvH9hj364e4voAghUgJx9vbp9C44N2rFoEdRRia0EQVEzUfsch8EkYOiJl9LqggRJpOq_Hike7Up6q-Z_5zWZ-mEl9sMvIOCHuyjxFESIJ6KlzfEe2OvZpIgMeST2-sljMGrvqqQxZm9G4THwaD4hqRGMFmKr7JH3p73TOZeKu4O0yonJeEX1XmnYL7Vhakst4VrxxMsfmWAAuACYzsB0cX_3aAfi05ZCW2xSNGpYqeLA7z2U62oi4cTEEbDB00XKqwho7GekTe7p7v9UUeTWw3_dzZz155o8vLRsujydLawHvnRJSgNQJVSGs9Zf4fYWSxW5twn1_g9SXZJj6o9V3uxNc04_ZHcJa0reLX8AXZsfxlTJGgI5MkKZ_5pN5H6gyf41DSgORw9gqbEXVt_RiKSi1cW7bo8J0-X0xtY2ziwmd5hqge1xymtpTfgOe6XQj6gD9vQka_ALLPns2qUFzLjt7eBvDoeV4n4tdFcb3R0lOOMgtLQJmrEGrl3SaK6CWIoK-xOL96SjoUF-lp3fD2b-H8nIreMFz_tC0Y_aMEn699Prex63xeeyS17YML6s7xn8pmHghT86GUoRqJVLiGVqrMaS5vdhNYf1BdyYlbMs0l46ovEh9Kjav1E6XmHM09jdmiB0xlATtzQZw7_2mv1YZdU0_Il4KJzvm954KlBk3LU6_QQ6xZcHTdXG9c5U3X--O4vXV8EIrsjh9gqzMj2eEyDDe-Y8QEvMQJvajGkCc-39rloo-K5TE5qQ1yVRlPDbmtMkHyxfLBcmCAVZOkH7gNRJ1xyAw17zx1KnK4EK5YgOsZZktM3GxdataZz5jjWJdeHtxNL3BDmzJbCwh9PpddH1heZkFqeJEXNhW4_IdXLPesUT0_5X9ovfIlujWBUsKoDRLhyF193bUVWuFStobq4r0-ab6FS2gJ_3_f8f4ksLi-z6dchaqsvSj1hxmeXDSRlF35J3NkIbTENxQbacdSgOPBbTKvliTcN_ljGsSEJqu8Ax1n2D4pQRabLadFBGHE6EvNiq5EArdOPotJzO7nQ6WYVd-fEl8Gmlp3PGUPcGDCH5Ln1tGSr-Q0ViVME84IccKhyt7qZz0IzxHIa882LI4FXDNTGVDxRk0w8zCdthpv-Ke0jLmHZaxcCJ_jvxj3q14B_j7w_03PEVl2drWOzoKsWCCn4qDdF57uH6bvIV49t4evGSuyjzRGAsW48p5y21-5z2lYReqAhsSXsMdZW85lmXRoIvtYmHmj8fpOK-rPvmKUN74ATopPqmhPJ8U5qO1zDVjUfja0CNB-mb2ZV5caLR9OgzmlRWpr87vkXiKYykJ91MlDueXLnwqoP1Gpe61yIu2l6KAoGVEeDSQhtI0iFAv-aaElpmzk4bCtW6hD5hgwdY4QaQJHsRjrlza4Oj5vwYDMMwrySAy-RSwe77yC91oFEScjWdvrgRZT1-2VX68fW-mK1DWi7Hp4EhSc0PyQIuBmllNZ-eox16XFDZQ_IPCMb8gWTdAkoE3LOkQgyiOeAOpSY1Q3YsXcHqiP2RqWzIyDt65Vq-Dn7_aFNu-jyXWPBP-mj63EejtaooQhOKwF2sn6hoaeLxboaxSCAhqueBa9Di2RQnC8gKiJ5p9NlMhHR2GKVClcPPcRuj73My4smos4xbei8c0nZTxoBCENF1QVI6uQCrxlwv5qT2-Pk5uM7MpWTwIwbXSZgPGYV3X3gdSDn9n-LrFo7EU_3l6-7-JsQJJALId5bnZ6sMNa32ll4ORrdlP9eFrGfC1NnXxGS5wisDkDmcyjluLUWCtNvPSx7qbJLz33VqBkhbnd67PVtzszO9VypVoXGO_3IEYWiP7B6SzfX1RpKMpMYEL0FeWaCqj7Dn2KdnbRTE85_j4KkT4kQZYlCDZuDtf7VscWpgIi33pIfWmvQKanKRv1LTtQOClB_dISWos1yv_tH1GyFh6K7A_7q2RnD_VI9P7NlNd8eQba4_nfQz90TeyY54submecKt4SUE2mFVYpxS_gV3VoIeCgDBqW3DM41MSpP1rXAlo&search=puzzle);*/
-/*  background-size: cover*/
-/*}*/
