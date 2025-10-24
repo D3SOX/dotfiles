@@ -1,5 +1,3 @@
-/*TODO: fix expand now playing view cover: turntable needs to be disabled */
-
 /* Force both sidebars to the smallest size... (idk what keeps on resetting it) */
 * {
  --left-sidebar-width: 280 !important;
@@ -8,13 +6,11 @@
   width: 280px !important;
 }
 
-/* Fix spacing for right icons in tracklist */
-.main-trackList-rowSectionEnd {
-  gap: 8px;
+/* Highlight unplayable tracks, the class ID is generated and might change any time but I couldn't find a better CSS only solution */
+.main-trackList-trackListRow[class*="Unhd72dSzMriFEuvX2UU"]{
+    background-color: #f005;
+    opacity: 0.6;
 }
-
-/* Rotating cover art backup */
-/*@keyframes rotating {from {transform: rotate(0deg);}to {transform: rotate(360deg);}}.cover-art, .main-nowPlayingView-coverArtContainer::after, .main-nowPlayingView-coverArtContainer::before {animation: rotating 10s linear infinite;border-radius: 50%;}.cover-art {clip-path: circle(50% at 50% 50%);} .main-nowPlayingBar-left button {background: transparent;}*/
 
 /* My custom scrollbar */
 .os-scrollbar-handle { 
@@ -31,6 +27,8 @@
   visibility: visible !important;
 }
 
+/* Rotating cover art backup */
+/*@keyframes rotating {from {transform: rotate(0deg);}to {transform: rotate(360deg);}}.cover-art, .main-nowPlayingView-coverArtContainer::after, .main-nowPlayingView-coverArtContainer::before {animation: rotating 10s linear infinite;border-radius: 50%;}.cover-art {clip-path: circle(50% at 50% 50%);} .main-nowPlayingBar-left button {background: transparent;}*/
 /* Rotating cover art paused on pause */
 .main-nowPlayingWidget-coverArt > .cover-art,
 .main-nowPlayingView-coverArt > .cover-art {
@@ -51,21 +49,7 @@ body:has([aria-label="Pause"]) .cover-art {
   border-radius: 50%;
 }
 
-/* Fix genres width */
-.main-nowPlayingWidget-trackInfo > .ellipsis-one-line {
-  width: unset !important;
-}
-
-.main-trackList-rowSectionStart {
-  /*min-width: 250px;*/
-}
-
 /* Move playbar heart next to Spotify add icon */
 .likeControl-wrapper {
   transform: translateY(2px);
-}
-.main-nowPlayingBar-left {
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
 }
