@@ -1,6 +1,9 @@
 /* Force both sidebars to the smallest size... (idk what keeps on resetting it) */
-* {
- --left-sidebar-width: 280 !important;
+#Desktop_LeftSidebar_Id:has(.main-yourLibraryX-collapseButton.main-yourLibraryX-headerIsCollapsed) {
+  --left-sidebar-width: 75 !important;
+}
+#Desktop_LeftSidebar_Id:not(:has(.main-yourLibraryX-collapseButton.main-yourLibraryX-headerIsCollapsed)) {
+  --left-sidebar-width: 280 !important;
 }
 .Root__right-sidebar > div:first-child:not([style="width: 0px;"]) {
   width: 280px !important;
