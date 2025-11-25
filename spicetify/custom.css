@@ -9,12 +9,6 @@
   width: 280px !important;
 }
 
-/* Highlight unplayable tracks, the class ID is generated and might change any time but I couldn't find a better CSS only solution */
-.main-trackList-trackListRow[class*="Unhd72dSzMriFEuvX2UU"]{
-    background-color: #f005;
-    opacity: 0.6;
-}
-
 /* My custom scrollbar */
 .os-scrollbar-handle { 
   width: 0.65rem !important;
