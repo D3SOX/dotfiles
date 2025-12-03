@@ -9,6 +9,11 @@
   width: 280px !important;
 }
 
+/* Thanks but I know when to update */
+div:has(> button[aria-label="Update Spicetify"]) {
+    display: none;
+}
+
 /* My custom scrollbar */
 .os-scrollbar-handle { 
   width: 0.65rem !important;
