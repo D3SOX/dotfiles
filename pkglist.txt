@@ -99,10 +99,8 @@ efibootmgr
 electron37
 electrum
 element-desktop
-enscript
 eslint
 esphome
-ethtool
 exfat-utils
 expac
 expect
