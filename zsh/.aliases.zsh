@@ -39,7 +39,7 @@ alias sudisable="systemctl --user disable"
 alias ga="git add"
 alias gc="git commit -v"
 alias gp="git push"
-alias gspp="git stash && git pull && git stash pop"
+alias gspp='() { sid=$(git stash push -q -m gspp && git stash list | head -1 | cut -d: -f1); git pull && [ -n "$sid" ] && git stash pop "$sid"; }'
 alias gsu="git submodule update --init --recursive"
 alias ":q"="exit"
 alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -sel clip)\""'
