@@ -1,9 +1,11 @@
+[misc]
 # Don't ask for confirmations
 #assume_yes = true
 
 # Disable specific steps - same options as the command line flag
 #disable = ["system", "emacs"]
-disable = ["pip3", "spicetify", "node", "yarn", "pnpm"]
+#disable = ["pip3", "spicetify", "node", "yarn", "pnpm", "containers"]
+disable = ["pip3", "spicetify", "node", "yarn", "pnpm", "containers", "jetbrains_aqua", "jetbrains_clion", "jetbrains_datagrip", "jetbrains_dataspell", "jetbrains_gateway", "jetbrains_goland", "jetbrains_idea", "jetbrains_mps", "jetbrains_phpstorm", "jetbrains_pycharm", "jetbrains_rider", "jetbrains_rubymine", "jetbrains_rustrover", "jetbrains_toolbox", "jetbrains_webstorm"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
@@ -48,23 +50,6 @@ pre_sudo = true
 # Skip sending a notification at the end of a run
 #skip_notify = true
 
-# Skip the preamble displayed when topgrade is run
-display_preamble = false
-
-[git]
-#max_concurrency = 5
-# Additional git repositories to pull
-#repos = [
-#    "~/src/*/",
-#    "~/.config/something"
-#]
-
-# Don't pull the predefined git repos
-#pull_predefined = false
-
-# Arguments to pass Git when pulling Repositories
-#arguments = "--rebase --autostash"
-
 [composer]
 #self_update = true
 
@@ -72,12 +57,13 @@ display_preamble = false
 [pre_commands]
 #"Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
 #"Elevate" = "sudo echo" # So that I can type my password right away
-"Firefox theme" = "~/scripts/update-firefox-theme.sh"
+#"Firefox theme" = "~/scripts/update-firefox-theme.sh"
+#"Vencord" = "cd ~/building_stuff/Vencord && ~/building_stuff/Vencord/update.sh"
 
 # Custom commands
 [commands]
 #"Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
-"Spicetify stuff" = "~/scripts/update-spicetify.sh"
+#"Spicetify stuff" = "~/scripts/update-spicetify.sh"
 
 [brew]
 #greedy_cask = true
