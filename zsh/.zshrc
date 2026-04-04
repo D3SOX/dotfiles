@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 # Enable colors and change prompt:
 autoload -U colors && colors
 
@@ -26,7 +25,7 @@ autoload -U compinit && compinit
 #zstyle ':completion:*:history-words'   remove-all-dups yes
 #zstyle ':completion:*:history-words'   stop yes
 
-zstyle ':completion:*' menu no
+zstyle ':completion:*' menu select
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Auto complete color
@@ -87,6 +86,8 @@ setopt noglobdots
 setopt noshwordsplit
 # don't error out when unset parameters are used
 setopt unset
+# enable corrections
+setopt CORRECT
 
 # Keybindings
 source ~/.bindings.zsh
@@ -99,13 +100,21 @@ export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$HOME/.yarn/bin/"
 # Add local cargo packages to $PATH
 export PATH="$PATH:$HOME/.local/share/cargo/bin"
+# Add Flutter / Dart
+export PATH="$PATH:$HOME/Flutter/flutter/bin"
+
+# Disable zsh-autocomplete auto-inserting unambiguous prefix on Tab
+zstyle ':autocomplete:*' insert-unambiguous no
 
 # Plugins
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+bindkey '\t' menu-select
+bindkey -M menuselect '\t' menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+#source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh # crashes on systemctl --user
 
 # Shell integrations
 
@@ -125,7 +134,6 @@ fi
 export BUN_INSTALL="/home/nico/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-
 # Use beam shape cursor on startup.
 echo -ne '\e[5 q'
 
@@ -139,3 +147,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# spicetify
+export PATH=$PATH:/home/nico/.spicetify
