@@ -5,8 +5,6 @@ adwaita-fonts
 airvpn-suite-bin
 alacritty
 alsa-utils
-amazon-corretto-17
-amazon-corretto-8
 amd-ucode
 amdgpu-pro-oglp
 amdgpu_top
@@ -205,6 +203,7 @@ ipscan
 iptables
 iriunwebcam-bin
 jamesdsp
+jdk25-openjdk
 jdownloader2
 jetbrains-toolbox
 john
