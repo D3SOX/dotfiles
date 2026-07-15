@@ -31,6 +31,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Auto complete color
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Add directory preview for cd
+zstyle ':fzf-tab:*' fzf-min-height 12
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -hg --color=always --group-directories-first --icons=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 -hg --color=always --group-directories-first --icons=always $realpath'
 
