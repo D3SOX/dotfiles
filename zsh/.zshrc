@@ -31,8 +31,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Auto complete color
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Add directory preview for cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -hg --color=always --group-directories-first --icons $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 -hg --color=always --group-directories-first --icons $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -hg --color=always --group-directories-first --icons=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 -hg --color=always --group-directories-first --icons=always $realpath'
 
 zmodload zsh/complist
 
@@ -150,3 +150,9 @@ esac
 
 # spicetify
 export PATH=$PATH:/home/nico/.spicetify
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/nico/.lmstudio/bin"
+# End of LM Studio CLI section
+
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi

@@ -7,7 +7,7 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
     alias clear="clear && pfetch"
 fi
 
-alias ls="eza -lhg --color=always --group-directories-first --icons"
+alias ls="eza -lhg --color=always --group-directories-first --icons=always"
 alias dke="docker exec"
 alias dkup="docker compose up -d"
 alias dkuplog='docker compose up -d && docker compose logs -f'
