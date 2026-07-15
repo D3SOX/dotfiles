@@ -25,7 +25,7 @@ autoload -U compinit && compinit
 #zstyle ':completion:*:history-words'   remove-all-dups yes
 #zstyle ':completion:*:history-words'   stop yes
 
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu no
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Auto complete color
@@ -103,18 +103,11 @@ export PATH="$PATH:$HOME/.local/share/cargo/bin"
 # Add Flutter / Dart
 export PATH="$PATH:$HOME/Flutter/flutter/bin"
 
-# Disable zsh-autocomplete auto-inserting unambiguous prefix on Tab
-zstyle ':autocomplete:*' insert-unambiguous no
-
 # Plugins
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-bindkey '\t' menu-select
-bindkey -M menuselect '\t' menu-complete
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
-#source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh # crashes on systemctl --user
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Shell integrations
 
