@@ -1,8 +1,8 @@
 # Rules
 - Never use curl or similar to query GitHub API, always use the gh CLI
 - When I say 'commit', commit only the changes relevant to this thread with a semantic commit msg, always check the working tree first (beware other agents may have commited since)
-- Make sure all commits are GPG signed, when it times out stop and tell me to say continue to try it again
   - Exception: When doing a merge of another branch use Git's default commit message
+- Make sure all commits are GPG signed, when it times out stop and tell me to say continue to try it again
 - When solving issues add a resolves #n to the commit message body
 - Use pnpm if the project already uses it, otherwise use bun
   - Never use npm or yarn
