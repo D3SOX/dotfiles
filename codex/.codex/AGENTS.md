@@ -18,7 +18,7 @@
 - If something is not entirely clear to you, prefer asking a clarification question. Especially when there could be multiple ways to interpret the message (The user is a German native speaker)
 
 ## Info
-The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when building sites (e.g. use Bunny Fonts instead of Google Fonts)
+The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing depenidencies (e.g. use Bunny Fonts instead of Google Fonts)
 
 ## Command execution
 
