@@ -1,14 +1,48 @@
 # Rules
 
-- Never use curl or similar to query GitHub API, always use the gh CLI
+## Git
+
+### Triggers
+
 - When I say 'commit', commit only the changes relevant to this thread with a semantic commit msg, always check the working tree first (beware other agents may have commited since)
   - Exception: When doing a merge of another branch use Git's default commit message
-- Make sure all commits are GPG signed, when it times out stop and tell me to say continue to try it again
-- When solving issues add a resolves #n to the commit message body
+- When I say 'pr', commit to a new branch (never use prefixes) and create a PR.
+
+### Guidelines
+
+#### Babysitting a PR
+
+- Keep an eye on changes to the default branch and rebase when needed. If an overlapping PR makes this one obsolete, stop monitoring, report it to the user, and ask before closing the PR unless closure was explicitly authorized.
+- If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment. Format comments left on the users behalf as:
+  ```md
+  [MODEL-SLUG] RESPONDING ON BEHALF OF NICO
+  -----
+  
+  [actual reply]
+  ```
+- Prefer bundling follow up changes and review resolving commits into one push when review bots are not rate-limited.
+- Poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures, distinguish real breaks from known infra flakes. If nothing is new, stay quiet.
+- Stop when the repo's review bots are green on the latest commit.
+
+#### Creating a PR
+
+- Use a sematic commit message style title.
+- Prefer a concise, human-readable title that explains why the change matters.
+- Use the repo's PR template if it exists.
+- Open the description with a simple explanation of the problem based on the user's original prompt, then briefly explain the solution.
+- Create ready-for-review PRs rather than drafts so review bots run.
+- If you know for sure which model you are add a blurb to the end of the PR description about what modal and harness is making the changes
+- Rebase onto latest default branch before opening.
+
+## General
+- Never use curl or similar to query GitHub API, always use the gh CLI
+- Make sure all commits are GPG signed (you don't have to verify it after committing, Git is already configured). In case it times out stop and tell me to say continue to try it again
+- When solving issues add a resolves #n to the commit message body. Only do it for the first matching commit when creating multiple commits (e.g. in a PR)
 - Use pnpm if the project already uses it, otherwise use bun
   - Never use npm or yarn
-- Always strive for concise, simple solutions
+- Always strive for concise, simple solutions. Channel "YAGNI" principles.
 - If a problem can be solved in a simpler way, propose it
+- Prefer CSS-only solutions over JS, if they have no downsides
 - TypeScript: Never use `any` unless 100% necessary or specifically instructed
 - Don't run dev server commands (e.g., `bun run dev`)
 - Don't run build commands unless specficially told to
@@ -18,7 +52,7 @@
 - If something is not entirely clear to you, prefer asking a clarification question. Especially when there could be multiple ways to interpret the message (The user is a German native speaker)
 
 ## Info
-The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing depenidencies (e.g. use Bunny Fonts instead of Google Fonts)
+The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing depenidencies (EXAMPLE: use Bunny Fonts instead of Google Fonts)
 
 ## Command execution
 
