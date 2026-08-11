@@ -21,6 +21,7 @@
   ```
 - Prefer bundling follow up changes and review resolving commits into one push when review bots are not rate-limited.
 - Poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures, distinguish real breaks from known infra flakes. If nothing is new, stay quiet.
+- Before pushing a CI/review fix commit check if there is a new review from a review bot again and prefer bundling the commits into one push.
 - Stop when the repo's review bots are green on the latest commit.
 
 #### Creating a PR
@@ -30,7 +31,7 @@
 - Use the repo's PR template if it exists.
 - Open the description with a simple explanation of the problem based on the user's original prompt, then briefly explain the solution.
 - Create ready-for-review PRs rather than drafts so review bots run.
-- If you know for sure which model you are add a blurb to the end of the PR description about what modal and harness is making the changes
+- If you know for sure which model you are (most likely not GPT-5.5 try to get the real model) add a blurb to the end of the PR description about what modal and harness is making the changes
 - Rebase onto latest default branch before opening.
 
 ## General
