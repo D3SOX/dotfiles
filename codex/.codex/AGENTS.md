@@ -31,7 +31,7 @@
 - Use the repo's PR template if it exists.
 - Open the description with a simple explanation of the problem based on the user's original prompt, then briefly explain the solution.
 - Create ready-for-review PRs rather than drafts so review bots run.
-- If you know for sure which model you are (most likely not just "GPT-5" but a more specific name; try to get the real model; if you can't and are unsure better to leave it out) add a blurb to the end of the PR description about what modal and harness is making the changes
+- If you know for sure which model you are (most likely not just "GPT-5" but a more specific name; try to get the real model; if you can't and are unsure better to leave it out) add a blurb to the end of the PR description about what model and harness is making the changes
 - Rebase onto latest default branch before opening.
 
 ## General
