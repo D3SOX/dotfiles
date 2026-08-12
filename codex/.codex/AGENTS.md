@@ -33,6 +33,7 @@
 - Create ready-for-review PRs rather than drafts so review bots run.
 - If you know for sure which model you are (most likely not just "GPT-5" but a more specific name; try to get the real model; if you can't and are unsure better to leave it out) add a blurb to the end of the PR description about what model and harness is making the changes
 - Rebase onto latest default branch before opening.
+- When the issue the PR solves has a milestone copy its field into the PR's milestone field.
 
 ## General
 - Never use curl or similar to query GitHub API, always use the gh CLI
