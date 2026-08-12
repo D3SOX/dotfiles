@@ -1,0 +1,170 @@
+/* Temporary copy review UI. Remove after choices are applied. */
+[data-devibe-key] {
+  border-radius: 4px;
+  cursor: pointer;
+  outline: 1px dashed transparent;
+  outline-offset: 5px;
+  transition: outline-color 120ms ease, background-color 120ms ease;
+}
+
+[data-devibe-key]:hover,
+[data-devibe-key]:focus-visible,
+[data-devibe-key].devibe-active {
+  background: color-mix(in srgb, var(--accent, #0969da) 8%, transparent);
+  outline-color: color-mix(in srgb, var(--accent, #0969da) 65%, transparent);
+}
+
+.devibe-panel {
+  position: fixed;
+  z-index: 2147483647;
+  overflow: hidden;
+  color: var(--fg, #1f2328);
+  background: color-mix(in srgb, var(--bg, #fff) 96%, transparent);
+  border: 1px solid var(--border, #d1d9e0);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px #0005;
+  backdrop-filter: blur(14px);
+  font: 14px/1.4 system-ui, sans-serif;
+}
+
+.devibe-panel[hidden] {
+  display: none !important;
+}
+
+.devibe-popover {
+  width: min(26rem, calc(100vw - 1.5rem));
+  max-height: min(32rem, calc(100vh - 1.5rem));
+}
+
+.devibe-handle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--border, #d1d9e0);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.devibe-handle:active {
+  cursor: grabbing;
+}
+
+.devibe-handle strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.devibe-close,
+.devibe-copy {
+  appearance: none;
+  border: 1px solid var(--border, #d1d9e0);
+  border-radius: 6px;
+  padding: 0.25rem 0.55rem;
+  color: inherit;
+  background: var(--bg-soft, #f6f8fa);
+  font: inherit;
+  cursor: pointer;
+}
+
+.devibe-close {
+  border: 0;
+  padding: 0.1rem 0.35rem;
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+.devibe-options {
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+  max-height: 27rem;
+  overflow: auto;
+}
+
+.devibe-options li + li {
+  margin-top: 0.35rem;
+}
+
+.devibe-option {
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  width: 100%;
+  gap: 0.55rem;
+  align-items: start;
+  padding: 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.devibe-option:hover {
+  background: var(--bg-soft, #f6f8fa);
+  border-color: var(--border, #d1d9e0);
+}
+
+.devibe-option[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--accent, #0969da) 12%, transparent);
+  border-color: var(--accent, #0969da);
+}
+
+.devibe-letter {
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 6px;
+  color: var(--accent, #0969da);
+  background: color-mix(in srgb, var(--accent, #0969da) 12%, transparent);
+  font-weight: 700;
+}
+
+.devibe-output {
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: min(34rem, calc(100vw - 1.5rem));
+}
+
+.devibe-output-body {
+  padding: 0.65rem;
+}
+
+.devibe-output textarea {
+  display: block;
+  width: 100%;
+  height: 8rem;
+  box-sizing: border-box;
+  resize: vertical;
+  padding: 0.65rem;
+  border: 1px solid var(--border, #d1d9e0);
+  border-radius: 8px;
+  color: inherit;
+  background: var(--bg-soft, #f6f8fa);
+  font: 12px/1.45 ui-monospace, monospace;
+}
+
+.devibe-output-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  color: var(--muted, #59636e);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 38rem) {
+  .devibe-output {
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+  }
+}

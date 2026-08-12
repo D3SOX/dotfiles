@@ -1,0 +1,4 @@
+interface:
+  display_name: "Devibe Marketing Copy"
+  short_description: "Choose better site copy in a live picker"
+  default_prompt: "Use $devibe-marketing-copy to replace vague marketing copy through an interactive A–E review flow."
