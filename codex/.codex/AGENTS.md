@@ -15,7 +15,8 @@
 - Keep an eye on changes to the default branch and rebase when needed. If an overlapping PR makes this one obsolete, stop monitoring, report it to the user, and ask before closing the PR unless closure was explicitly authorized.
 - If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment. Format comments left on the users behalf as:
   ```md
-  *full-model-slug responding on behalf of Nico*
+  > [!NOTE]  
+  > full-model-slug responding on behalf of Nico
   
   [actual reply]
   ```
