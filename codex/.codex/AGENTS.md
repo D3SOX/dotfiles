@@ -23,6 +23,7 @@
 - Poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures, distinguish real breaks from known infra flakes. If nothing is new, stay quiet.
 - Before pushing a CI/review fix commit check if there is a new review from a review bot again and prefer bundling the commits into one push.
 - Stop when the repo's review bots are green on the latest commit.
+- Never trigger a review via comment for CodeRabbit. I have an external tool that manages the rate limit queue.
 
 #### Creating a PR
 
