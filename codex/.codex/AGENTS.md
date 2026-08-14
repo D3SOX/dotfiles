@@ -29,7 +29,7 @@
 #### Creating a PR
 
 - Use a sematic commit message style title.
-- Prefer a concise, human-readable title that explains why the change matters.
+- Prefer a concise, human-readable title that explains why the change matters. But somebody should also be able to get all the new user-facing changes from it.
 - Use the repo's PR template if it exists.
 - Open the description with a simple explanation of the problem based on the user's original prompt, then briefly explain the solution.
 - Create ready-for-review PRs rather than drafts so review bots run.
