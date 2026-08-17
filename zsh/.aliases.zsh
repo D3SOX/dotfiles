@@ -45,3 +45,18 @@ alias ":q"="exit"
 alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -sel clip)\""'
 alias reboot-windows="sudo grub-reboot 'Windows Boot Manager (on /dev/nvme1n1p1)' && sudo reboot"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+# CodeRabbit review queue on the Pi
+alias crq-start='ssh pi "nohup /home/alarm/.local/bin/coderabbit-review-queue --repo OpenTubeX/OpenTubeX >>/home/alarm/.local/state/coderabbit-review-queue/OpenTubeX__OpenTubeX-monitor.log 2>&1 </dev/null &"'
+alias crq-stop='ssh pi "kill -TERM \$(cat /tmp/coderabbit-review-queue-OpenTubeX__OpenTubeX.pid)"'
+alias crq-status='ssh pi "bash -lc '\''if [[ -s /tmp/coderabbit-review-queue-OpenTubeX__OpenTubeX.pid ]] && kill -0 \"\$(cat /tmp/coderabbit-review-queue-OpenTubeX__OpenTubeX.pid)\" 2>/dev/null; then printf \"Monitor: running (PID %s)\\n\" \"\$(cat /tmp/coderabbit-review-queue-OpenTubeX__OpenTubeX.pid)\"; else printf \"Monitor: stopped\\n\"; fi; /home/alarm/.local/bin/coderabbit-review-queue --repo OpenTubeX/OpenTubeX --status'\''"'
+alias crq-order-push='scp ~/.local/state/coderabbit-review-queue/OpenTubeX__OpenTubeX-order.txt pi:/home/alarm/.local/state/coderabbit-review-queue/OpenTubeX__OpenTubeX-order.txt.tmp && ssh pi "mv /home/alarm/.local/state/coderabbit-review-queue/OpenTubeX__OpenTubeX-order.txt.tmp /home/alarm/.local/state/coderabbit-review-queue/OpenTubeX__OpenTubeX-order.txt"'
+
+# Do a dummy git commit to trigger the PGP sign modal
+alias dummygc="mkdir ~/testgit && cd ~/testgit && git init && touch a && git add a && git commit -m 'a' && cd ~ && rm -rf ~/testgit"
+
+# Load machine-local credentials when available.
+[[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/claudex/secrets.zsh" ]] && source "${XDG_CONFIG_HOME:-$HOME/.config}/claudex/secrets.zsh"
+
+# Launch Claude Code with GPT-5.6 Sol through the local Codex bridge.
+alias claudex='ANTHROPIC_BASE_URL=http://127.0.0.1:8317 ANTHROPIC_AUTH_TOKEN="${CODEX_BRIDGE_TOKEN:?Set CODEX_BRIDGE_TOKEN in ~/.config/claudex/secrets.zsh}" CLAUDE_CODE_SUBAGENT_MODEL=gpt-5.6-sol CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1 CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY=3 ENABLE_TOOL_SEARCH=false claude --dangerously-skip-permissions --model gpt-5.6-sol'

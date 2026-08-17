@@ -27,5 +27,6 @@ export NODE_REPL_HISTORY=""
 # Other config moves
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
+export GOBIN="$GOPATH/bin"
 # bat theme
 export BAT_THEME="TwoDark"

@@ -50,6 +50,24 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+# don't save invalid commands to history
+autoload -Uz add-zsh-hook
+
+dont_save_invalid_commands() {
+    local -a words
+    words=(${(z)1})
+
+    (( ${#words} )) || return 1
+
+    local cmd=$words[1]
+
+    # Save it only if Zsh recognizes the command
+    whence "$cmd" >/dev/null 2>&1 || return 1
+
+    return 0
+}
+
+add-zsh-hook zshaddhistory dont_save_invalid_commands
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
 # remove command lines from the history list when the first character on the
@@ -150,3 +168,6 @@ export PATH="$PATH:/home/nico/.lmstudio/bin"
 # End of LM Studio CLI section
 
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+# Added by CodeRabbit CLI installer
+export PATH="/home/nico/.local/bin:$PATH"
