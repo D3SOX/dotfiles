@@ -149,8 +149,24 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Use beam shape cursor on startup.
 echo -ne '\e[5 q'
 
-# Use beam shape cursor for each new prompt.
-preexec() { echo -ne '\e[5 q' ;}
+# Refresh Waypipe's connection after reattaching to tmux, then use a beam cursor.
+preexec() {
+    if [[ -n "$TMUX" ]]; then
+        local tmux_wayland_display tmux_session_type
+
+        tmux_wayland_display=$(tmux show-environment WAYLAND_DISPLAY 2>/dev/null)
+        if [[ "$tmux_wayland_display" == WAYLAND_DISPLAY=* ]]; then
+            export WAYLAND_DISPLAY="${tmux_wayland_display#WAYLAND_DISPLAY=}"
+        fi
+
+        tmux_session_type=$(tmux show-environment XDG_SESSION_TYPE 2>/dev/null)
+        if [[ "$tmux_session_type" == XDG_SESSION_TYPE=* ]]; then
+            export XDG_SESSION_TYPE="${tmux_session_type#XDG_SESSION_TYPE=}"
+        fi
+    fi
+
+    echo -ne '\e[5 q'
+}
 
 # pnpm
 export PNPM_HOME="/home/nico/.local/share/pnpm"
