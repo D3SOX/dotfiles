@@ -45,6 +45,7 @@
   - Never use npm or yarn
 - Always strive for concise, simple solutions. Channel "YAGNI" principles.
 - If a problem can be solved in a simpler way, propose it
+- Do not preserve compatibility with unmerged or unreleased code. Before adding a follow-up migration or bumping an API, capability, schema, or protocol version, verify that the previous form exists on the default branch or in a published release. If it exists only in current work or a local development database, update the original migration or protocol and keep its initial version. Do not add production compatibility code solely to preserve local development state; instead, tell the user exactly what they must reset, regenerate, migrate, or reconfigure, and whether that adjustment loses data. If release status is unclear, check or ask first.
 - Prefer CSS-only solutions over JS, if they have no downsides
 - TypeScript: Never use `any` unless 100% necessary or specifically instructed
 - Don't run dev server commands (e.g., `bun run dev`)
