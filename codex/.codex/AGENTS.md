@@ -37,6 +37,14 @@
 - Rebase onto latest default branch before opening.
 - When the issue the PR solves has a milestone copy its field into the PR's milestone field.
 
+## GitHub review replies
+
+- Never start, create, submit, or leave a pending GitHub review when replying to an existing PR review thread.
+- Do not use GraphQL review-reply mutations that create draft review comments.
+- Reply immediately through GitHub's REST "reply to a review comment" endpoint.
+- After replying, verify that the PR has zero reviews with state `PENDING`.
+- If an accidental pending review exists, delete it without submitting it after confirming it contains no unrelated user comments.
+
 ## General
 - Never use curl or similar to query GitHub API, always use the gh CLI
 - Make sure all commits are GPG signed (you don't have to verify it after committing, Git is already configured). In case it times out stop and tell me to say continue to try it again
