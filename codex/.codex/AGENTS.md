@@ -36,6 +36,7 @@
 - If you know for sure which model you are (most likely not just "GPT-5" but a more specific name; try to get the real model; if you can't and are unsure better to leave it out) add a blurb to the end of the PR description about what model and harness is making the changes
 - Rebase onto latest default branch before opening.
 - When the issue the PR solves has a milestone copy its field into the PR's milestone field.
+- For user-visible changes, attach concise visual evidence such as screenshots or short recordings to the PR when it materially helps review. Use repeatable `--attach <path>` flags with `gh pr create`, `gh pr edit`, or `gh pr comment`; never upload secrets or personal data.
 
 ## GitHub review replies
 
@@ -46,6 +47,7 @@
 - If an accidental pending review exists, delete it without submitting it after confirming it contains no unrelated user comments.
 
 ## General
+- When website access or browser automation fails through the preferred tool, retry with `agent-browser` before concluding that the page is unavailable.
 - Never use curl or similar to query GitHub API, always use the gh CLI
 - Make sure all commits are GPG signed (you don't have to verify it after committing, Git is already configured). In case it times out stop and tell me to say continue to try it again
 - When solving issues add a resolves #n to the commit message body. Only do it for the first matching commit when creating multiple commits (e.g. in a PR)
