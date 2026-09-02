@@ -55,6 +55,15 @@ alias crq-order-push='scp ~/.local/state/coderabbit-review-queue/OpenTubeX__Open
 # Do a dummy git commit to trigger the PGP sign modal
 alias dummygc="mkdir ~/testgit && cd ~/testgit && git init && touch a && git add a && git commit -m 'a' && cd ~ && rm -rf ~/testgit"
 
+# SSH_TTY can be missing in reused remote terminals such as tmux sessions.
+gpg-unlock() {
+    local gpg_ssh_tty="${SSH_TTY:-}"
+    if [[ -z "$gpg_ssh_tty" && ( -n "${SSH_CONNECTION:-}" || -n "${SSH_CLIENT:-}" ) ]]; then
+        gpg_ssh_tty=remote
+    fi
+    SSH_TTY="$gpg_ssh_tty" command "$HOME/.local/bin/gpg-unlock" "$@"
+}
+
 # Load machine-local credentials when available.
 [[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/claudex/secrets.zsh" ]] && source "${XDG_CONFIG_HOME:-$HOME/.config}/claudex/secrets.zsh"
 
