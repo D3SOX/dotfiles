@@ -4,7 +4,7 @@
 
 ### Triggers
 
-- When I say 'commit', commit only the changes relevant to this thread with a semantic commit msg, always check the working tree first (beware other agents may have commited since)
+- When I say 'commit', commit only the changes relevant to this thread with a semantic commit msg, always check the working tree first (beware other agents may have committed since)
   - Exception: When doing a merge of another branch use Git's default commit message
 - When I say 'pr', commit to a new branch (never use prefixes) and create a PR.
 
@@ -13,7 +13,7 @@
 #### Babysitting a PR
 
 - Keep an eye on changes to the default branch and rebase when needed. If an overlapping PR makes this one obsolete, stop monitoring, report it to the user, and ask before closing the PR unless closure was explicitly authorized.
-- If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment. Format comments left on the users behalf as:
+- If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment. Format comments left on the user's behalf as:
   ```md
   > [!NOTE]  
   > full-model-slug responding on behalf of Nico
@@ -28,12 +28,12 @@
 
 #### Creating a PR
 
-- Use a sematic commit message style title.
+- Use a semantic commit message style title.
 - Prefer a concise, human-readable title that explains why the change matters. But somebody should also be able to get all the new user-facing changes from it.
 - Use the repo's PR template if it exists.
 - Open the description with a simple explanation of the problem based on the user's original prompt, then briefly explain the solution.
 - Create ready-for-review PRs rather than drafts so review bots run.
-- If you know for sure which model you are (most likely not just "GPT-5" but a more specific name; try to get the real model; if you can't and are unsure better to leave it out) add a blurb to the end of the PR description about what model and harness is making the changes
+- If you know for sure which model you are, add a blurb to the end of the PR description about what model and harness are making the changes
 - Rebase onto latest default branch before opening.
 - When the issue the PR solves has a milestone copy its field into the PR's milestone field.
 - For user-visible changes, attach concise visual evidence such as screenshots or short recordings to the PR when it materially helps review. Use repeatable `--attach <path>` flags with `gh pr create`, `gh pr edit`, or `gh pr comment`; never upload secrets or personal data.
@@ -41,8 +41,7 @@
 ## GitHub review replies
 
 - Never start, create, submit, or leave a pending GitHub review when replying to an existing PR review thread.
-- Do not use GraphQL review-reply mutations that create draft review comments.
-- Reply immediately through GitHub's REST "reply to a review comment" endpoint.
+- Do not use review-reply mutations that create draft review comments.
 - After replying, verify that the PR has zero reviews with state `PENDING`.
 - If an accidental pending review exists, delete it without submitting it after confirming it contains no unrelated user comments.
 
@@ -59,14 +58,14 @@
 - Prefer CSS-only solutions over JS, if they have no downsides
 - TypeScript: Never use `any` unless 100% necessary or specifically instructed
 - Don't run dev server commands (e.g., `bun run dev`)
-- Don't run build commands unless specficially told to
+- Don't run build commands unless specifically told to
   - Exception: When you need to run a build to reproduce or verify tests it is allowed
 - Focus on checking commands like `bun run typecheck`, `bun run lint`, etc.
 - If you need to run anything as root, use pkexec or stop and ask the user to run everything you need to continue
 - If something is not entirely clear to you, prefer asking a clarification question. Especially when there could be multiple ways to interpret the message (The user is a German native speaker)
 
 ## Info
-The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing depenidencies (EXAMPLE: use Bunny Fonts instead of Google Fonts)
+The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing dependencies (EXAMPLE: use Bunny Fonts instead of Google Fonts)
 
 ## Command execution
 
