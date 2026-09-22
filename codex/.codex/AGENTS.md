@@ -16,7 +16,7 @@
 - If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment. Format comments left on the user's behalf as:
   ```md
   > [!NOTE]  
-  > full-model-slug responding on behalf of Nico
+  > 🤖 full-model-name responding on behalf of Nico
   
   [actual reply]
   ```
