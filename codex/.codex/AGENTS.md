@@ -25,6 +25,7 @@
 - Before pushing a CI/review fix commit check if there is a new review from a review bot again and prefer bundling the commits into one push.
 - Stop when required CI and review bots pass on the latest commit, actionable review feedback is handled, and the PR has no merge conflicts.
 - Never trigger a review via comment for CodeRabbit. I have an external tool that manages the rate limit queue.
+- Do not let review feedback expand the PR beyond the user's original goal. Address real shortcomings, but avoid scope creep.
 
 #### Creating a PR
 
