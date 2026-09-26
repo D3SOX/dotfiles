@@ -21,6 +21,7 @@
   [actual reply]
   ```
 - Prefer bundling follow up changes and review resolving commits into one push when review bots are not rate-limited.
+- Do not push commits to a PR while a CodeRabbit review is running; wait for it to finish before pushing.
 - Poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures, distinguish real breaks from known infra flakes. If nothing is new, stay quiet.
 - Before pushing a CI/review fix commit check if there is a new review from a review bot again and prefer bundling the commits into one push.
 - Stop when required CI and review bots pass on the latest commit, actionable review feedback is handled, and the PR has no merge conflicts.
