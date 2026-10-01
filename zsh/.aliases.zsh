@@ -46,6 +46,60 @@ alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -sel clip)\""'
 alias reboot-windows="sudo grub-reboot 'Windows Boot Manager (on /dev/nvme1n1p1)' && sudo reboot"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
+# Forward a remote service to localhost, optionally using a different local port.
+ssh-portforward() {
+    local ssh_host remote_port local_port
+    local usage='Usage: ssh-portforward [host] [remote-port] [-l|--local-port port] (ports: 1-65535)'
+    while (( $# )); do
+        case "$1" in
+            -l|--local-port)
+                if (( $# < 2 )) || [[ "$2" != <1-65535> ]]; then
+                    print -u2 "$usage"
+                    return 1
+                fi
+                local_port="$2"
+                shift
+                ;;
+            <1-65535>)
+                if [[ -n "$remote_port" ]]; then
+                    print -u2 "$usage"
+                    return 1
+                fi
+                remote_port="$1"
+                ;;
+            -*|<->|'')
+                print -u2 "$usage"
+                return 1
+                ;;
+            *)
+                if [[ -n "$ssh_host" || -n "$remote_port" ]]; then
+                    print -u2 "$usage"
+                    return 1
+                fi
+                ssh_host="$1"
+                ;;
+        esac
+        shift
+    done
+
+    if [[ -z "$ssh_host" ]]; then
+        read -r "ssh_host?SSH host (or user@host): " || return 1
+    fi
+    if [[ -z "$remote_port" ]]; then
+        read -r "remote_port?Remote service port: " || return 1
+    fi
+    local_port="${local_port:-$remote_port}"
+
+    if [[ -z "$ssh_host" || "$remote_port" != <1-65535> || "$local_port" != <1-65535> ]]; then
+        print -u2 'Enter an SSH host and ports between 1 and 65535.'
+        return 1
+    fi
+
+    print "Forwarding localhost:${local_port} to ${ssh_host}:${remote_port} (Ctrl+C to stop)."
+    ssh -N -o ExitOnForwardFailure=yes -L "127.0.0.1:${local_port}:localhost:${remote_port}" -- "$ssh_host"
+}
+alias ssh-pfw='ssh-portforward'
+
 # CodeRabbit review queue on the Pi
 alias crq-start='ssh pi "nohup /home/alarm/.local/bin/coderabbit-review-queue --repo OpenTubeX/OpenTubeX >>/home/alarm/.local/state/coderabbit-review-queue/OpenTubeX__OpenTubeX-monitor.log 2>&1 </dev/null &"'
 alias crq-stop='ssh pi "kill -TERM \$(cat /tmp/coderabbit-review-queue-OpenTubeX__OpenTubeX.pid)"'
