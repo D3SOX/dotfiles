@@ -1,0 +1,41 @@
+{
+  "version": 3,
+  "skills": {
+    "capacitor-plugins": {
+      "source": "capawesome-team/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/capawesome-team/skills.git",
+      "skillPath": "skills/capacitor-plugins/SKILL.md",
+      "skillFolderHash": "658be0f17edbcdb7a91a31a1f3993a047562d159",
+      "installedAt": "2026-09-07T16:10:33.602Z",
+      "updatedAt": "2026-09-14T15:41:35.713Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-09-07T16:10:43.564Z",
+      "updatedAt": "2026-09-07T16:10:43.564Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed"
+  ]
+}
