@@ -25,7 +25,8 @@
 - Poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures, distinguish real breaks from known infra flakes. If nothing is new, stay quiet.
 - Before pushing a CI/review fix commit check if there is a new review from a review bot again and prefer bundling the commits into one push.
 - Stop when required CI and review bots pass on the latest commit, actionable review feedback is handled, and the PR has no merge conflicts.
-- Never trigger a review via comment for CodeRabbit. I have an external tool that manages the rate limit queue.
+- Never trigger a review via comment for CodeRabbit. My external tool manages the rate limit queue and automatically sends a message to this thread when the review is available.
+- Once other actionable work is complete, if the only remaining work is waiting for the external queue to trigger a CodeRabbit review, stop monitoring and end the turn with a brief status noting that the review is pending. Do not wait or poll for the queue to trigger it. Resume review handling when the queue's message arrives; this is an exception to the usual requirement to wait for all review bots to pass before stopping.
 - Do not let review feedback expand the PR beyond the user's original goal. Address real shortcomings, but avoid scope creep.
 
 #### Creating a PR
