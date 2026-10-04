@@ -93,15 +93,6 @@ source ~/.bindings.zsh
 # Aliases
 source ~/.aliases.zsh
 
-# Add ~/.local/bin to $PATH
-export PATH="$PATH:$HOME/.local/bin/"
-# Add local yarn packages to $PATH
-export PATH="$PATH:$HOME/.yarn/bin/"
-# Add local cargo packages to $PATH
-export PATH="$PATH:$HOME/.local/share/cargo/bin"
-# Add Flutter / Dart
-export PATH="$PATH:$HOME/Flutter/flutter/bin"
-
 # Plugins
 source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
@@ -121,10 +112,6 @@ fi
 
 # bun completions
 [ -s "/home/nico/.bun/_bun" ] && source "/home/nico/.bun/_bun"
-
-# Bun
-export BUN_INSTALL="/home/nico/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Use beam shape cursor on startup.
 echo -ne '\e[5 q'
@@ -147,16 +134,5 @@ preexec() {
 
     echo -ne '\e[5 q'
 }
-
-# pnpm
-export PNPM_HOME="/home/nico/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# spicetify
-export PATH=$PATH:/home/nico/.spicetify
 
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi

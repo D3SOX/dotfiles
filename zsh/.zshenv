@@ -1,4 +1,17 @@
 typeset -U PATH path
+export BUN_INSTALL="$HOME/.bun"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+path=(
+    "$PNPM_HOME"
+    "$BUN_INSTALL/bin"
+    "$HOME/.local/bin"
+    $path
+    "$HOME/.yarn/bin"
+    "$HOME/.local/share/cargo/bin"
+    "$HOME/Flutter/flutter/bin"
+    "$HOME/.spicetify"
+)
+export PATH
 
 export LANG=en_US.UTF-8
 
