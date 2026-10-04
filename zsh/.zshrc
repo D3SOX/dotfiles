@@ -7,23 +7,11 @@ autoload -U colors && colors
 # History in cache directory:
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
+[[ -d ~/.cache/zsh ]] || mkdir -p -- ~/.cache/zsh
 HISTFILE=~/.cache/zsh/history
-HISTDUP=erase
 
 # Basic auto/tab complete:
 autoload -U compinit && compinit
-#zstyle ':completion:*' menu select
-# Auto complete with case insenstivity
-#zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-# Auto complete color
-#zstyle ':completion:*:default' list-colors \
-#  "di=1;36" "ln=35" "so=32" "pi=33" "ex=31" "bd=34;46" "cd=34;43" \
-#  "su=30;41" "sg=30;46" "tw=30;42" "ow=30;43"
-# Add description to auto completions
-#zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'
-# Ignore duplicate entries
-#zstyle ':completion:*:history-words'   remove-all-dups yes
-#zstyle ':completion:*:history-words'   stop yes
 
 zstyle ':completion:*' menu no
 # Auto complete with case insenstivity
@@ -36,12 +24,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -hg --color=always --group-d
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 -hg --color=always --group-directories-first --icons=always $realpath'
 
 zmodload zsh/complist
-
-# Enable searching through history
-bindkey '^R' history-incremental-pattern-search-backward
-# Enable moving by word with ctrl + arrow keys
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
 
 # Options
 
@@ -75,13 +57,11 @@ setopt extended_history
 setopt hist_ignore_space
 # share history between all sessions
 setopt sharehistory
+# allow comments in commands pasted into an interactive shell
+setopt interactivecomments
 # if a command is issued that can't be executed as a normal command, and the
 # command is the name of a directory, perform the cd command to that directory.
 setopt auto_cd
-# in order to use #, ~ and ^ for filename generation grep word
-# *~(*.gz|*.bz|*.bz2|*.zip|*.Z) -> searches for word not in compressed files
-# don't forget to quote '^', '~' and '#'!
-setopt extended_glob
 # display PID when suspending processes as well
 setopt longlistjobs
 # report the status of backgrounds jobs immediately
@@ -179,11 +159,4 @@ esac
 # spicetify
 export PATH=$PATH:/home/nico/.spicetify
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/nico/.lmstudio/bin"
-# End of LM Studio CLI section
-
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
-
-# Added by CodeRabbit CLI installer
-export PATH="/home/nico/.local/bin:$PATH"
