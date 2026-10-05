@@ -27,6 +27,7 @@
 - Stop when required CI and review bots pass on the latest commit, actionable review feedback is handled, and the PR has no merge conflicts.
 - Never trigger a review via comment for CodeRabbit. My external tool manages the rate limit queue and automatically sends a message to this thread when the review is available.
 - Once other actionable work is complete, if the only remaining work is waiting for the external queue to trigger a CodeRabbit review, stop monitoring and end the turn with a brief status noting that the review is pending. Do not wait or poll for the queue to trigger it. Resume review handling when the queue's message arrives; this is an exception to the usual requirement to wait for all review bots to pass before stopping.
+- In T3 Code, when only CodeRabbit remains (queued or running), call `unwatch_pull_request` for the PR before ending the turn, verify `watching: false` with `list_thread_pull_requests`, and keep the PR linked. Do not call `watch_pull_request` again just to wait for CodeRabbit; resume when the external queue sends its message.
 - Do not let review feedback expand the PR beyond the user's original goal. Address real shortcomings, but avoid scope creep.
 
 #### Creating a PR
