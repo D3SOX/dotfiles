@@ -1,0 +1,3 @@
+interface:
+  display_name: "iOS lab"
+  short_description: "Test iOS apps in the macOS VM and on the iPad"
