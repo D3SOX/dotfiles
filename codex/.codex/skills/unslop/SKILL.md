@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Cut AI tells from any writing. Must always apply.
+description: Remove AI writing patterns from text only when the user explicitly asks to use unslop.
 ---
 
 # Unslop
