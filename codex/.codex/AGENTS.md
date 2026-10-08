@@ -50,6 +50,7 @@
 - If an accidental pending review exists, delete it without submitting it after confirming it contains no unrelated user comments.
 
 ## General
+- Keep explanations, plans, findings, and summaries in the conversation thread. Do not create Markdown reports or other write-up files in my projects unless I explicitly ask for a file. Keep thread updates concise; update existing project documentation when the task requires it.
 - When website access or browser automation fails through the preferred tool, retry with `agent-browser` before concluding that the page is unavailable.
 - Never use curl or similar to query GitHub API, always use the gh CLI
 - Make sure all commits are GPG signed (you don't have to verify it after committing, Git is already configured). In case it times out stop and tell me to say continue to try it again
