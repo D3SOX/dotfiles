@@ -37,7 +37,9 @@ ssh -tt -o BatchMode=yes nico-laptop \
   "flock -n -E 75 /tmp/opentubex-ios-ipad.lock bash -c 'echo LAB_LOCK_ACQUIRED; exec sleep infinity'"
 ```
 
-Continue only after each holder prints `LAB_LOCK_ACQUIRED`. Exit 75 means occupied: coordinate or wait. Release with Ctrl-C after restoration and inspector cleanup. Verify a remote holder exited if SSH drops. Never delete a lock file to bypass its holder.
+Continue only after each holder prints `LAB_LOCK_ACQUIRED`. Exit 75 means occupied: coordinate or wait. Release with Ctrl-C after restoration, inspector cleanup and any required VM shutdown below. Verify a remote holder exited if SSH drops. Never delete a lock file to bypass its holder.
+
+As soon as the macOS VM is no longer needed, stop the `macos` container, including when it was already running before your task. While still holding the VM lock, copy required artifacts and evidence to the host, finish cleanup and check that no other agent or user is using the guest. If it is idle, run `docker stop --timeout 120 macos` and verify `docker inspect --format '{{.State.Status}}' macos` reports `exited` before releasing the lock. Do not leave the VM running while waiting for user feedback or physical-device testing that does not need it. Leave it running only for another active user/task or an explicit user request, and state why in the handoff.
 
 ## Evidence and user involvement
 
