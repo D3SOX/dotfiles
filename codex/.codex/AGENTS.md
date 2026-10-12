@@ -66,7 +66,7 @@
 - Don't run build commands unless specifically told to
   - Exception: When you need to run a build to reproduce or verify tests it is allowed
 - Focus on checking commands like `bun run typecheck`, `bun run lint`, etc.
-- If you need to run anything as root, use pkexec or stop and ask the user to run everything you need to continue
+- When executing commands yourself that require root, use `pkexec` for KDE authentication; if you can't, ask me to run them.
 - Ask when plausible interpretations would materially change the requested outcome, scope, or consequences, especially when my wording may be ambiguous. Resolve routine implementation details using repository conventions and context, and continue work that does not depend on the answer.
 
 ## Info
