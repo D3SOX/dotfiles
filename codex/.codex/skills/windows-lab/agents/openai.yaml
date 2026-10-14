@@ -1,0 +1,3 @@
+interface:
+  display_name: "Windows lab"
+  short_description: "Test Windows apps in the local Docker VM"
