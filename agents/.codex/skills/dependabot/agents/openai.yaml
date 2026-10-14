@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dependabot"
+  short_description: "Validate and merge Dependabot updates as one batch"
+  default_prompt: "Use $dependabot to validate all open Dependabot PRs, fix any required migrations, and merge them as one batch."

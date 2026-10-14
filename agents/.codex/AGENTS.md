@@ -58,6 +58,8 @@
 - When solving issues add a resolves #n to the commit message body. Only do it for the first matching commit when creating multiple commits (e.g. in a PR)
 - Use pnpm if the project already uses it, otherwise use bun
   - Never use npm or yarn
+- When adding or updating package manager dependencies in any programming language, verify the latest stable release in the official package registry and use it. Update the relevant manifests and lockfiles.
+- Always configure Dependabot in `.github/dependabot.yml` for GitHub Actions and every supported package manager ecosystem and dependency directory used by the project, with a recurring update schedule. Keep existing coverage when extending the configuration, and report any ecosystems Dependabot does not support.
 - Always strive for concise, simple solutions. Channel "YAGNI" principles.
 - If a problem can be solved in a simpler way, propose it
 - Do not preserve compatibility with unmerged or unreleased code. Before adding a follow-up migration or bumping an API, capability, schema, or protocol version, verify that the previous form exists on the default branch or in a published release. If it exists only in current work or a local development database, update the original migration or protocol and keep its initial version. Do not add production compatibility code solely to preserve local development state; instead, tell the user exactly what they must reset, regenerate, migrate, or reconfigure, and whether that adjustment loses data. If release status is unclear, check or ask first.
