@@ -37,7 +37,7 @@
 - Use the repo's PR template if it exists.
 - Open the description with a simple explanation of the problem based on the user's original prompt, then briefly explain the solution.
 - Create ready-for-review PRs rather than drafts so review bots run.
-- If you know for sure which model you are, add a blurb to the end of the PR description about what model and harness are making the changes
+- Add a blurb to the end of the PR description about what model and harness are making the changes
 - Rebase onto latest default branch before opening.
 - When the issue the PR solves has a milestone copy its field into the PR's milestone field.
 - For user-visible changes, attach concise visual evidence such as screenshots or short recordings to the PR when it materially helps review. Use repeatable `--attach <path>` flags with `gh pr create`, `gh pr edit`, or `gh pr comment`; never upload secrets or personal data.
