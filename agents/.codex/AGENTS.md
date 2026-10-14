@@ -50,6 +50,7 @@
 - If an accidental pending review exists, delete it without submitting it after confirming it contains no unrelated user comments.
 
 ## General
+- Always use the `unslop` skill when writing or editing copy (including Markdown documentation, website text, and suggested replies).
 - Keep explanations, plans, findings, and summaries in the conversation thread. Do not create Markdown reports or other write-up files in my projects unless I explicitly ask for a file. Keep thread updates concise; update existing project documentation when the task requires it.
 - When website access or browser automation fails through the preferred tool, retry with `agent-browser` before concluding that the page is unavailable.
 - Never use curl or similar to query GitHub API, always use the gh CLI
