@@ -8,17 +8,18 @@
 - When creating a PR, commit to a new branch (never use prefixes).
 - When using GitHub Actions, verify the latest release and pin each action to its full commit SHA with a version comment, e.g. `uses: owner/action@<full-commit-sha> # v1.0.0`.
 - Do not generate or upload separate checksum files (e.g. `SHA256SUMS`) for GitHub releases.
-
-#### Babysitting a PR
-
-- Keep an eye on changes to the default branch and rebase when needed. If an overlapping PR makes this one obsolete, stop monitoring, report it to the user, and ask before closing the PR unless closure was explicitly authorized.
-- If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment. Format comments left on the user's behalf as:
+- Format comments left on the user's behalf as:
   ```md
   > [!NOTE]  
   > 🤖 full-model-name responding on behalf of Nico
   
   [actual reply]
   ```
+
+#### Babysitting a PR
+
+- Keep an eye on changes to the default branch and rebase when needed. If an overlapping PR makes this one obsolete, stop monitoring, report it to the user, and ask before closing the PR unless closure was explicitly authorized.
+- If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment.
 - Prefer bundling follow up changes and review resolving commits into one push when review bots are not rate-limited.
 - Do not push commits to a PR while a CodeRabbit review is running; wait for it to finish before pushing.
 - Poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures, distinguish real breaks from known infra flakes. If nothing is new, stay quiet.
