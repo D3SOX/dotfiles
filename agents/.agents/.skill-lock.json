@@ -6,9 +6,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/capawesome-team/skills.git",
       "skillPath": "skills/capacitor-plugins/SKILL.md",
-      "skillFolderHash": "658be0f17edbcdb7a91a31a1f3993a047562d159",
+      "skillFolderHash": "d59dd94e10073d187f4a752b9ad3b409e93c2aad",
       "installedAt": "2026-09-07T16:10:33.602Z",
-      "updatedAt": "2026-09-14T15:41:35.713Z"
+      "updatedAt": "2026-10-09T13:22:00.114Z"
     },
     "find-skills": {
       "source": "vercel-labs/skills",
