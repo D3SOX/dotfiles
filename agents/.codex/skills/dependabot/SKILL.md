@@ -2,16 +2,18 @@
 name: dependabot
 description: >-
   Validate all open Dependabot PRs in a repository, apply required migrations
-  and fixes, and integrate them as one tested batch. Use when the user asks to
-  clear, validate, or merge Dependabot updates.
+  and fixes, and push the tested batch directly to the default branch once.
+  Use when the user asks to clear, validate, or merge Dependabot updates.
 ---
 
 # Dependabot
 
 Combine the requested Dependabot updates, fix regressions caused by them, and
-validate the complete batch before updating the default branch once. If the
-user requested only an assessment, report findings without pushing or merging.
-A request to merge the updates authorizes delivery within repository rules.
+validate the complete batch, then push it directly to the default branch once.
+Invoking `$dependabot` alone requests this complete workflow and authorizes the
+final push using the authenticated account's existing permissions. If the user
+requested only an assessment, report findings without pushing or merging.
+Create a batch PR only when the user explicitly requests or approves one.
 
 ## Collect the updates
 
@@ -25,9 +27,10 @@ A request to merge the updates authorizes delivery within repository rules.
 - Read each diff, relevant release notes and migration guides, CI results, and
   unresolved review feedback. Check for overlapping updates and incompatible
   versions, including peer dependencies and runtime requirements.
-- Check branch protection, rulesets, and allowed merge methods before choosing
-  delivery. Follow the repository's AGENTS.md and PR review rules. In T3 Code,
-  link the PRs being handled and any batch PR to the thread when supported.
+- Read repository instructions and inspect branch protection, rulesets, and the
+  authenticated account's permissions, including existing admin or bypass
+  allowances. A protected branch alone does not mean this account needs a PR.
+  In T3 Code, link the source PRs being handled to the thread when supported.
 
 ## Assemble and validate
 
@@ -59,19 +62,20 @@ A request to merge the updates authorizes delivery within repository rules.
   PRs' states and head SHAs. If the base or a head changed, incorporate the new
   state and repeat affected validation. Report newly opened PRs separately
   rather than continually expanding the initial batch.
-- When repository rules permit direct pushes, push the validated batch to the
-  default branch with one normal fast-forward push using an explicit refspec,
-  `git push origin HEAD:refs/heads/<default-branch>`. Never force-push or bypass
-  protection. A rejected push changes nothing; inspect the reason before
-  retrying, and revalidate if the default branch advanced.
-- If rules require a PR, push the batch branch and open one ready-for-review
-  PR listing the included updates, migration fixes, and validation. Satisfy its
-  required checks and reviews, then merge it once with a merge commit and a
-  check that its head still matches the validated SHA. Follow the repository's
-  monitoring workflow if checks or reviews are still pending.
-- If repository rules prohibit preserving ancestry, explain the conflict with
-  the requested batch workflow and ask before switching to another strategy.
-  Do not change repository protections or close the source PRs as a workaround.
+- Push the validated batch directly to the default branch with one normal
+  fast-forward push using an explicit refspec,
+  `git push origin HEAD:refs/heads/<default-branch>`. Existing admin or bypass
+  permissions may allow GitHub to accept this push despite PR requirements.
+  Never force-push, change protections, or grant additional permissions.
+- If the push is rejected because the default branch advanced, incorporate the
+  new base, repeat affected validation, and retry. For a permissions or policy
+  rejection, report the exact blocker and leave the batch local. Do not push a
+  batch branch or create a PR without the user's explicit authorization.
+- If the user explicitly chooses a batch PR instead, open one ready-for-review
+  PR, link it to the thread, and follow repository checks and review rules.
+  Preserve ancestry when merging and verify its head still matches the
+  validated SHA. If ancestry cannot be preserved, report the conflict before
+  switching strategies. Do not close the source PRs as a workaround.
 - GitHub can mark source PRs merged when their head commits become reachable
   from the base branch. See [GitHub's indirect merge documentation](https://docs.github.com/en/pull-requests/reference/pull-request-merges#indirect-merges).
   Verify the delivered default-branch SHA and every included PR's merged state.
