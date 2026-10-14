@@ -9,7 +9,6 @@ path=(
     "$HOME/.yarn/bin"
     "$HOME/.local/share/cargo/bin"
     "$HOME/Flutter/flutter/bin"
-    "$HOME/.spicetify"
 )
 export PATH
 
