@@ -2,14 +2,10 @@
 
 ## Git
 
-### Triggers
-
-- When I say 'commit', commit only the changes relevant to this thread with a semantic commit msg, always check the working tree first (beware other agents may have committed since)
-  - Exception: When doing a merge of another branch use Git's default commit message
-- When I say 'pr', commit to a new branch (never use prefixes) and create a PR.
-
 ### Guidelines
 
+- Use semantic commit messages by default. When merging another branch, use Git's default commit message.
+- When creating a PR, commit to a new branch (never use prefixes).
 - When using GitHub Actions, verify the latest release and pin each action to its full commit SHA with a version comment, e.g. `uses: owner/action@<full-commit-sha> # v1.0.0`.
 - Do not generate or upload separate checksum files (e.g. `SHA256SUMS`) for GitHub releases.
 
