@@ -11,6 +11,7 @@
 ### Guidelines
 
 - When using GitHub Actions, verify the latest release and pin each action to its full commit SHA with a version comment, e.g. `uses: owner/action@<full-commit-sha> # v1.0.0`.
+- Do not generate or upload separate checksum files (e.g. `SHA256SUMS`) for GitHub releases.
 
 #### Babysitting a PR
 
