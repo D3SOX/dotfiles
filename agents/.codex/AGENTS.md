@@ -69,7 +69,6 @@
 - Don't run build commands unless specifically told to
   - Exception: When you need to run a build to reproduce or verify tests it is allowed
 - Focus on checking commands like `bun run typecheck`, `bun run lint`, etc.
-- When executing commands yourself that require root, use `pkexec` for KDE authentication; if you can't, ask me to run them.
 - Ask when plausible interpretations would materially change the requested outcome, scope, or consequences, especially when my wording may be ambiguous. Resolve routine implementation details using repository conventions and context, and continue work that does not depend on the answer.
 
 ## Temporary files
@@ -81,6 +80,15 @@
 The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing dependencies (EXAMPLE: use Bunny Fonts instead of Google Fonts)
 
 ## Command execution
+
+### Root commands executed by the agent
+
+- Use `pkexec` only when you, the agent, are executing a command through a terminal/tool and that command requires root. This lets me enter my password in KDE's authentication dialog instead of an inaccessible or timing-out `sudo` prompt.
+- This is an agent execution rule, not a requirement for the code you write. Do not add `pkexec` or a polkit dependency to scripts, installers, application code, CI, tests, documentation, or commands for users to copy and run because of this rule. Follow the project's normal privilege handling, such as `sudo`, unless I explicitly request otherwise.
+- If a script must run as root, put `pkexec` in your tool invocation, for example `pkexec bash ./root-task.sh`. Do not embed it in the script or change the script's privilege handling just because you will execute it.
+- If you cannot authenticate through `pkexec`, ask me to run the required command in my terminal using the project's normal method, such as `sudo`.
+
+### Output and validation
 
 - Use `rtk` when command output is likely to be large or repetitive and a
   filtered summary is sufficient. Good candidates include test suites, builds,
