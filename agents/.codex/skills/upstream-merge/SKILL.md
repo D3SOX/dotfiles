@@ -2,16 +2,20 @@
 name: upstream-merge
 description: >-
   Fetch and merge an upstream repository's default branch into a fork, preserve
-  an existing upstream sync PR so it can be marked merged, and summarize
-  conflicts and relevant changes. Use when the user asks to merge or sync upstream.
+  an existing upstream sync PR so it can be marked merged, push the validated
+  result directly to the target branch once, and summarize conflicts and
+  relevant changes. Use when the user asks to merge or sync upstream.
 ---
 
 # Upstream merge
 
 Merge the latest upstream default branch while preserving the fork's intended
-changes and any existing sync PR's ancestry. Honor the requested destination
-and delivery. A request to have the sync PR marked merged includes publishing
-the result within repository rules. Keep an explicitly local merge local.
+changes and any existing sync PR's ancestry, then push the validated result
+directly to the target branch once. Invoking `$upstream-merge` alone requests
+this complete workflow and authorizes the final push using the authenticated
+account's existing permissions. Honor an explicitly local merge or assessment
+without publishing. Create a delivery PR only when the user explicitly
+requests or approves one.
 
 ## Identify the source and sync PR
 
@@ -31,7 +35,10 @@ the result within repository rules. Keep an explicitly local merge local.
 - Record the target SHA, upstream default-branch SHA, and any sync PR URL and
   head SHA. Read its checks and unresolved feedback. Inspect extra bot changes;
   do not import unrelated changes merely to make a PR appear merged.
-  In T3 Code, link the sync PR and any delivery PR when supported.
+  In T3 Code, link the sync PR when supported.
+- Inspect branch protection, rulesets, and the authenticated account's
+  permissions, including existing admin or bypass allowances. A protected
+  branch alone does not mean this account needs a PR.
 
 ## Merge and validate
 
@@ -66,11 +73,20 @@ the result within repository rules. Keep an explicitly local merge local.
   head. Incorporate changes and repeat affected validation if they moved.
   If upstream is already integrated, check whether the bot head still needs
   merging before reporting that there is nothing to do.
-- Deliver the validated result with a normal fast-forward push when authorized
-  and permitted. If protection requires a PR, open one ready-for-review PR and
-  follow repository checks and review requirements before merging it with a
-  merge commit. Match the PR head to the validated SHA. Never force-push or
-  bypass protections. If a push is rejected, inspect why before retrying.
+- Push the validated result directly to the target branch with one normal
+  fast-forward push using an explicit refspec,
+  `git push origin HEAD:refs/heads/<target-branch>`. Existing admin or bypass
+  permissions may allow GitHub to accept this push despite PR requirements.
+  Never force-push, change protections, or grant additional permissions.
+- If the push is rejected because the target branch advanced, incorporate the
+  new target state while preserving the merged heads, repeat affected
+  validation, and retry. For a permissions or policy rejection, report the
+  exact blocker and leave the merge local. Do not push a delivery branch or
+  create a PR without the user's explicit authorization.
+- If the user explicitly chooses a delivery PR instead, open one ready-for-review
+  PR, link it to the thread, and follow repository checks and review rules.
+  Preserve ancestry when merging and verify its head still matches the
+  validated SHA.
 - If repository rules prevent preserving ancestry, explain the conflict and
   ask before changing strategy. Do not close the bot PR as a substitute.
   GitHub's [indirect merge behavior](https://docs.github.com/en/pull-requests/reference/pull-request-merges#indirect-merges)
