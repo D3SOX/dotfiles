@@ -72,6 +72,11 @@
 - When executing commands yourself that require root, use `pkexec` for KDE authentication; if you can't, ask me to run them.
 - Ask when plausible interpretations would materially change the requested outcome, scope, or consequences, especially when my wording may be ambiguous. Resolve routine implementation details using repository conventions and context, and continue work that does not depend on the answer.
 
+## Temporary files
+
+- Agent launchers set `TMPDIR` to a per-session directory under `~/.cache/agent-tmp` (disk-backed, auto-cleaned after 7 days) because `/tmp` is a small tmpfs. Put scratch files in `$TMPDIR` instead of hardcoding `/tmp` or `/var/tmp`.
+- Delete large scratch files (downloads, browser profiles, build output) once you no longer need them.
+
 ## Info
 The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing dependencies (EXAMPLE: use Bunny Fonts instead of Google Fonts)
 

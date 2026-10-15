@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+if [ "$#" -eq 0 ]; then
+    printf 'Usage: agent-run <command> [arguments...]\n' >&2
+    exit 64
+fi
+
+install -d -m 700 "$HOME/.cache/agent-tmp"
+agent_tmpdir=$(mktemp -d "$HOME/.cache/agent-tmp/session.XXXXXXXX")
+export TMPDIR="$agent_tmpdir"
+exec flock --shared "$agent_tmpdir" "$@"

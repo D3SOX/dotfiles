@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$HOME/.local/bin/agent-run" /usr/bin/t3code "$@"

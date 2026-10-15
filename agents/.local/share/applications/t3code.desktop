@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=T3 Code (Nightly)
+Comment=T3 Code nightly desktop build
+Exec=agent-run /usr/bin/t3code %U
+TryExec=t3code
+Terminal=false
+Type=Application
+Icon=t3code
+StartupWMClass=t3code
+Categories=Development;
+MimeType=x-scheme-handler/t3code;
