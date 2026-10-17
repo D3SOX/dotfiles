@@ -50,6 +50,7 @@
 - If an accidental pending review exists, delete it without submitting it after confirming it contains no unrelated user comments.
 
 ## General
+- When interacting with Cloudflare, use the cf CLI unless the project has a Wrangler configuration file.
 - Use the `unslop` skill when drafting or editing text for public use (e.g., issues, PRs, READMEs, documentation, websites), or when explicitly requested. Do not invoke it for ordinary conversation messages or before reaching the writing/editing step.
 - Keep explanations, plans, findings, and summaries in the conversation thread. Do not create Markdown reports or other write-up files in my projects unless I explicitly ask for a file. Keep thread updates concise; update existing project documentation when the task requires it.
 - When website access or browser automation fails through the preferred tool, retry with `agent-browser` before concluding that the page is unavailable.
@@ -73,13 +74,16 @@
 
 ## Temporary files
 
-- Agent launchers set `TMPDIR` to a per-session directory under `~/.cache/agent-tmp` (disk-backed, auto-cleaned after 7 days) because `/tmp` is a small tmpfs. Put scratch files in `$TMPDIR` instead of hardcoding `/tmp` or `/var/tmp`.
-- Delete large scratch files (downloads, browser profiles, build output) once you no longer need them.
+- Agent launchers set `TMPDIR` to a disk-backed per-session directory because `/tmp` is a small tmpfs. Put scratch files in `$TMPDIR`; do not hardcode `/tmp`, `/var/tmp`, or `~/.cache/agent-tmp`.
+- `$TMPDIR` is deleted after your session exits, so do not keep anything there that must outlive the session.
+- Delete scratch files as soon as the step that needed them is done, especially large ones (downloads, clones, traces, browser profiles, build output). Do not leave cleanup to the end of the session.
 
 ## Info
 The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing dependencies (EXAMPLE: use Bunny Fonts instead of Google Fonts)
 
 ## Command execution
+
+- NEVER execute the `sleep` or `timeout` commands, including through scripts or command chains. This restriction applies only to commands the agent runs, not to code, scripts, or documentation it writes.
 
 ### Root commands executed by the agent
 
