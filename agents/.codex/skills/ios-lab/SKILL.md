@@ -23,21 +23,20 @@ Use these host lock files for new lab sessions:
 
 These lock filenames identify shared hardware, not the app under test. Use them in every project.
 
-Hold each needed lock in a separate interactive exec session for the whole workflow:
+Hold each needed lock as a separate long-running background command (its own exec session in Codex, `run_in_background` in Claude Code) for the whole workflow. The holder is a single process, so killing its PID releases the lock:
 
 ```sh
-flock -n -E 75 /tmp/ios-lab-vm.lock \
-  bash -c 'echo LAB_LOCK_ACQUIRED; exec sleep infinity'
+bash -c 'exec 9>>/tmp/ios-lab-vm.lock; flock -n -E 75 9 || exit 75; echo LAB_LOCK_ACQUIRED pid=$$; exec sleep infinity'
 ```
 
-For physical work use the iPad lock locally, plus a remote holder:
+For physical work use the iPad lock locally, plus a remote holder. It exits when the SSH connection's terminal closes:
 
 ```sh
 ssh -tt -o BatchMode=yes nico-laptop \
-  "flock -n -E 75 /tmp/ios-lab-ipad.lock bash -c 'echo LAB_LOCK_ACQUIRED; exec sleep infinity'"
+  "bash -c 'exec 9>>/tmp/ios-lab-ipad.lock; flock -n -E 75 9 || exit 75; echo LAB_LOCK_ACQUIRED pid=\$\$; exec sleep infinity'"
 ```
 
-Continue only after each holder prints `LAB_LOCK_ACQUIRED`. Exit 75 means occupied: coordinate or wait. Release with Ctrl-C after restoration, inspector cleanup and any required VM shutdown below. Verify a remote holder exited if SSH drops. Never delete a lock file to bypass its holder.
+Continue only after each holder prints `LAB_LOCK_ACQUIRED pid=<PID>`, and record each PID. Exit 75 means occupied: coordinate or wait. While holding a lock, run commands directly; do not wrap them in `flock`, since your own holder makes that fail with 75. After restoration, inspector cleanup and any required VM shutdown below, release each lock by killing its recorded PID (`ssh -o BatchMode=yes nico-laptop 'kill PID'` for the remote one) and confirm with `flock -n LOCK_FILE true` on each host. Release every lock before ending your turn unless you continue lab work in the same session. Never kill holders by pattern (`pkill -f`), never use an ad-hoc `flock FILE COMMAND` holder (killing `flock` leaves its child holding the lock), and never delete a lock file to bypass its holder.
 
 As soon as the macOS VM is no longer needed, stop the `macos` container, including when it was already running before your task. While still holding the VM lock, copy required artifacts and evidence to the host, finish cleanup and check that no other agent or user is using the guest. If it is idle, run `docker stop --timeout 120 macos` and verify `docker inspect --format '{{.State.Status}}' macos` reports `exited` before releasing the lock. Do not leave the VM running while waiting for user feedback or physical-device testing that does not need it. Leave it running only for another active user/task or an explicit user request, and state why in the handoff.
 

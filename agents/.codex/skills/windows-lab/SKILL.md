@@ -35,11 +35,10 @@ Credentials live in the Compose service's `environment.USERNAME` and `environmen
 The container and desktop are shared. Hold `/tmp/windows-lab-vm.lock` throughout guest access, testing, restoration, and shutdown:
 
 ```sh
-flock -n -E 75 /tmp/windows-lab-vm.lock \
-  bash -c 'echo LAB_LOCK_ACQUIRED; exec sleep infinity'
+bash -c 'exec 9>>/tmp/windows-lab-vm.lock; flock -n -E 75 9 || exit 75; echo LAB_LOCK_ACQUIRED pid=$$; exec sleep infinity'
 ```
 
-Keep the holder in a separate interactive exec session. Continue after `LAB_LOCK_ACQUIRED`; exit 75 means occupied. Release with Ctrl-C when done, and never delete a lock file to bypass its holder. This lock is a new coordination convention; inspect existing lab sessions and the desktop before treating a previously running VM as idle. Do not stop another task's processes or overwrite its files.
+Run the holder as a separate long-running background command (its own exec session in Codex, `run_in_background` in Claude Code). Continue after `LAB_LOCK_ACQUIRED pid=<PID>` and record the PID; exit 75 means occupied. While holding the lock, run commands directly; do not wrap them in `flock`, since your own holder makes that fail with 75. When done, release it by killing the recorded PID and confirm with `flock -n /tmp/windows-lab-vm.lock true`. Release it before ending your turn unless you continue lab work in the same session. Never kill holders by pattern (`pkill -f`), never use an ad-hoc `flock FILE COMMAND` holder (killing `flock` leaves its child holding the lock), and never delete a lock file to bypass its holder. This lock is a new coordination convention; inspect existing lab sessions and the desktop before treating a previously running VM as idle. Do not stop another task's processes or overwrite its files.
 
 Inspect the existing container, then start it if stopped:
 
