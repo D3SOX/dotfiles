@@ -9,18 +9,18 @@ Last verified 2026-09-28; enumerate and recheck before relying on versions or ID
 | Docker container | `macos` (may be started with `docker start macos`) |
 | Guest console | `http://127.0.0.1:8006` on the agent host |
 | SSH | `builder@127.0.0.1`, port `2223` |
-| Existing SSH control socket | `/tmp/opentubex-ios-ssh` (historical shared infrastructure; reuse across projects) |
+| Existing SSH control socket | `/tmp/ios-lab-ssh` (reuse across projects) |
 | Guest | Intel, macOS 15.7.9, Xcode 26.2 |
 | JavaScript tool PATH | `export PATH="$HOME/.local/bin:$PATH"` in the guest |
 | Guest checkouts | Existing directories under `/Users/builder` may belong to other tasks and lack `.git`; use an isolated task directory |
 
 ```sh
 docker inspect --format '{{.State.Status}}' macos
-ssh -S /tmp/opentubex-ios-ssh -O check -p2223 builder@127.0.0.1
-ssh -S /tmp/opentubex-ios-ssh -p2223 builder@127.0.0.1 'xcodebuild -version; xcrun simctl list devices available; xcrun simctl list runtimes; df -h /Users/builder'
+ssh -S /tmp/ios-lab-ssh -O check -p2223 builder@127.0.0.1
+ssh -S /tmp/ios-lab-ssh -p2223 builder@127.0.0.1 'xcodebuild -version; xcrun simctl list devices available; xcrun simctl list runtimes; df -h /Users/builder'
 ```
 
-Read [../local.md](../local.md) for the VM-only `builder` credentials and authenticate interactively. Keep its VM-only credentials out of GitHub, logs and committed files. Reuse the control socket; if it has expired, establish a new authenticated SSH master interactively with `ssh -M -S /tmp/opentubex-ios-ssh -o ControlPersist=8h -p2223 builder@127.0.0.1`. Do not assume key authentication works or put the password on a command line.
+Read [../local.md](../local.md) for the VM-only `builder` credentials and authenticate interactively. Keep its VM-only credentials out of GitHub, logs and committed files. Reuse the control socket; if it has expired, establish a new authenticated SSH master interactively with `ssh -M -S /tmp/ios-lab-ssh -o ControlPersist=8h -p2223 builder@127.0.0.1`. Do not assume key authentication works or put the password on a command line.
 
 Keep the guest desktop **unlocked and audio enabled** during media tests. Otherwise media clocks can stall. Inspect the console if playback timing is inexplicably frozen.
 
@@ -31,7 +31,7 @@ Create a task-specific directory such as `/Users/builder/ios-lab-<app>-<task>`. 
 ```sh
 git ls-files -z > /tmp/ios-lab-TASK-tracked-files
 rsync -a --from0 --files-from=/tmp/ios-lab-TASK-tracked-files \
-  -e 'ssh -S /tmp/opentubex-ios-ssh -p2223' \
+  -e 'ssh -S /tmp/ios-lab-ssh -p2223' \
   ./ builder@127.0.0.1:/Users/builder/ios-lab-APP-TASK/
 ```
 

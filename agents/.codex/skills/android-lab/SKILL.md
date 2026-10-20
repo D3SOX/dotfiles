@@ -14,17 +14,16 @@ Before physical-device access, read [local.md](local.md) for private connection 
 The Pixel and each emulator are exclusive shared resources. Before `adb connect`, starting an emulator, or issuing any target-specific `adb` command, acquire the matching lock:
 
 ```text
-Pixel 8 Pro:       /tmp/opentubex-android-pixel.lock
-opentubex_api35:   /tmp/opentubex-android-api35.lock
-opentubex_api26:   /tmp/opentubex-android-api26.lock
+Pixel 8 Pro:  /tmp/android-lab-pixel.lock
+Emulator:     /tmp/android-lab-<AVD_NAME>.lock
 ```
 
-The existing lock filenames and AVD names are historical lab resource identifiers; keep them unchanged so all projects coordinate access to the same devices.
+Use these lock filenames in every project so all agents coordinate access to the same devices.
 
 Start a long-running lock holder in its own exec session, using the exact file for the target. For example, for the Pixel:
 
 ```bash
-flock -n -E 75 /tmp/opentubex-android-pixel.lock \
+flock -n -E 75 /tmp/android-lab-pixel.lock \
   bash -c 'echo DEVICE_LOCK_ACQUIRED; trap "exit 0" INT TERM; while sleep 60; do :; done'
 ```
 
@@ -98,13 +97,13 @@ SDK:       /run/media/nico/200GB_DATA/android-emulator-sdk
 AVD home:  /run/media/nico/200GB_DATA/android-emulator-avds
 ```
 
-The shared baseline AVDs are `opentubex_api35` and `opentubex_api26`. When running on their configured ports, their ADB serials are `emulator-5556` and `emulator-5558` respectively.
+The shared baseline AVDs are `android_api35` and `android_api26`. When running on their configured ports, their ADB serials are `emulator-5556` and `emulator-5558` respectively.
 
 Use `swangle` for graphics on this machine. Emulator 37.1.11 repeatedly segfaulted in `RenderThread` with both `swiftshader` and `swiftshader_indirect`, including with Vulkan disabled. A repeated app-launch test failed on launch four with `swiftshader_indirect`; `swangle` passed 20 launches on each of the three lab AVDs and local-video playback/seeking on API 26. `swangle` uses ANGLE over SwiftShader Vulkan instead of the older SwiftShader GLES renderer. Do not substitute `swiftshader` as a fallback for these crashes.
 
 The lab AVD defaults are `hw.gpu.enabled = yes` and `hw.gpu.mode = swangle` in each AVD's `config.ini`. Preserve these settings, and set them for new AVDs while stopped and locked. These settings alone are insufficient in emulator 37.1.11: the launcher chooses its graphics library path from the command-line `-gpu` argument before reading the AVD configuration. Without explicit `-gpu swangle`, it can still load the older GLES renderer. Use the launcher below, or retain explicit `-gpu swangle` in a custom launch command. Confirm the startup log's `Graphics Adapter` contains `ANGLE`, not just `Google SwiftShader`.
 
-The additional `opentubex_c96f_tablet` AVD uses API 35. Its lock is `/tmp/opentubex-android-opentubex_c96f_tablet.lock`; choose and lock a free port from the clone range below before starting it.
+The additional `android_api35_tablet` AVD uses API 35. Lock it as above; choose and lock a free port from the clone range below before starting it.
 
 List the AVDs with:
 
@@ -118,12 +117,12 @@ After acquiring the target's lock, check `adb devices -l`. Reuse a running emula
 
 ```bash
 /home/nico/.codex/skills/android-lab/scripts/start-emulator.sh \
-  opentubex_api35 5556
+  android_api35 5556
 ```
 
 The launcher runs in the foreground and does not acquire locks; keep the matching lock holder alive for the entire workflow.
 
-Use `opentubex_api26` and port `5558` for Android 8.0, API 26, when that version is supported by the target app. Boot without `-wipe-data` to preserve installed apps and the updated WebView. Use `-wipe-data` only when a factory reset is intended, then reinstall the WebView update below before renderer tests.
+Use `android_api26` and port `5558` for Android 8.0, API 26, when that version is supported by the target app. Boot without `-wipe-data` to preserve installed apps and the updated WebView. Use `-wipe-data` only when a factory reset is intended, then reinstall the WebView update below before renderer tests.
 
 ### Minimum supported Android tests
 
@@ -144,8 +143,8 @@ For this API 26 baseline, confirm that the current WebView package is `com.andro
 
 Agents may create temporary clones when every suitable emulator is occupied. A clone means a fresh AVD using the same installed system-image package and hardware profile, with its own writable data. Do not copy a running AVD's userdata, snapshots, or lock files, and do not issue ADB commands to the occupied source.
 
-- Choose a unique name such as `android_api26_<task-id>`. Acquire `/tmp/opentubex-android-<AVD_NAME>.lock` with the lock-holder pattern above before creating or starting it. Base AVDs retain the exact lock names in the device table.
+- Choose a unique name such as `android_api26_<task-id>`. Acquire `/tmp/android-lab-<AVD_NAME>.lock` with the lock-holder pattern above before creating or starting it.
 - Use `avdmanager create avd` from the emulator SDK with `ANDROID_AVD_HOME` set to the lab's AVD home. For an API 26 Pixel clone, use `--name "$AVD_NAME" --package 'system-images;android-26;google_apis;x86_64' --device pixel`. Answer `no` to the custom hardware prompt. Use the task's required API level; never use `--force` to overwrite an existing AVD. Check disk space and memory first.
-- Select an unused even console port from 5560 through 5682. Hold `/tmp/opentubex-android-port-<PORT>.lock` for the whole workflow and check that both the console port and the following ADB port are unused before launching. A lock alone does not prove a port is free. Ports 5556 and 5558 are reserved for the base AVDs.
+- Select an unused even console port from 5560 through 5682. Hold `/tmp/android-lab-port-<PORT>.lock` for the whole workflow and check that both the console port and the following ADB port are unused before launching. A lock alone does not prove a port is free. Ports 5556 and 5558 are reserved for the base AVDs.
 - Launch headlessly with the flags above, using the clone's name and selected port. Wait for boot, verify the AVD name with `adb -s emulator-PORT emu avd name`, and check its API level before installing. Target every ADB command explicitly.
 - When finished, stop only the clone you own, wait for its emulator process to exit, and delete that temporary AVD with `avdmanager delete avd --name "$AVD_NAME"`. Release its device and port locks afterward. Leave other agents' AVDs and the shared system images intact. Never delete lock files.

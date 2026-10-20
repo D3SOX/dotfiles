@@ -12,13 +12,13 @@ Read [../local.md](../local.md) and replace `PIXEL_USB_SERIAL` below with its pr
 
 ## Acquire both locks
 
-Acquire the local Pixel lock as described in the main skill, then acquire `/tmp/opentubex-android-pixel.lock` on the laptop before any device commands. Both hosts may have agents using the phone.
+Acquire the local Pixel lock as described in the main skill, then acquire `/tmp/android-lab-pixel.lock` on the laptop before any device commands. Both hosts may have agents using the phone.
 
 Run the remote holder in its own interactive exec session with `tty: true`:
 
 ```bash
 ssh -tt -o BatchMode=yes nico-laptop \
-  "flock -n -E 75 /tmp/opentubex-android-pixel.lock bash -c 'echo DEVICE_LOCK_ACQUIRED; exec sleep infinity'"
+  "flock -n -E 75 /tmp/android-lab-pixel.lock bash -c 'echo DEVICE_LOCK_ACQUIRED; exec sleep infinity'"
 ```
 
 Continue only after the remote `DEVICE_LOCK_ACQUIRED` appears. Keep both sessions running throughout the work. If either lock is busy, release any lock acquired for this attempt and wait or use a free emulator. Never delete lock files or terminate another agent's holder.

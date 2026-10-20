@@ -18,15 +18,15 @@ The Docker container `macos`, its guest desktop, shared simulators and physical 
 
 Use these host lock files for new lab sessions:
 
-- VM desktop, simulator and Xcode work: `/tmp/opentubex-ios-vm.lock`
-- Physical iPad: `/tmp/opentubex-ios-ipad.lock`, on **both this host and nico-laptop**.
+- VM desktop, simulator and Xcode work: `/tmp/ios-lab-vm.lock`
+- Physical iPad: `/tmp/ios-lab-ipad.lock`, on **both this host and nico-laptop**.
 
-These historical lock filenames identify shared hardware, not the app under test. Keep them unchanged across projects.
+These lock filenames identify shared hardware, not the app under test. Use them in every project.
 
 Hold each needed lock in a separate interactive exec session for the whole workflow:
 
 ```sh
-flock -n -E 75 /tmp/opentubex-ios-vm.lock \
+flock -n -E 75 /tmp/ios-lab-vm.lock \
   bash -c 'echo LAB_LOCK_ACQUIRED; exec sleep infinity'
 ```
 
@@ -34,7 +34,7 @@ For physical work use the iPad lock locally, plus a remote holder:
 
 ```sh
 ssh -tt -o BatchMode=yes nico-laptop \
-  "flock -n -E 75 /tmp/opentubex-ios-ipad.lock bash -c 'echo LAB_LOCK_ACQUIRED; exec sleep infinity'"
+  "flock -n -E 75 /tmp/ios-lab-ipad.lock bash -c 'echo LAB_LOCK_ACQUIRED; exec sleep infinity'"
 ```
 
 Continue only after each holder prints `LAB_LOCK_ACQUIRED`. Exit 75 means occupied: coordinate or wait. Release with Ctrl-C after restoration, inspector cleanup and any required VM shutdown below. Verify a remote holder exited if SSH drops. Never delete a lock file to bypass its holder.

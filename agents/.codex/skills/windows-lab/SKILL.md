@@ -22,11 +22,11 @@ Verified on 2026-10-14. Recheck configuration and versions when they matter.
 | RDP | `127.0.0.1:3390`, TCP and UDP |
 | Host shared folder | `/run/media/nico/200GB_DATA/electron/artifacts` |
 | Guest shared folder | `\\host.lan\Data` |
-| Persistent VM storage | `/run/media/nico/Media/opentubex-windows-vm-storage` |
+| Persistent VM storage | `/run/media/nico/Media/windows-lab-vm-storage` |
 | OEM setup | `/run/media/nico/200GB_DATA/windows-vm/oem/install.bat` |
 | SSH known hosts | `/run/media/nico/200GB_DATA/windows-vm/known_hosts` |
 
-The storage and shared-folder names are historical infrastructure paths. They work for any project. The guest's C: drive is persistent; `/shared` is the Docker mount backing the guest's SMB share, not a Windows path. The OEM setup enables OpenSSH, selects Windows PowerShell as the SSH shell, and disables sleep/hibernation. Do not rerun provisioning just to start a test.
+The shared-folder path is historical; it works for any project. The guest's C: drive is persistent; `/shared` is the Docker mount backing the guest's SMB share, not a Windows path. The OEM setup enables OpenSSH, selects Windows PowerShell as the SSH shell, and disables sleep/hibernation. Do not rerun provisioning just to start a test.
 
 Credentials live in the Compose service's `environment.USERNAME` and `environment.PASSWORD`. Read them at runtime through the helper below. Do not copy passwords into the skill, scripts, command arguments, or evidence. Avoid dumping the full Compose file or container environment.
 
