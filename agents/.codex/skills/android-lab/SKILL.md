@@ -20,16 +20,17 @@ Emulator:     /tmp/android-lab-<AVD_NAME>.lock
 
 Use these lock filenames in every project so all agents coordinate access to the same devices.
 
-Start a long-running lock holder in its own exec session, using the exact file for the target. For example, for the Pixel:
+Start a lock holder as a long-running background command (its own exec session in Codex, `run_in_background` in Claude Code), passing the lock name between `android-lab-` and `.lock`. For example, for the Pixel:
 
 ```bash
-flock -n -E 75 /tmp/android-lab-pixel.lock \
-  bash -c 'echo DEVICE_LOCK_ACQUIRED; trap "exit 0" INT TERM; while sleep 60; do :; done'
+/home/nico/.codex/skills/android-lab/scripts/hold-lock.sh pixel
 ```
 
-Continue only after `DEVICE_LOCK_ACQUIRED` appears. Keep that exec session running for the entire device workflow. If the command exits with status 75, another agent is using the target. Do not connect to it, run commands against it, stop it, wipe it, or steal its lock. Choose an unlocked suitable device. If none is free and the task needs another emulator, create an isolated clone using the procedure below. Otherwise wait and coordinate with the other agent.
+Continue only after `DEVICE_LOCK_ACQUIRED pid=<PID>` appears, and record that PID. The holder is a single process that owns the lock until it dies; keep it running for the entire device workflow. If it exits with status 75, another agent is using the target. Do not connect to it, run commands against it, stop it, wipe it, or steal its lock. Choose an unlocked suitable device. If none is free and the task needs another emulator, create an isolated clone using the procedure below. Otherwise wait and coordinate with the other agent.
 
-Release the lock by sending Ctrl-C to the lock-holder session after all device work and setting restoration is complete. The lock also releases if that session exits. Never delete the lock files, since replacing a locked file would bypass mutual exclusion.
+While holding a lock, run device commands directly. Do not wrap them in `flock`; your own holder makes that fail with status 75.
+
+After all device work and setting restoration is complete, release the lock with `kill <PID>` using the recorded PID, and confirm with `flock -n /tmp/android-lab-<NAME>.lock true`. Stopping the background task or session also works. Never kill holders by pattern (`pkill -f`), since that can hit other agents' holders, and never use an ad-hoc `flock FILE COMMAND` holder: killing `flock` leaves its child running with the lock. Never delete the lock files, since replacing a locked file would bypass mutual exclusion. Release every lock before ending your turn unless you are continuing device work in the same session.
 
 ## Physical Pixel
 
@@ -143,8 +144,8 @@ For this API 26 baseline, confirm that the current WebView package is `com.andro
 
 Agents may create temporary clones when every suitable emulator is occupied. A clone means a fresh AVD using the same installed system-image package and hardware profile, with its own writable data. Do not copy a running AVD's userdata, snapshots, or lock files, and do not issue ADB commands to the occupied source.
 
-- Choose a unique name such as `android_api26_<task-id>`. Acquire `/tmp/android-lab-<AVD_NAME>.lock` with the lock-holder pattern above before creating or starting it.
+- Choose a unique name such as `android_api26_<task-id>`. Acquire its lock with `hold-lock.sh "$AVD_NAME"` before creating or starting it.
 - Use `avdmanager create avd` from the emulator SDK with `ANDROID_AVD_HOME` set to the lab's AVD home. For an API 26 Pixel clone, use `--name "$AVD_NAME" --package 'system-images;android-26;google_apis;x86_64' --device pixel`. Answer `no` to the custom hardware prompt. Use the task's required API level; never use `--force` to overwrite an existing AVD. Check disk space and memory first.
-- Select an unused even console port from 5560 through 5682. Hold `/tmp/android-lab-port-<PORT>.lock` for the whole workflow and check that both the console port and the following ADB port are unused before launching. A lock alone does not prove a port is free. Ports 5556 and 5558 are reserved for the base AVDs.
+- Select an unused even console port from 5560 through 5682. Hold the port lock with `hold-lock.sh port-<PORT>` for the whole workflow and check that both the console port and the following ADB port are unused before launching. A lock alone does not prove a port is free. Ports 5556 and 5558 are reserved for the base AVDs.
 - Launch headlessly with the flags above, using the clone's name and selected port. Wait for boot, verify the AVD name with `adb -s emulator-PORT emu avd name`, and check its API level before installing. Target every ADB command explicitly.
-- When finished, stop only the clone you own, wait for its emulator process to exit, and delete that temporary AVD with `avdmanager delete avd --name "$AVD_NAME"`. Release its device and port locks afterward. Leave other agents' AVDs and the shared system images intact. Never delete lock files.
+- When finished, stop only the clone you own, wait for its emulator process to exit, and delete that temporary AVD with `avdmanager delete avd --name "$AVD_NAME"`. Release its device and port locks afterward by killing their holder PIDs. Leave other agents' AVDs and the shared system images intact. Never delete lock files.

@@ -14,14 +14,14 @@ Read [../local.md](../local.md) and replace `PIXEL_USB_SERIAL` below with its pr
 
 Acquire the local Pixel lock as described in the main skill, then acquire `/tmp/android-lab-pixel.lock` on the laptop before any device commands. Both hosts may have agents using the phone.
 
-Run the remote holder in its own interactive exec session with `tty: true`:
+Run the remote holder as a separate long-running background command. It holds the lock in a single remote process, which exits when the SSH connection's terminal closes:
 
 ```bash
 ssh -tt -o BatchMode=yes nico-laptop \
-  "flock -n -E 75 /tmp/android-lab-pixel.lock bash -c 'echo DEVICE_LOCK_ACQUIRED; exec sleep infinity'"
+  "bash -c 'exec 9>>/tmp/android-lab-pixel.lock; flock -n -E 75 9 || exit 75; echo DEVICE_LOCK_ACQUIRED remote_pid=\$\$; exec sleep infinity'"
 ```
 
-Continue only after the remote `DEVICE_LOCK_ACQUIRED` appears. Keep both sessions running throughout the work. If either lock is busy, release any lock acquired for this attempt and wait or use a free emulator. Never delete lock files or terminate another agent's holder.
+Continue only after the remote `DEVICE_LOCK_ACQUIRED` appears, and record both the local holder PID and the `remote_pid`. Keep both holders running throughout the work. If either lock is busy, release any lock acquired for this attempt and wait or use a free emulator. Do not wrap device commands in `flock`. Never delete lock files or terminate another agent's holder.
 
 ## Transfer, install, and control
 
@@ -82,4 +82,4 @@ ssh -o BatchMode=yes nico-laptop \
   '/usr/bin/adb -s PIXEL_USB_SERIAL forward --remove tcp:41093'
 ```
 
-Close the SSH tunnel, then send Ctrl-C to the remote lock-holder session and the local holder after all device commands finish. If a connection drops, verify that your remote holder exited before considering cleanup complete; do not assume closing the local SSH process released the remote lock.
+Close the SSH tunnel after all device commands finish. Release the remote lock with `ssh -o BatchMode=yes nico-laptop 'kill REMOTE_PID'` using the recorded `remote_pid`, then stop the local SSH holder command and release the local lock as described in the main skill. Confirm both locks are free with `flock -n /tmp/android-lab-pixel.lock true` on each host.
