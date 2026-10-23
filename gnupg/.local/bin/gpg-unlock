@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Unlock the git signing key using Qt locally or the current terminal over SSH.
+set -euo pipefail
+
+KEY="${GPG_SIGNING_KEY:-$(git config --global --get user.signingkey 2>/dev/null || true)}"
+KEY="${KEY:-BEAD8F4BDEFDF342}"
+
+gpg_args=()
+if [[ -n "${SSH_TTY:-}" ]]; then
+  if [[ ! -t 0 || ! -t 1 ]]; then
+    echo "gpg-unlock needs an interactive SSH terminal." >&2
+    echo "Run: ssh -t home-desktop gpg-unlock" >&2
+    exit 2
+  fi
+  export GPG_TTY="$(tty)"
+  gpg-connect-agent updatestartuptty /bye >/dev/null
+  gpg_args+=(--pinentry-mode loopback)
+  # gpg-agent waits up to 60s for an open pinentry before asking again,
+  # so close desktop prompts that cannot be answered from here.
+  if agent_pids="$(pgrep -d, -u "$UID" -x gpg-agent)" &&
+    pkill -u "$UID" -P "$agent_pids" '^pinentry'; then
+    echo "Closed a pending desktop passphrase prompt."
+  fi
+else
+  export GPG_TTY="${GPG_TTY:-$(tty 2>/dev/null || true)}"
+  export DISPLAY="${DISPLAY:-:0}"
+fi
+
+echo "Unlocking GPG key ${KEY}…"
+# Non-batch so pinentry can prompt; success means the passphrase is cached.
+gpg "${gpg_args[@]}" --local-user "$KEY" --clearsign --output /dev/null /dev/fd/3 3<<<'gpg-unlock'
+
+echo "Unlocked. Cached until idle/max TTL or you run gpg-lock."
