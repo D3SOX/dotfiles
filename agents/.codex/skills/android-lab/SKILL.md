@@ -53,6 +53,8 @@ Install test apps only for Android user 0. Never install them for users 10 or 11
 adb -s PIXEL_ADB_ADDRESS install --user 0 -r PATH_TO_APK
 ```
 
+The Pixel runs CorePatch, which disables APK signature verification, so signature mismatches between installed and new builds do not block installs. Install debug builds over release builds (or the reverse) directly; do not uninstall the existing app or clear its data to work around a signature mismatch.
+
 Set `APP_ID` and `LAUNCH_COMPONENT` from the selected APK/build variant, not from the repository name. `LAUNCH_COMPONENT` is the full `package/activity` component. Launch it for user 0 with:
 
 ```bash
