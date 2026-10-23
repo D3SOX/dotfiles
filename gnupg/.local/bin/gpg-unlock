@@ -6,7 +6,8 @@ KEY="${GPG_SIGNING_KEY:-$(git config --global --get user.signingkey 2>/dev/null 
 KEY="${KEY:-BEAD8F4BDEFDF342}"
 
 gpg_args=()
-if [[ -n "${SSH_TTY:-}" ]]; then
+# SSH_TTY can be missing in reused remote terminals such as tmux sessions.
+if [[ -n "${SSH_TTY:-}${SSH_CONNECTION:-}${SSH_CLIENT:-}" ]]; then
   if [[ ! -t 0 || ! -t 1 ]]; then
     echo "gpg-unlock needs an interactive SSH terminal." >&2
     echo "Run: ssh -t home-desktop gpg-unlock" >&2
