@@ -42,3 +42,7 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN="$GOPATH/bin"
 # bat theme
 export BAT_THEME="TwoDark"
+
+# Agent shells (started via agent-run): pass unmatched globs through and split
+# unquoted variables like bash, since agents write bash-style commands.
+[[ -n $AGENT_RUN && ! -o interactive ]] && setopt no_nomatch sh_word_split

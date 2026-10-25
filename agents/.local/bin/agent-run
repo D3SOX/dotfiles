@@ -16,4 +16,6 @@ find "$agent_tmp_root" -mindepth 1 -maxdepth 1 -type d -name 'session.*' -mmin +
 
 agent_tmpdir=$(mktemp -d "$agent_tmp_root/session.XXXXXXXX")
 export TMPDIR="$agent_tmpdir"
+# Lets ~/.zshenv give agent shells bash-like globbing and word splitting.
+export AGENT_RUN=1
 exec flock --shared "$agent_tmpdir" "$@"
