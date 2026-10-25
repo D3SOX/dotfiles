@@ -18,5 +18,16 @@
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
   },
   "disableClaudeAiConnectors": true,
-  "syncClaudeAiSkills": false
+  "syncClaudeAiSkills": false,
+  "enabledPlugins": {
+    "cloudflare@cloudflare": false
+  },
+  "skillOverrides": {
+    "fewer-permission-prompts": "user-invocable-only",
+    "keybindings-help": "user-invocable-only",
+    "plugin-authoring": "user-invocable-only",
+    "schedule": "user-invocable-only",
+    "security-review": "user-invocable-only",
+    "init": "user-invocable-only"
+  }
 }
