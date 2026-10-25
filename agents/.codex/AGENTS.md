@@ -29,6 +29,7 @@
 - Once other actionable work is complete, if the only remaining work is waiting for the external queue to trigger a CodeRabbit review, stop monitoring and end the turn with a brief status noting that the review is pending. Do not wait or poll for the queue to trigger it. Resume review handling when the queue's message arrives; this is an exception to the usual requirement to wait for all review bots to pass before stopping.
 - In T3 Code, when only CodeRabbit remains (queued or running), call `unwatch_pull_request` for the PR before ending the turn, verify `watching: false` with `list_thread_pull_requests`, and keep the PR linked. Do not call `watch_pull_request` again just to wait for CodeRabbit; resume when the external queue sends its message.
 - Do not let review feedback expand the PR beyond the user's original goal. Address real shortcomings, but avoid scope creep.
+- Delegate mechanical babysitting steps (polling CI, fetching failed job logs, collecting new bot comments) to a subagent that returns a short summary. Keep triage, fixes, and review replies in the main thread, which knows the context behind the change.
 
 #### Creating a PR
 
