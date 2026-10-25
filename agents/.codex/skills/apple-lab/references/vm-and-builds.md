@@ -1,4 +1,4 @@
-# VM, simulators and IPA builds
+# VM, builds and simulators
 
 ## Access
 
@@ -9,30 +9,30 @@ Last verified 2026-09-28; enumerate and recheck before relying on versions or ID
 | Docker container | `macos` (may be started with `docker start macos`) |
 | Guest console | `http://127.0.0.1:8006` on the agent host |
 | SSH | `builder@127.0.0.1`, port `2223` |
-| Existing SSH control socket | `/tmp/ios-lab-ssh` (reuse across projects) |
+| Existing SSH control socket | `/tmp/apple-lab-ssh` (reuse across projects) |
 | Guest | Intel, macOS 15.7.9, Xcode 26.2 |
 | JavaScript tool PATH | `export PATH="$HOME/.local/bin:$PATH"` in the guest |
 | Guest checkouts | Existing directories under `/Users/builder` may belong to other tasks and lack `.git`; use an isolated task directory |
 
 ```sh
 docker inspect --format '{{.State.Status}}' macos
-ssh -S /tmp/ios-lab-ssh -O check -p2223 builder@127.0.0.1
-ssh -S /tmp/ios-lab-ssh -p2223 builder@127.0.0.1 'xcodebuild -version; xcrun simctl list devices available; xcrun simctl list runtimes; df -h /Users/builder'
+ssh -S /tmp/apple-lab-ssh -O check -p2223 builder@127.0.0.1
+ssh -S /tmp/apple-lab-ssh -p2223 builder@127.0.0.1 'xcodebuild -version; xcrun simctl list devices available; xcrun simctl list runtimes; df -h /Users/builder'
 ```
 
-Read [../local.md](../local.md) for the VM-only `builder` credentials and authenticate interactively. Keep its VM-only credentials out of GitHub, logs and committed files. Reuse the control socket; if it has expired, establish a new authenticated SSH master interactively with `ssh -M -S /tmp/ios-lab-ssh -o ControlPersist=8h -p2223 builder@127.0.0.1`. Do not assume key authentication works or put the password on a command line.
+Read [../local.md](../local.md) for the VM-only `builder` credentials and authenticate interactively. Keep its VM-only credentials out of GitHub, logs and committed files. Reuse the control socket; if it has expired, establish a new authenticated SSH master interactively with `ssh -M -S /tmp/apple-lab-ssh -o ControlPersist=8h -p2223 builder@127.0.0.1`. Do not assume key authentication works or put the password on a command line.
 
 Keep the guest desktop **unlocked and audio enabled** during media tests. Otherwise media clocks can stall. Inspect the console if playback timing is inexplicably frozen.
 
 ## Source synchronization
 
-Create a task-specific directory such as `/Users/builder/ios-lab-<app>-<task>`. Copy the selected host worktree's tracked files, including intended uncommitted edits, rather than relying on an old guest snapshot. A tracked-file list avoids copying host node_modules, credentials and `.git`:
+Create a task-specific directory such as `/Users/builder/apple-lab-<app>-<task>`. Copy the selected host worktree's tracked files, including intended uncommitted edits, rather than relying on an old guest snapshot. A tracked-file list avoids copying host node_modules, credentials and `.git`:
 
 ```sh
-git ls-files -z > /tmp/ios-lab-TASK-tracked-files
-rsync -a --from0 --files-from=/tmp/ios-lab-TASK-tracked-files \
-  -e 'ssh -S /tmp/ios-lab-ssh -p2223' \
-  ./ builder@127.0.0.1:/Users/builder/ios-lab-APP-TASK/
+git ls-files -z > /tmp/apple-lab-TASK-tracked-files
+rsync -a --from0 --files-from=/tmp/apple-lab-TASK-tracked-files \
+  -e 'ssh -S /tmp/apple-lab-ssh -p2223' \
+  ./ builder@127.0.0.1:/Users/builder/apple-lab-APP-TASK/
 ```
 
 Add intended new untracked source files explicitly. Reusing a directory requires removing obsolete source files deliberately; this command does not delete them. Install dependencies in the guest with the repository's package-manager workflow when needed. Do not copy Linux native node_modules into macOS.
@@ -79,13 +79,13 @@ For an inspectable Capacitor build, after the **last** sync set `ios.webContents
 ```sh
 xcodebuild -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME" \
   -configuration Release -destination 'generic/platform=iOS' \
-  -archivePath /Users/builder/ios-lab-APP-TASK-BUILD.xcarchive \
+  -archivePath /Users/builder/apple-lab-APP-TASK-BUILD.xcarchive \
   CURRENT_PROJECT_VERSION=BUILD CODE_SIGNING_ALLOWED=NO archive
-mkdir -p /Users/builder/ios-lab-APP-TASK-BUILD-package/Payload
-ditto /Users/builder/ios-lab-APP-TASK-BUILD.xcarchive/Products/Applications/"$APP_PRODUCT" \
-  /Users/builder/ios-lab-APP-TASK-BUILD-package/Payload/"$APP_PRODUCT"
-cd /Users/builder/ios-lab-APP-TASK-BUILD-package
-ditto -c -k --keepParent Payload /Users/builder/ios-lab-APP-TASK-BUILD-inspectable.ipa
+mkdir -p /Users/builder/apple-lab-APP-TASK-BUILD-package/Payload
+ditto /Users/builder/apple-lab-APP-TASK-BUILD.xcarchive/Products/Applications/"$APP_PRODUCT" \
+  /Users/builder/apple-lab-APP-TASK-BUILD-package/Payload/"$APP_PRODUCT"
+cd /Users/builder/apple-lab-APP-TASK-BUILD-package
+ditto -c -k --keepParent Payload /Users/builder/apple-lab-APP-TASK-BUILD-inspectable.ipa
 ```
 
 Choose a new build number after checking recent packages; do not reuse the dated examples. Validate the archived app's `Info.plist` identity/version/minimum OS, any inspection config and the frameworks/resources required by the target project. Transfer guest → host → `nico-laptop:Downloads/`; compare SHA-256 checksums before handing it to the user.

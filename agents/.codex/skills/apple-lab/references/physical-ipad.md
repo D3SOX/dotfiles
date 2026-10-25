@@ -47,7 +47,7 @@ The discovery endpoint is `http://127.0.0.1:9331/json/list`. Keep only one evalu
 Use the bundled Node 24+ evaluator, with a JS expression or async IIFE in a temporary file:
 
 ```sh
-node ~/.codex/skills/ios-lab/scripts/evaluate-webview.mjs /tmp/ios-probe.js
+node ~/.codex/skills/apple-lab/scripts/evaluate-webview.mjs /tmp/ios-probe.js
 ```
 
 Optional flags: `--endpoint http://127.0.0.1:PORT`, `--target TARGET_ID`, `--user-gesture`. The helper auto-selects only when exactly one localhost WebView exists. For another app origin or multiple targets, select the app's target explicitly with `--target`. The helper polls async results because this CDP bridge does not reliably support `awaitPromise`; it exits nonzero on JavaScript errors and timeouts. It does not acquire locks or open the app.
@@ -73,7 +73,7 @@ Record original settings and app state, including route, active tab and playback
 For app-specific traces, use the laptop's syslog bridge in an owned foreground session, with the current process name or PID:
 
 ```sh
-ssh nico-laptop 'uv tool run --from pymobiledevice3 pymobiledevice3 syslog live --udid IPAD_UDID --process-name APP_PROCESS' > /tmp/ios-lab-TASK-native.log
+ssh nico-laptop 'uv tool run --from pymobiledevice3 pymobiledevice3 syslog live --udid IPAD_UDID --process-name APP_PROCESS' > /tmp/apple-lab-TASK-native.log
 ```
 
 Confirm the installed app's process name before relying on the filter. A WebContent or system PiP failure may require a separate narrowly scoped capture. Check current `--help` for filtering options and do not publish unrelated device logs. This capture can remain running after disconnecting Web Inspector for a lifecycle test; stop only your capture afterward.

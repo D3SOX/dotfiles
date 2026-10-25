@@ -36,7 +36,7 @@ async function main() {
   if (!target.webSocketDebuggerUrl) throw new Error('Target has no debugger WebSocket URL')
   const ws = new WebSocket(target.webSocketDebuggerUrl)
   const pending = new Map()
-  const key = `__iosLab_${randomUUID().replaceAll('-', '')}`
+  const key = `__appleLab_${randomUUID().replaceAll('-', '')}`
   let nextId = 0, stopped = false, installed = false
   let rejectOpen
   const opened = new Promise((resolve, reject) => {
