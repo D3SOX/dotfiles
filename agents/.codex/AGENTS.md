@@ -10,6 +10,7 @@
 - Use the `leaving-pr-comments` skill whenever posting on GitHub on my behalf, including replies to review threads.
 - Use the `file-pr` skill whenever creating a PR.
 - Use the `babysit` skill whenever babysitting, watching, or monitoring a PR.
+- When creating a GitHub repository, disable Projects and Wiki, and add relevant topics.
 
 ## General
 - When interacting with Cloudflare, use the cf CLI unless the project has a Wrangler configuration file.
