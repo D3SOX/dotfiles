@@ -12,4 +12,3 @@ See LICENSE.txt in this directory.
 
 Modifications:
 - Narrowed the trigger to explicit modernize requests.
-- Replaced the leaving-pr-comments skill reference with the user's comment format.

@@ -1,0 +1,15 @@
+This skill includes material derived from the t3dotgg/tstack repository.
+
+Source:
+- Repository: t3dotgg/tstack
+- Path: skills/leaving-pr-comments/SKILL.md
+- Commit: 7de017b3fc9d50c03cf3ecb98fb71e0ca65a78bd
+
+Copyright (c) 2026 Theo Browne
+
+Licensed under the MIT License.
+See LICENSE.txt in this directory.
+
+Modifications:
+- Switched to the user's attribution format.
+- Added the user's rules for replying to review threads without pending reviews.

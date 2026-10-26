@@ -8,13 +8,7 @@
 - When creating a PR, commit to a new branch (never use prefixes).
 - When using GitHub Actions, verify the latest release and pin each action to its full commit SHA with a version comment, e.g. `uses: owner/action@<full-commit-sha> # v1.0.0`.
 - Do not generate or upload separate checksum files (e.g. `SHA256SUMS`) for GitHub releases.
-- Format comments left on the user's behalf as:
-  ```md
-  > [!NOTE]  
-  > 🤖 full-model-name responding on behalf of Nico
-  
-  [actual reply]
-  ```
+- Use the `leaving-pr-comments` skill whenever posting on GitHub on my behalf, including replies to review threads.
 
 #### Babysitting a PR
 
@@ -42,13 +36,6 @@
 - Rebase onto latest default branch before opening.
 - When the issue the PR solves has a milestone copy its field into the PR's milestone field.
 - For user-visible changes, attach concise visual evidence such as screenshots or short recordings to the PR when it materially helps review. Use repeatable `--attach <path>` flags with `gh pr create`, `gh pr edit`, or `gh pr comment`; never upload secrets or personal data.
-
-## GitHub review replies
-
-- Never start, create, submit, or leave a pending GitHub review when replying to an existing PR review thread.
-- Do not use review-reply mutations that create draft review comments.
-- After replying, verify that the PR has zero reviews with state `PENDING`.
-- If an accidental pending review exists, delete it without submitting it after confirming it contains no unrelated user comments.
 
 ## General
 - When interacting with Cloudflare, use the cf CLI unless the project has a Wrangler configuration file.
