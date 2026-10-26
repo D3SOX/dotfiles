@@ -5,37 +5,11 @@
 ### Guidelines
 
 - Use semantic commit messages by default. When merging another branch, use Git's default commit message.
-- When creating a PR, commit to a new branch (never use prefixes).
 - When using GitHub Actions, verify the latest release and pin each action to its full commit SHA with a version comment, e.g. `uses: owner/action@<full-commit-sha> # v1.0.0`.
 - Do not generate or upload separate checksum files (e.g. `SHA256SUMS`) for GitHub releases.
 - Use the `leaving-pr-comments` skill whenever posting on GitHub on my behalf, including replies to review threads.
-
-#### Babysitting a PR
-
-- Keep an eye on changes to the default branch and rebase when needed. If an overlapping PR makes this one obsolete, stop monitoring, report it to the user, and ask before closing the PR unless closure was explicitly authorized.
-- If a review bot leaves feedback you believe is not worth addressing, reply and resolve the comment.
-- Prefer bundling follow up changes and review resolving commits into one push when review bots are not rate-limited.
-- Do not push commits to a PR while a CodeRabbit review is running; wait for it to finish before pushing.
-- Poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures, distinguish real breaks from known infra flakes. If nothing is new, stay quiet.
-- Before pushing a CI/review fix commit check if there is a new review from a review bot again and prefer bundling the commits into one push.
-- Stop when required CI and review bots pass on the latest commit, actionable review feedback is handled, and the PR has no merge conflicts.
-- Never trigger a review via comment for CodeRabbit. My external tool manages the rate limit queue and automatically sends a message to this thread when the review is available.
-- Once other actionable work is complete, if the only remaining work is waiting for the external queue to trigger a CodeRabbit review, stop monitoring and end the turn with a brief status noting that the review is pending. Do not wait or poll for the queue to trigger it. Resume review handling when the queue's message arrives; this is an exception to the usual requirement to wait for all review bots to pass before stopping.
-- In T3 Code, when only CodeRabbit remains (queued or running), call `unwatch_pull_request` for the PR before ending the turn, verify `watching: false` with `list_thread_pull_requests`, and keep the PR linked. Do not call `watch_pull_request` again just to wait for CodeRabbit; resume when the external queue sends its message.
-- Do not let review feedback expand the PR beyond the user's original goal. Address real shortcomings, but avoid scope creep.
-- Delegate mechanical babysitting steps (polling CI, fetching failed job logs, collecting new bot comments) to a subagent that returns a short summary. Keep triage, fixes, and review replies in the main thread, which knows the context behind the change.
-
-#### Creating a PR
-
-- Use a semantic commit message style title.
-- Prefer a concise, human-readable title that explains why the change matters. But somebody should also be able to get all the new user-facing changes from it.
-- Use the repo's PR template if it exists.
-- Open the description with a simple explanation of the problem based on the user's original prompt, then briefly explain the solution.
-- Create ready-for-review PRs rather than drafts so review bots run.
-- Add a blurb to the end of the PR description about what model and harness are making the changes
-- Rebase onto latest default branch before opening.
-- When the issue the PR solves has a milestone copy its field into the PR's milestone field.
-- For user-visible changes, attach concise visual evidence such as screenshots or short recordings to the PR when it materially helps review. Use repeatable `--attach <path>` flags with `gh pr create`, `gh pr edit`, or `gh pr comment`; never upload secrets or personal data.
+- Use the `file-pr` skill whenever creating a PR.
+- Use the `babysit` skill whenever babysitting, watching, or monitoring a PR.
 
 ## General
 - When interacting with Cloudflare, use the cf CLI unless the project has a Wrangler configuration file.
