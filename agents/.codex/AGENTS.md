@@ -31,8 +31,7 @@
 - Prefer CSS-only solutions over JS, if they have no downsides
 - TypeScript: Never use `any` unless 100% necessary or specifically instructed
 - Don't run dev server commands (e.g., `bun run dev`)
-- Don't run build commands unless specifically told to
-  - Exception: When you need to run a build to reproduce or verify tests it is allowed
+- Don't run builds just to check that code compiles; use typecheck, lint, and tests. Build when tests, a reproduction, device or lab testing, or proof of a change needs the artifact.
 - Focus on checking commands like `bun run typecheck`, `bun run lint`, etc.
 - Ask when plausible interpretations would materially change the requested outcome, scope, or consequences, especially when my wording may be ambiguous. Resolve routine implementation details using repository conventions and context, and continue work that does not depend on the answer.
 
