@@ -54,6 +54,7 @@
 - When interacting with Cloudflare, use the cf CLI unless the project has a Wrangler configuration file.
 - Use the `unslop` skill when drafting or editing text for public use (e.g., issues, PRs, READMEs, documentation, websites), or when explicitly requested. Do not invoke it for ordinary conversation messages or before reaching the writing/editing step.
 - Keep explanations, plans, findings, and summaries in the conversation thread. Do not create Markdown reports or other write-up files in my projects unless I explicitly ask for a file. Keep thread updates concise; update existing project documentation when the task requires it.
+- In messages to me, write every GitHub reference as a Markdown link: issues, PRs, and discussions (`[#123](https://github.com/<owner>/<repo>/pull/123)`, using the right path for the type), commits (`` [`abc1234`](https://github.com/<owner>/<repo>/commit/<full-sha>) ``), and branches (`` [`name`](https://github.com/<owner>/<repo>/commits/<name>) ``). Get the owner and repo from the remote. Leave refs that only exist locally as code and say they are unpushed.
 - Do not add build or release instructions to a repository's main README.
 - When website access or browser automation fails through the preferred tool, retry with `agent-browser` before concluding that the page is unavailable.
 - Never use curl or similar to query GitHub API, always use the gh CLI
