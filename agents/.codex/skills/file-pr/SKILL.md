@@ -13,4 +13,4 @@ Before filing, check whether a PR for this branch already exists. Review the dif
 5. Evidence: for user-visible changes, attach concise visual evidence such as screenshots or short recordings when it materially helps review. Use repeatable `--attach <path>` flags with `gh pr create`, `gh pr edit`, or `gh pr comment`.
 6. Before submitting, check the title, description, and attachments for secrets and personal data.
 
-Create ready-for-review PRs rather than drafts so review bots run. Use the `unslop` skill on the title and description. If the user also asked to babysit the PR, continue with the `babysit` skill.
+Create ready-for-review PRs rather than drafts so review bots run. If the user also asked to babysit the PR, continue with the `babysit` skill.
