@@ -53,7 +53,8 @@ one appears.
    description that says how you proved the change.
 5. **Babysit the PR** with the `babysit` skill. Fix real findings and CI
    failures. Get proof for each fix before you push it.
-6. **Merge** when the merge gate passes.
+6. **Merge** when the merge gate passes, then delete the PR's remote branch
+   unless GitHub already did.
 7. **Report** in your final message: the PR link, the merge commit, your proof,
    and each decision you made for the user.
 
