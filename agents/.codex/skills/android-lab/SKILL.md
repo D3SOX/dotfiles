@@ -125,6 +125,10 @@ After acquiring the target's lock, check `adb devices -l`. Reuse a running emula
 
 The launcher runs in the foreground and does not acquire locks; keep the matching lock holder alive for the entire workflow.
 
+On API 30+ images, emulator 37.x's modem simulator has an upstream data race (`ChannelMonitor` in `modem_simulator/channel_monitor`) that segfaults between 1 in 16 and 1 in 4 cold boots with exit status 139, about 13 seconds after `Emulator is performing a full startup`. It is not a graphics crash, `hw.gsmModem = no` does not avoid it, and 37.2.12 ships the same code. The launcher relaunches up to four times when the emulator segfaults before Android finishes booting, so expect a brief `adb` disconnect and a `relaunching` line in its output. Wait for `sys.boot_completed` again after a relaunch. A crash after boot is returned to the caller as status 139. This includes a frequent, harmless segfault during `adb emu kill`.
+
+When waiting for boot, poll `sys.boot_completed` and stop if the launcher's background task has exited. Do not detect a dead emulator with `pgrep -f <AVD_NAME>`: it matches the waiting shell's own command line, and `android_api35` also matches `android_api35_tablet`.
+
 Use `android_api26` and port `5558` for Android 8.0, API 26, when that version is supported by the target app. Boot without `-wipe-data` to preserve installed apps and the updated WebView. Use `-wipe-data` only when a factory reset is intended, then reinstall the WebView update below before renderer tests.
 
 ### Minimum supported Android tests
