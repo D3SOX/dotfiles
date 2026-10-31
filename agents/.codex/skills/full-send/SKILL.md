@@ -64,11 +64,6 @@ with `watch_pull_request`, so something wakes you when the PR changes.
 Elsewhere, run `gh pr checks <n> --watch` in the background. If you stop before
 the merge, call `unwatch_pull_request` first.
 
-The one exception is CodeRabbit. When it is the only thing left, follow the
-CodeRabbit rules in `babysit`: unwatch, and end the turn with a short status.
-The user's queue sends a message to this thread when the review is available.
-Resume from step 5 when it arrives.
-
 ## Proof
 
 Proof is evidence you observed yourself in this session: command output, a

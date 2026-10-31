@@ -26,5 +26,3 @@ Rules:
 CodeRabbit:
 - Never trigger a CodeRabbit review via comment. The user's external tool manages the rate limit queue and automatically sends a message to this thread when the review is available.
 - Do not push commits while a CodeRabbit review is running; wait for it to finish first.
-- Once other actionable work is complete, if the only remaining work is waiting for the external queue to trigger a CodeRabbit review, stop monitoring and end the turn with a brief status noting that the review is pending. Do not wait or poll for the queue. Resume review handling when the queue's message arrives; this is an exception to the stop condition above.
-- In T3 Code, when only CodeRabbit remains (queued or running), call `unwatch_pull_request` for the PR before ending the turn, verify `watching: false` with `list_thread_pull_requests`, and keep the PR linked. Do not call `watch_pull_request` again just to wait for CodeRabbit.

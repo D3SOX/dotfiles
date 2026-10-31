@@ -35,8 +35,6 @@ and mergeability. Confirm it is open, not a draft, and not set to merge
 without the user. If someone else merged it, report that instead.
 
 - **Ready to merge:** the merge gate passes. Leave the PR open and unmerged.
-- **Waiting for CodeRabbit:** it is the only thing left. Follow full-send's
-  CodeRabbit exception, and hand off when the review is handled.
 - **Waiting for required approval:** only human approval remains. Confirm
   that this is the actual blocker.
 - **Blocked:** explain what prevents readiness, what you tried, and what is

@@ -12,4 +12,3 @@ See LICENSE.txt in this directory.
 
 Modifications:
 - Kept the user's dev server ban in the testing permission.
-- Waits for CodeRabbit through the user's review queue.
