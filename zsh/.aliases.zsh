@@ -144,7 +144,8 @@ queue=/home/alarm/.local/bin/coderabbit-review-queue
 result=0
 for repo in "$@"; do
     key="${repo%/*}__${repo#*/}"
-    pid_file="/tmp/coderabbit-review-queue-$key.pid"
+    # The queue keeps its pid files in the runtime directory, not /tmp.
+    pid_file="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/coderabbit-review-queue-$key.pid"
     pid=''
     [[ ! -r $pid_file ]] || read -r pid < "$pid_file"
     running=0
