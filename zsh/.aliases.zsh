@@ -199,7 +199,7 @@ state = Path(os.environ.get("XDG_STATE_HOME", str(Path.home() / ".local/state"))
 settings = (
     "order.txt", "excluded-branches", "excluded-authors",
     "ignore-drafts", "new-items-at-top", "requeued-items-at-top",
-    "notify-sound", "notify-sound-path",
+    "notifications", "notify-sound", "notify-sound-path",
     "notify-sound-volume", "stop-when-empty",
     "auto-delegate", "delegation-prompt-mode", "delegation-prompt-template",
     "steer-running-agents", "resolve-merge-conflicts",
