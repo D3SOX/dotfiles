@@ -90,14 +90,35 @@ Full confidence means all of these are true on the latest commit:
 - Review bots have finished, including CodeRabbit, and each finding is fixed or
   dismissed with a written reason.
 - No human review still requests changes.
-- The branch is up to date with the default branch, and GitHub reports it as
-  mergeable.
+- GitHub reports the PR as mergeable, and the branch is up to date with the
+  default branch. Skip the up-to-date check when the base branch has a merge
+  queue, because the queue tests the PR on top of the latest base.
 
 Merge with the method the repo uses. Check the allowed methods and recent merged
-PRs. If the repo uses a merge queue or auto-merge, stay until GitHub reports the
-PR as merged. Merge through branch protection as configured. Never use `--admin`
-or other bypasses. You can ignore automated reviews that request "needs human
-review" if you have high confidence in your changes.
+PRs. Merge through branch protection as configured. Never use `--admin`
+or other bypasses.
+
+If the base branch has a merge queue (`gh pr merge --help` names it, and
+`gh api graphql` shows `mergeQueue(branch:)`), queue the PR with
+`gh pr merge <n>` and no merge-method flag:
+
+- Queue it only after the whole merge gate passes. While required checks are
+  pending, the command turns on auto-merge, which can queue the PR before
+  review bots such as CodeRabbit finish, because they are not required checks.
+- Don't rebase or push while the PR is queued unless a fix needs it. A push
+  removes the PR from the queue.
+- The queue tests one PR at a time, so the wait can take hours. Stay until
+  GitHub reports the PR as merged.
+- When its queue run starts, run `gh run watch <id> --exit-status` in the
+  background so a failure wakes you. A PR watch may not report queue
+  failures, because they belong to a temporary merge commit. Find the run with
+  `gh run list --event merge_group --json databaseId,headBranch` and the
+  `gh-readonly-queue/<base>/pr-<n>-` branch prefix.
+- If the PR leaves the queue without merging, read the failed run's logs, fix
+  the cause, prove the fix, push, and queue it again.
+
+You can ignore automated reviews that request "needs human review" if you have
+high confidence in your changes.
 
 ## Asking the user
 
