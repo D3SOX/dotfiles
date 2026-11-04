@@ -90,9 +90,12 @@ Full confidence means all of these are true on the latest commit:
 - Review bots have finished, including CodeRabbit, and each finding is fixed or
   dismissed with a written reason.
 - No human review still requests changes.
-- GitHub reports the PR as mergeable, and the branch is up to date with the
-  default branch. Skip the up-to-date check when the base branch has a merge
-  queue, because the queue tests the PR on top of the latest base.
+- GitHub reports the PR as mergeable. If the branch is behind the default
+  branch, rebase only when the new base commits change a file this PR also
+  changes; otherwise merge without rebasing, and rely on the post-merge run on
+  the default branch to cover the combination. Skip this check when the base
+  branch has a merge queue, because the queue tests the PR on top of the latest
+  base.
 
 Merge with the method the repo uses. Check the allowed methods and recent merged
 PRs. Merge through branch protection as configured. Never use `--admin`
