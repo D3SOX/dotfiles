@@ -21,8 +21,8 @@
 - Do not add build or release instructions to a repository's main README.
 - When website access or browser automation fails through the preferred tool, retry with `agent-browser` before concluding that the page is unavailable.
 - Never use curl or similar to query GitHub API, always use the gh CLI
-- Make sure all commits are GPG signed (you don't have to verify it after committing, Git is already configured). In case it times out stop and tell me to say continue to try it again
-- When solving issues add a resolves #n to the commit message body. Only do it for the first matching commit when creating multiple commits (e.g. in a PR)
+- Make sure all commits are GPG signed (you don't have to verify it after committing, Git is already configured). If signing times out, ask me with your question tool whether to retry, and retry when I confirm. Without a question tool, stop and tell me to say continue to retry
+- When solving issues with commits that are not part of a PR, add a resolves #n to the commit message body of the first matching commit. Do not add it to commits in a PR
 - Use pnpm if the project already uses it, otherwise use bun
   - Never use npm or yarn
 - When adding or updating package manager dependencies in any programming language, verify the latest stable release in the official package registry and use it. Update the relevant manifests and lockfiles.
