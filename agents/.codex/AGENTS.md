@@ -48,7 +48,8 @@ The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-resp
 
 ## Command execution
 
-- NEVER execute the `sleep` or `timeout` commands, including through scripts or command chains. This restriction applies only to commands the agent runs, not to code, scripts, or documentation it writes.
+- Wait for the actual event, not for a guessed number of seconds. Block on the process or event itself (`wait`, a tool's own wait/watch flag, harness background-task notifications), or poll a concrete readiness check (status command, health endpoint, open port, file) in a bounded loop. Never use a fixed `sleep N` to mean "it's probably done by now".
+- `sleep` is fine as the short interval inside such a poll loop or to keep a process alive (e.g. a lock holder). `timeout` is fine for bounding commands that may hang.
 
 ### Root commands executed by the agent
 
