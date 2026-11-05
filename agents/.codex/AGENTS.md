@@ -41,6 +41,7 @@
 
 - Agent launchers set `TMPDIR` to a disk-backed per-session directory because `/tmp` is a small tmpfs. Put scratch files in `$TMPDIR`; do not hardcode `/tmp`, `/var/tmp`, or `~/.cache/agent-tmp`.
 - `$TMPDIR` is deleted after your session exits, so do not keep anything there that must outlive the session.
+- Screenshots, recordings, and other media you show or link in a message must outlive the session. Save or copy them to `~/Pictures/agent-captures/<project>/` (create it if needed), not `$TMPDIR` or a directory that later test runs clear.
 - Delete scratch files as soon as the step that needed them is done, especially large ones (downloads, clones, traces, browser profiles, build output). Do not leave cleanup to the end of the session.
 
 ## Info
