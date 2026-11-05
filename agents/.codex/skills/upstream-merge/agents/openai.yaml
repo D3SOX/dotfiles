@@ -1,4 +1,4 @@
 interface:
   display_name: "Upstream merge"
-  short_description: "Merge upstream and push directly, preserving sync PR history"
-  default_prompt: "Use $upstream-merge to merge the upstream default branch, preserve any existing sync PR, push the validated result directly to the target branch once, and summarize conflicts and relevant changes."
+  short_description: "Merge upstream through the sync PR and full-send it"
+  default_prompt: "Use $upstream-merge to merge the upstream default branch through the pull bot's sync PR (or a new one), fix it, take it to a merged PR with $full-send, and summarize conflicts and relevant changes."
