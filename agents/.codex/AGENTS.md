@@ -15,6 +15,7 @@ The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-resp
 
 - Prefer CSS-only solutions over JS, if they have no downsides.
 - TypeScript: Never use `any` unless 100% necessary or specifically instructed.
+- Before showing me UI screenshots, check them for misalignment, uneven or empty space, wrapping, and horizontal scrolling, and fix what you find. In responsive layouts, prefer overflow menus or compact variants over wrapping rows or sideways scrolling.
 
 ## Communication
 
@@ -65,6 +66,11 @@ The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-resp
 - Don't run dev server commands (e.g., `bun run dev`).
 - Read complete errors, logs, and stack traces before fixing them.
 
+### Shared machine
+
+- Many agents run on this machine at once. Before heavy work (builds, emulators, VMs, test suites, or resuming or spawning several agents), check load and free memory. If load is above the core count or memory is tight, reduce workers or run heavy jobs one at a time.
+- Only stop processes you started, by PID. Never pattern-kill shared tools (e.g. `pkill webpack`), since that can stop other sessions' work.
+
 ### Waiting
 
 - Wait for the actual event, not for a guessed number of seconds. Block on the process or event itself (`wait`, a tool's own wait/watch flag, harness background-task notifications), or poll a concrete readiness check (status command, health endpoint, open port, file) in a bounded loop. Never use a fixed `sleep N` to mean "it's probably done by now".
@@ -97,5 +103,5 @@ The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-resp
 
 - Agent launchers set `TMPDIR` to a disk-backed per-session directory because `/tmp` is a small tmpfs. Put scratch files in `$TMPDIR`; do not hardcode `/tmp`, `/var/tmp`, or `~/.cache/agent-tmp`.
 - `$TMPDIR` is deleted after your session exits, so do not keep anything there that must outlive the session.
-- Screenshots, recordings, and other media you show or link in a message must outlive the session. Save or copy them to `~/Pictures/agent-captures/<project>/` (create it if needed), not `$TMPDIR` or a directory that later test runs clear. A daily systemd-tmpfiles job deletes captures untouched for 3 days.
+- Screenshots, recordings, and other media you show or link in a message must outlive the session. Save or copy them to `~/Pictures/agent-captures/<project>/` (create it if needed), where `<project>` is the repository name from `git remote get-url origin` with the remote's casing (not the worktree or directory name). Do not use `$TMPDIR` or a directory that later test runs clear. A daily systemd-tmpfiles job deletes captures untouched for 3 days.
 - Delete scratch files as soon as the step that needed them is done, especially large ones (downloads, clones, traces, browser profiles, build output). Do not leave cleanup to the end of the session.
