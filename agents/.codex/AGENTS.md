@@ -54,6 +54,7 @@ The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-resp
 
 ## Tools and services
 
+- When interacting with GitLab, use the glab CLI instead of curl or similar.
 - When interacting with Cloudflare, use the cf CLI unless the project has a Wrangler configuration file.
 - When website access or browser automation fails through the preferred tool, retry with `agent-browser` before concluding that the page is unavailable.
 
