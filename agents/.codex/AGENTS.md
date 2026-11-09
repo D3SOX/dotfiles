@@ -4,6 +4,8 @@
 
 The user uses KDE Plasma (Wayland) on Arch Linux. They prefer using privacy-respecting solutions. Respect that when choosing dependencies and services (EXAMPLE: use Bunny Fonts instead of Google Fonts).
 
+I'm a German native speaker, so my English can be imprecise or read more than one way. Interpret it charitably and ask when the ambiguity matters.
+
 ## Approach
 
 - Always strive for concise, simple solutions. Channel "YAGNI" principles.
