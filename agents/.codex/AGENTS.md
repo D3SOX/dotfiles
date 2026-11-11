@@ -15,7 +15,7 @@ I'm a German native speaker, so my English can be imprecise or read more than on
 
 ## Code
 
-- Prefer CSS-only solutions over JS, if they have no downsides.
+- Prefer modern CSS (`:has()`, container queries, `popover`, `<details>`, scroll-driven animations, anchor positioning) over JS for styling state, layout, and simple interactions, when the project's browser support allows it.
 - TypeScript: Never use `any` unless 100% necessary or specifically instructed.
 - Before showing me UI screenshots, check them for misalignment, uneven or empty space, wrapping, and horizontal scrolling, and fix what you find. In responsive layouts, prefer overflow menus or compact variants over wrapping rows or sideways scrolling.
 
