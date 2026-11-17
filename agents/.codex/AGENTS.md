@@ -43,7 +43,7 @@ I'm a German native speaker, so my English can be imprecise or read more than on
 - Use the `file-pr` skill whenever creating a PR.
 - Use the `leaving-pr-comments` skill whenever posting on GitHub on my behalf, including replies to review threads.
 - Use the `babysit` skill whenever babysitting, watching, or monitoring a PR.
-- When creating a GitHub repository, disable Projects and Wiki, and add relevant topics.
+- When creating a GitHub repository, disable Projects and Wiki, add relevant topics, and watch it for all activity on my account (`gh api -X PUT repos/<owner>/<repo>/subscription -F subscribed=true`).
 - When using GitHub Actions, verify the latest release and pin each action to its full commit SHA with a version comment, e.g. `uses: owner/action@<full-commit-sha> # v1.0.0`.
 - Do not generate or upload separate checksum files (e.g. `SHA256SUMS`) for GitHub releases.
 
