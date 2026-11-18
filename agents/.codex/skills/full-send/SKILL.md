@@ -45,8 +45,8 @@ one appears.
 ## Steps
 
 1. **Finish the change.** Complete the goal from the user's request with the
-   smallest change that works. Fix the case that happened, not every case
-   that could.
+   smallest change that works. Fix the case that happened and verified copies
+   of the same bug, not every case that could happen.
 2. **Prove it.** Get proof for every change you made. See "Proof".
 3. **Get feedback.** Use the `sol-loop` skill to verify changes. Full send
    counts as a request to push. If the loop ends stuck without an open blocker,
