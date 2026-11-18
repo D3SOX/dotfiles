@@ -10,8 +10,8 @@ they want you to complete the work end-to-end autonomously. Your updates and
 your final message go unread until long after you stop. You own the work from
 its current state to a merged PR.
 
-If the user did not explicitly request "full send" in some clear way, do not
-assume full autonomy. If they did, everything below applies.
+If the user did not explicitly request "full send" in some clear way, or invoke
+a skill that grants it (such as `upstream-merge`), do not assume full autonomy. If they did, everything below applies.
 
 The user grants you permission to:
 
@@ -48,7 +48,9 @@ one appears.
    smallest change that works. Fix the case that happened, not every case
    that could.
 2. **Prove it.** Get proof for every change you made. See "Proof".
-3. **Get feedback.** Use the `sol-loop` skill to verify changes.
+3. **Get feedback.** Use the `sol-loop` skill to verify changes. Full send
+   counts as a request to push. If the loop ends stuck without an open blocker,
+   continue and give the dispute in the report; with an open blocker, ask.
 4. **File the PR** with the `file-pr` skill. Add one short line to the
    description that says how you proved the change.
 5. **Babysit the PR** with the `babysit` skill. Fix real findings and CI
@@ -87,7 +89,7 @@ Full confidence means all of these are true on the latest commit:
 
 - Your proof covers every change in the diff.
 - Required checks are green.
-- Review bots have finished, including CodeRabbit, and each finding is fixed or
+- Review bots have finished, including CodeRabbit where the repo uses it, and each finding is fixed or
   dismissed with a written reason.
 - No human review still requests changes.
 - GitHub reports the PR as mergeable. If the branch is behind the default
