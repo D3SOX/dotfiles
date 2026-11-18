@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Remove AI writing patterns from text. Use for public prose when AGENTS.md calls for it, or when the user asks for unslop.
+description: Remove AI writing patterns from text. Use when drafting or editing prose for public use (issue and PR descriptions, READMEs, documentation, websites), or when the user asks for unslop. Not for commit messages, titles, one-line release-note entries, short UI strings, alt text, agent instruction files (AGENTS.md, SKILL.md), or conversation messages, and only once you reach the writing step.
 ---
 
 # Unslop
