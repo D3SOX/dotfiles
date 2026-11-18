@@ -26,10 +26,11 @@ Keep the attribution inside the note and the actual reply outside it. Do not
 add a horizontal rule, Setext underline, heading, signature footer, or a second
 attribution.
 
-Apply this format to top-level PR comments, inline review comments, replies to
-bots or reviewers, and written explanations used before resolving or
-dismissing feedback. Do not add it to PR descriptions, commit messages, or text
-the user explicitly asked to post verbatim without attribution.
+Apply this format to top-level PR and issue comments, inline review comments,
+replies to bots or reviewers, and written explanations used before resolving or
+dismissing feedback. Do not add it to PR descriptions, issue bodies when
+creating issues, commit messages, or text the user explicitly asked to post
+verbatim without attribution.
 
 Write the comment itself in a direct style:
 
