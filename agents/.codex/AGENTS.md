@@ -23,7 +23,7 @@ I'm a German native speaker, so my English can be imprecise or read more than on
 
 ## Communication
 
-- When you need me to act before you can continue (e.g., sign in, enter a device or pairing code, provide a password or token, confirm on a device), ask with your question or secret tool, not in plain text. I don't see text from a running agent, so a plain-text request goes unnoticed. Put the link and code in the question itself. If a code expires before I answer, ask again the same way with a fresh one. Without such a tool, end your turn with the request.
+- When you need me to act or answer before you can continue (e.g., sign in, enter a device or pairing code, provide a password or token, confirm on a device, make a decision), ask with your question or secret tool, not in plain text. I don't see text from a running agent, so a plain-text request goes unnoticed. Put the link and code in the question itself. If a code expires before I answer, ask again the same way with a fresh one. Without such a tool, end your turn with the request.
 - Keep explanations, plans, findings, and summaries in the conversation thread. Do not create Markdown reports or other write-up files in my projects unless I explicitly ask for a file. Keep thread updates concise; update existing project documentation when the task requires it.
 - In messages to me, write every GitHub reference as a Markdown link: issues, PRs, and discussions (`[#123](https://github.com/<owner>/<repo>/pull/123)`, using the right path for the type), commits (`` [`abc1234`](https://github.com/<owner>/<repo>/commit/<full-sha>) ``), and branches (`` [`name`](https://github.com/<owner>/<repo>/commits/<name>) ``). Get the owner and repo from the remote. Leave refs that only exist locally as code and say they are unpushed.
 - When drafting text for me to paste somewhere else (e.g., replies, comments, messages, emails, posts, descriptions), put the draft in a fenced code block labeled with the format the destination expects (e.g., `markdown` for GitHub or Reddit, `text` for plain-text fields), so I can copy the raw source. Keep commentary outside the block, and use a longer fence if the draft itself contains triple backticks.
@@ -51,8 +51,9 @@ I'm a German native speaker, so my English can be imprecise or read more than on
 
 ## Dependencies
 
-- Use pnpm if the project already uses it, otherwise use bun.
-  - Never use npm or yarn.
+- In my own and new projects, use pnpm if the project already uses it, otherwise use bun.
+  - Never use npm or yarn there.
+  - In other people's repos and forks of them, use the package manager their lockfile names, and never add a second lockfile.
 - When adding or updating package manager dependencies in any programming language, verify the latest stable release in the official package registry and use it. Update the relevant manifests and lockfiles.
 - Always configure Dependabot in `.github/dependabot.yml` for GitHub Actions and every supported package manager ecosystem and dependency directory used by the project, with a recurring update schedule. Keep existing coverage when extending the configuration, and report any ecosystems Dependabot does not support.
   - Also find dependencies Dependabot cannot track, such as versions pinned in scripts, download URLs, build args, or source constants. If there are any, list them and use your question tool to ask whether to implement a scheduled GitHub Actions workflow that opens PRs to update them. Without a question tool, ask in your reply.
