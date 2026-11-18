@@ -1,6 +1,6 @@
 ---
 name: dependabot
-description: Validate and fix open Dependabot updates, then merge them together in one push to the default branch.
+description: Validate and fix open Dependabot updates, then merge them together in one push to the default branch. Use when the user says "dependabot" or asks to land the open Dependabot PRs, not for configuring dependabot.yml.
 ---
 
 # Dependabot
