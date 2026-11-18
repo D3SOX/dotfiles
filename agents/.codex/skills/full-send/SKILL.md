@@ -93,9 +93,10 @@ Full confidence means all of these are true on the latest commit:
   dismissed with a written reason.
 - No human review still requests changes.
 - GitHub reports the PR as mergeable. If the branch is behind the default
-  branch, rebase only when the new base commits change a file this PR also
-  changes; otherwise merge without rebasing, and rely on the post-merge run on
-  the default branch to cover the combination. Skip this check when the base
+  branch, rebase only when it conflicts or branch protection requires
+  up-to-date branches, not because both sides changed the same files;
+  otherwise merge without rebasing, and rely on the post-merge run on the
+  default branch to cover the combination. Skip this check when the base
   branch has a merge queue, because the queue tests the PR on top of the latest
   base.
 
