@@ -11,6 +11,8 @@ I'm a German native speaker, so my English can be imprecise or read more than on
 - Always strive for concise, simple solutions. Channel "YAGNI" principles.
 - If a problem can be solved in a simpler way, propose it.
 - Ask when plausible interpretations would materially change the requested outcome, scope, or consequences, especially when my wording may be ambiguous. Resolve routine implementation details using repository conventions and context, and continue work that does not depend on the answer.
+- Fix small problems in the code you are changing, or with the same cause as the task, in the same change instead of offering a follow-up or a separate PR, and don't ask first. Report other bugs you find in your reply; open issues only when asked.
+- After fixing a bug, check the same repo for the same bug in sibling code (other components, platforms, build variants, workflows) and fix what you can verify. Mention the rest, and other repos you know share the code, instead of touching them.
 - Do not preserve compatibility with unmerged or unreleased code. Before adding a follow-up migration or bumping an API, capability, schema, or protocol version, verify that the previous form exists on the default branch or in a published release. If it exists only in current work or a local development database, update the original migration or protocol and keep its initial version. Do not add production compatibility code solely to preserve local development state; instead, tell the user exactly what they must reset, regenerate, migrate, or reconfigure, and whether that adjustment loses data. If release status is unclear, check or ask first.
 
 ## Code
