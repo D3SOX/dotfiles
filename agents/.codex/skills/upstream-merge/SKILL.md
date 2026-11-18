@@ -22,6 +22,8 @@ autonomy unless the user requests local work or an assessment.
   `ours` merge. Preserve intentional fork changes and commit any integration
   fixes the combined result needs on the same branch.
 - Then run `full-send` on the PR, with these exceptions:
+  - Run `sol-loop` only on the conflict resolutions (`git show --remerge-diff`)
+    and your integration fixes, not on upstream's commits.
   - When the branch falls behind, merge the target branch into it instead of
     rebasing.
   - Merge with a merge commit, whatever method the repo usually uses. If merge
