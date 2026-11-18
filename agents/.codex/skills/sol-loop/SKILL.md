@@ -41,9 +41,9 @@ Before round 1:
 Inside a T3 thread:
 
 - Call `orchestrator_capabilities` and pick the newest Sol model on the `codex` provider, unless the user named a version. Don't hardcode an ID. Record the provider, model, and effort.
-- Start each round with `delegate_task`: `role: "review"`, `isolation: "shared"`, `mode: "wait"`, `timeoutMs: 1800000`, `options: {"reasoningEffort": "high"}`. Use `xhigh` for rounds that review risky changes.
+- Start each round with `delegate_task`: `role: "review"`, `isolation: "shared"`, `mode: "async"`, `options: {"reasoningEffort": "high"}`. Use `xhigh` for rounds that review risky changes.
 - Use a fresh `delegate_task` each round, with `clientRequestId` set to `sol-loop-<branch>-r<round>`. Keep that ID stable across retries of the same round. Carry context in the ledger instead of in Sol's previous conversation. Don't use `t3_thread_send`, `create_threads`, or `t3_thread_launch` for reviews.
-- If the wait times out, keep the `taskId` and end the turn. The completion notification will wake you. Don't poll it or start a second reviewer.
+- Keep the `taskId` and end the turn. The completion notification will wake you. Don't poll it or start a second reviewer.
 - If `codex` fails because of usage limits, retry the round once on `codex_second`, but only if it lists a Sol model.
 
 Outside T3, run the Codex CLI read-only. It uses the model from `~/.codex/config.toml`:
@@ -55,7 +55,7 @@ codex exec -s read-only -c model_reasoning_effort=high --ephemeral \
 
 Run it in the background and wait for the completion notification. Take the model from the `model:` line in the log, then delete all three files once you've read the result.
 
-Never substitute a model. If no route runs Sol, report the blocker. A timeout, an error, or a missing reply is never approval. If a round fails, cancel it, confirm that it stopped, and restart it with the ledger.
+Never substitute a model. If no route runs Sol, report the blocker. A timeout, an error, or a missing reply is never approval. If a round fails, cancel it, confirm that it stopped, and restart it once with the ledger. If it fails again, report the blocker.
 
 ## Prompt
 
