@@ -64,6 +64,7 @@ I'm a German native speaker, so my English can be imprecise or read more than on
 ### Waiting
 
 - Wait for the actual event, not for a guessed number of seconds. Block on the process or event itself (`wait`, a tool's own wait/watch flag, harness background-task notifications), or poll a concrete readiness check (status command, health endpoint, open port, file) in a bounded loop. Never use a fixed `sleep N` to mean "it's probably done by now".
+- Never end a turn waiting for something that only you or I can cause. Before you go quiet, name the event that will wake you (a check, a bot reply, a review you requested); if there is none, act or ask me.
 - `sleep` is fine as the short interval inside such a poll loop or to keep a process alive (e.g. a lock holder). `timeout` is fine for bounding commands that may hang.
 - After you push or merge to the default branch, or start a release or nightly, watch the runs it triggers until they finish. Fix failures your change caused and flaky tests, rerun what you can't fix, and report the rest, including runs that are stuck or awaiting approval. Don't move tags, delete releases, or publish drafts unasked. A release is done when its workflow has published it, not when the tag is pushed.
 
