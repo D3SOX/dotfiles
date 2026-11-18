@@ -99,9 +99,12 @@ Full confidence means all of these are true on the latest commit:
   branch has a merge queue, because the queue tests the PR on top of the latest
   base.
 
-Merge with the method the repo uses. Check the allowed methods and recent merged
-PRs. Merge through branch protection as configured. Never use `--admin`
-or other bypasses.
+Merge with the method the repo's instructions name. If they name none, squash
+when the repo allows it. Never copy the method from recent history: upstream
+syncs and other merges that must keep ancestry use merge commits, and copying
+them spreads merge commits to PRs that don't need them. Use a merge commit only
+when the PR must keep its commits' ancestry, such as an upstream merge. Merge
+through branch protection as configured. Never use `--admin` or other bypasses.
 
 If the base branch has a merge queue (`gh pr merge --help` names it, and
 `gh api graphql` shows `mergeQueue(branch:)`), queue the PR with
