@@ -11,8 +11,9 @@ install -d -m 700 "$agent_tmp_root"
 
 # Remove session directories whose agent has exited and released its lock.
 # Skip new directories so a session is not removed before flock locks it.
+# Make contents writable first: tools such as Go leave read-only trees.
 find "$agent_tmp_root" -mindepth 1 -maxdepth 1 -type d -name 'session.*' -mmin +1 \
-    -exec flock --nonblock --exclusive {} rm -rf {} \; >/dev/null 2>&1 &
+    -exec flock --nonblock --exclusive {} sh -c 'chmod -R u+w "$1"; rm -rf "$1"' sh {} \; >/dev/null 2>&1 &
 
 agent_tmpdir=$(mktemp -d "$agent_tmp_root/session.XXXXXXXX")
 export TMPDIR="$agent_tmpdir"

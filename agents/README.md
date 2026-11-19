@@ -9,7 +9,7 @@ Configuration for Codex, Claude Code, and T3 Code. Paths in this directory mirro
 For each session, `agent-run`:
 
 - creates a `TMPDIR` under `~/.cache/agent-tmp`, because `/tmp` is a small tmpfs, and holds a shared lock on it while the session runs;
-- deletes session directories from earlier sessions whose lock has been released;
+- deletes session directories from earlier sessions whose lock has been released, making read-only contents writable first;
 - sets `AGENT_RUN=1`, which makes `zsh/.zshenv` give non-interactive agent shells bash-like globbing and word splitting.
 
 ## Instructions and skills
@@ -37,3 +37,5 @@ systemctl --user enable --now systemd-tmpfiles-clean.timer
 ```
 
 `systemctl --user list-timers systemd-tmpfiles-clean.timer` shows the next run.
+
+`.config/go/env` sets `GOFLAGS=-modcacherw`. Go otherwise writes its module cache read-only, and neither cleanup could delete it.
