@@ -13,3 +13,4 @@ See LICENSE.txt in this directory.
 Modifications:
 - Switched to the user's attribution format.
 - Added the user's rules for replying to review threads without pending reviews.
+- Renamed to leaving-github-comments and broadened it to all GitHub comments.

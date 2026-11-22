@@ -22,7 +22,7 @@ PR still belongs in the product.
 - Never use an unqualified force push. Update a rebased branch with
   `--force-with-lease` against the head SHA observed before the rebase.
 - Do not post a PR comment unless the user asked for one. Use the
-  `leaving-pr-comments` skill for every comment posted on the user's behalf.
+  `leaving-github-comments` skill for every comment posted on the user's behalf.
 
 ## Establish the PR's intent
 

@@ -29,7 +29,7 @@ autonomy unless the user requests local work or an assessment.
   - Merge with a merge commit, whatever method the repo usually uses. If merge
     commits are disallowed, ask the user.
   - For the bot's PR, post the summary and proof line as a comment with the
-    `leaving-pr-comments` skill instead of editing its description.
+    `leaving-github-comments` skill instead of editing its description.
   - If the bot rewrites the branch while you work, redo the merge and fixes on
     its new head instead of force-pushing over it.
 - Before merging, verify the upstream head is an ancestor of the PR head.

@@ -1,9 +1,9 @@
 ---
-name: leaving-pr-comments
-description: Use whenever leaving comments on GitHub.
+name: leaving-github-comments
+description: Use before drafting or posting any GitHub comment on the user's behalf, on issues, PRs, discussions, or review threads, including comments posted while closing, reviewing, or resolving (e.g. `gh issue close --comment`, `gh pr review --body`).
 ---
 
-# Leaving PR Comments
+# Leaving GitHub Comments
 
 Prefix every agent-authored comment left on the user's behalf with this GitHub
 note callout:
@@ -25,6 +25,9 @@ attachments, for secrets and private details.
 Keep the attribution inside the note and the actual reply outside it. Do not
 add a horizontal rule, Setext underline, heading, signature footer, or a second
 attribution.
+
+Add the note already in drafts you show the user before posting, so the
+approved text is what gets posted.
 
 Apply this format to top-level PR and issue comments, inline review comments,
 replies to bots or reviewers, and written explanations used before resolving or
