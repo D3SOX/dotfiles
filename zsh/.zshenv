@@ -9,10 +9,15 @@ path=(
     "$HOME/.yarn/bin"
     "$HOME/.local/share/cargo/bin"
     "$HOME/Flutter/flutter/bin"
+    "$HOME/Android/Sdk/cmdline-tools/latest/bin"
 )
 export PATH
 
 export LANG=en_US.UTF-8
+
+# Android Studio's SDK, the one with accepted licences
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
 # XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
