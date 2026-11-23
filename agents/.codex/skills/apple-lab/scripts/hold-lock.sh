@@ -1,0 +1,1 @@
+../../android-lab/scripts/hold-lock.sh

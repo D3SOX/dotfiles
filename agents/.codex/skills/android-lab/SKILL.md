@@ -5,159 +5,102 @@ description: Build and test Android apps on this machine's physical Pixel and An
 
 # Android lab
 
-Use this local setup for Android builds and device testing. Read the target repository's instructions and discover its Android module, build variant, application ID, launch activity, instrumentation package and minimum SDK before choosing commands. Use pnpm if the project already uses it; otherwise use bun for JavaScript commands. Native projects may not need either.
+Read the target repository's instructions and discover its Android module, build variant, application ID, launch activity, instrumentation package and minimum SDK before choosing commands. Set `APP_ID` and `LAUNCH_COMPONENT` (the full `package/activity`) from the selected build variant, not from the repository name.
 
-Before physical-device access, read [local.md](local.md) for private connection values and substitute its named placeholders in the commands below. This file is Git-ignored; preserve it when copying skill updates. If it is missing, obtain the relevant values from the user or existing device configuration before connecting.
+Before physical-device access, read [local.md](local.md) for the private `PIXEL_USB_SERIAL` and `PIXEL_ADB_ADDRESS` values and substitute them below. It is Git-ignored; preserve it when copying skill updates. If it is missing, get the values from the user or the existing device configuration.
 
-## Device ownership
+## Locks
 
-The Pixel and each emulator are exclusive shared resources. Before `adb connect`, starting an emulator, or issuing any target-specific `adb` command, acquire the matching lock:
+Follow [lab locks](references/locks.md) with `/home/nico/.codex/skills/android-lab/scripts/hold-lock.sh NAME`. Lock before `adb connect`, starting an emulator or any target-specific `adb` command.
 
-```text
-Pixel 8 Pro:  /tmp/android-lab-pixel.lock
-Emulator:     /tmp/android-lab-<AVD_NAME>.lock
-```
+| Target | NAME |
+|---|---|
+| Pixel | `pixel`, on both hosts for the laptop route |
+| Emulator | its AVD name, such as `android_api35` |
+| Console port for an AVD without a fixed port | `port-PORT` |
 
-Use these lock filenames in every project so all agents coordinate access to the same devices.
+## Build environment
 
-Start a lock holder as a long-running background command (its own exec session in Codex, `run_in_background` in Claude Code), passing the lock name between `android-lab-` and `.lock`. For example, for the Pixel:
+The shell sets `ANDROID_HOME` and `ANDROID_SDK_ROOT` to `/home/nico/Android/Sdk`, the SDK with accepted licences. If either points elsewhere, such as `/opt/android-sdk`, override both, or Gradle fails on licences or conflicting SDK paths. Use `JAVA_HOME=/usr/lib/jvm/java-21-openjdk`.
 
-```bash
-/home/nico/.codex/skills/android-lab/scripts/hold-lock.sh pixel
-```
+Use the repository's documented build and test workflow. For Capacitor apps, build the web assets and sync Android after renderer changes, using the project's own scripts. Run Gradle from the directory containing the wrapper, for example `JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew assembleDebug testDebugUnitTest`.
 
-Continue only after `DEVICE_LOCK_ACQUIRED pid=<PID>` appears, and record that PID. The holder is a single process that owns the lock until it dies; keep it running for the entire device workflow. If it exits with status 75, another agent is using the target. Do not connect to it, run commands against it, stop it, wipe it, or steal its lock. Choose an unlocked suitable device. If none is free and the task needs another emulator, create an isolated clone using the procedure below. Otherwise wait and coordinate with the other agent.
-
-While holding a lock, run device commands directly. Do not wrap them in `flock`; your own holder makes that fail with status 75.
-
-After all device work and setting restoration is complete, release the lock with `kill <PID>` using the recorded PID, and confirm with `flock -n /tmp/android-lab-<NAME>.lock true`. Stopping the background task or session also works. Never kill holders by pattern (`pkill -f`), since that can hit other agents' holders, and never use an ad-hoc `flock FILE COMMAND` holder: killing `flock` leaves its child running with the lock. Never delete the lock files, since replacing a locked file would bypass mutual exclusion. Release every lock before ending your turn unless you are continuing device work in the same session.
+Set `ANDROID_SERIAL` to your locked device for connected tasks such as `connectedDebugAndroidTest`; otherwise they run on every attached device. They uninstall the app afterward, so never run them against the Pixel.
 
 ## Physical Pixel
 
-The physical device is a Pixel 8 Pro running Android 16. It can connect by USB through `ssh nico-laptop` or directly over Tailscale. Try the laptop first, since USB is faster and more reliable for APK transfers:
+The Pixel 8 Pro is rooted and runs LineageOS; read `ro.build.version.release` instead of assuming an Android version. Root-dependent tools are fine when they help the task; check the available root access before relying on it.
+
+USB through the laptop is faster and more reliable for APK transfers, so check it first:
 
 ```bash
 ssh -o BatchMode=yes -o ConnectTimeout=5 nico-laptop '/usr/bin/adb devices -l'
 ```
 
-If `PIXEL_USB_SERIAL` is listed as `device`, use the [laptop USB workflow](references/pixel-laptop-usb.md), which requires locks on both hosts. If the laptop is unreachable or the Pixel is missing, `unauthorized`, or `offline` there, use the direct connection below.
+If `PIXEL_USB_SERIAL` is listed as `device`, use the [laptop USB workflow](references/pixel-laptop-usb.md). Otherwise try `adb connect PIXEL_ADB_ADDRESS` over Tailscale. Port `5555` works only when TCP ADB is enabled; Wireless debugging uses a changing port the user must supply. If neither route works and the task needs the physical Pixel, ask the user with your question tool to plug it into the laptop, and continue emulator work meanwhile.
 
-The Pixel is rooted. Agents may use root-dependent tools and commands when they help with the assigned task, including privileged inspection, debugging, and testing. Verify the available root access on the device before relying on it; the device locks and setting-restoration rules still apply.
+On either route:
 
-For direct access, use `PIXEL_ADB_ADDRESS` from `local.md`. Port `5555` works only when TCP ADB is enabled; Wireless debugging uses a changing port, so use the current address supplied by the user. The phone may be unavailable when it or Tailscale is offline.
+- Run `am get-current-user` before installing. Install and launch only for Android user 0, never users 10 or 11: `install --user 0 -r PATH_TO_APK`, then `am start --user 0 -n "$LAUNCH_COMPONENT"`.
+- CorePatch disabled signature verification on the earlier Android 16 setup, so debug and release builds installed over each other. If an install now fails with a signature mismatch, ask the user before uninstalling the app or clearing its data.
+- The phone holds personal notifications, accounts and files. Collapse the shade before screenshots, and check the app's notifications with `adb shell cmd notification list | rg -F -- "$APP_ID"` instead of opening the shade. Never put Pixel captures in PRs, issues, releases or other public places; for public proof, reproduce on an emulator with test data.
+- Record the original value of any setting you change, and restore it. Force-stop is not a durability test for background work, since Android prevents restart until the user opens the app again.
 
-Connect and confirm the Android user before every install:
-
-```bash
-adb connect PIXEL_ADB_ADDRESS
-adb -s PIXEL_ADB_ADDRESS shell am get-current-user
-```
-
-Install test apps only for Android user 0. Never install them for users 10 or 11.
-
-```bash
-adb -s PIXEL_ADB_ADDRESS install --user 0 -r PATH_TO_APK
-```
-
-The Pixel runs CorePatch, which disables APK signature verification, so signature mismatches between installed and new builds do not block installs. Install debug builds over release builds (or the reverse) directly; do not uninstall the existing app or clear its data to work around a signature mismatch.
-
-Set `APP_ID` and `LAUNCH_COMPONENT` from the selected APK/build variant, not from the repository name. `LAUNCH_COMPONENT` is the full `package/activity` component. Launch it for user 0 with:
-
-```bash
-adb -s PIXEL_ADB_ADDRESS shell am start --user 0 \
-  -n "$LAUNCH_COMPONENT"
-```
-
-The phone has personal notifications. Collapse the shade before ordinary screenshots. When notification evidence is necessary, crop it narrowly and never expose unrelated notifications. Prefer inspecting the app's notifications without opening the full shade:
-
-```bash
-adb -s PIXEL_ADB_ADDRESS shell \
-  cmd notification list | rg -F -- "$APP_ID"
-```
-
-Record the original value of any device setting changed for a test, then restore it. Do not treat force-stop as a supported durability test for background work because Android intentionally prevents restart until the user opens the app again.
-
-## Build environment
-
-The available Android toolchain is:
+## Emulators
 
 ```text
-ANDROID_HOME=/home/nico/Android/Sdk
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+SDK:      /run/media/nico/200GB_DATA/android-emulator-sdk
+AVD home: /run/media/nico/200GB_DATA/android-emulator-avds
 ```
 
-Use the repository's documented build and test workflow. For Capacitor apps, build the web assets and sync Android when renderer code changed; discover the scripts and web directory in the current project rather than assuming a `capacitor:sync:android` script exists. Skip this step for native apps.
+| AVD | API | Console port | Notes |
+|---|---|---|---|
+| `android_api26` | 26 (8.0) | 5558 | Chrome 119 WebView installed |
+| `android_api35` | 35 | 5556 | |
+| `android_api35_tablet` | 35 | free one from 5560–5682 | Boots in landscape |
+| `android_api37` | 37 | free one from 5560–5682 | Newest WebView |
 
-Run Gradle from the directory containing the project's wrapper. For a project with the standard debug variant, for example:
+Other AVDs may belong to a task; leave them alone. List AVDs with `emulator -list-avds` (with `ANDROID_AVD_HOME` set) and installed images under `$SDK/system-images` rather than assuming them.
+
+After taking the AVD lock (and a port lock outside the table's fixed ports), start the emulator as its own long-running background command, like a lock holder:
 
 ```bash
-ANDROID_HOME=/home/nico/Android/Sdk \
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
-./gradlew assembleDebug testDebugUnitTest
+/home/nico/.codex/skills/android-lab/scripts/start-emulator.sh android_api35 5556
 ```
 
-## Android emulators
+Wait for `EMULATOR_BOOTED serial=emulator-PORT`. If the launcher exits first, the emulator died; read its output. The launcher forces `-gpu swangle` and relaunches the emulator when it crashes during boot, printing a `relaunching` line and the marker again. Never launch emulators another way or change the GPU mode; the script's comments explain why. Stop with `adb -s emulator-PORT emu kill` and wait for the launcher to exit; a 139 from that kill is harmless. Reuse a running emulator only while holding its lock, and never boot shared AVDs with `-wipe-data`.
 
-The emulator installation and AVD data live on the large local data partition:
+Emulator quirks: `FLAG_SECURE` screens (some app settings, the system unlock prompt) capture as black, and the notification-permission prompt returns after a reinstall.
 
-```text
-Partition: /run/media/nico/200GB_DATA
-SDK:       /run/media/nico/200GB_DATA/android-emulator-sdk
-AVD home:  /run/media/nico/200GB_DATA/android-emulator-avds
-```
+### Minimum supported Android
 
-The shared baseline AVDs are `android_api35` and `android_api26`. When running on their configured ports, their ADB serials are `emulator-5556` and `emulator-5558` respectively.
+Check the module's effective `minSdk`, including variant overrides, and test on an image with that API level. If it is not installed, report the coverage gap rather than substituting another level. Verify `ro.build.version.sdk` and `ro.build.version.release` first, and report the OS and WebView versions you tested.
 
-Use `swangle` for graphics on this machine. Emulator 37.1.11 repeatedly segfaulted in `RenderThread` with both `swiftshader` and `swiftshader_indirect`, including with Vulkan disabled. A repeated app-launch test failed on launch four with `swiftshader_indirect`; `swangle` passed 20 launches on each of the three lab AVDs and local-video playback/seeking on API 26. `swangle` uses ANGLE over SwiftShader Vulkan instead of the older SwiftShader GLES renderer. Do not substitute `swiftshader` as a fallback for these crashes.
-
-The lab AVD defaults are `hw.gpu.enabled = yes` and `hw.gpu.mode = swangle` in each AVD's `config.ini`. Preserve these settings, and set them for new AVDs while stopped and locked. These settings alone are insufficient in emulator 37.1.11: the launcher chooses its graphics library path from the command-line `-gpu` argument before reading the AVD configuration. Without explicit `-gpu swangle`, it can still load the older GLES renderer. Use the launcher below, or retain explicit `-gpu swangle` in a custom launch command. Confirm the startup log's `Graphics Adapter` contains `ANGLE`, not just `Google SwiftShader`.
-
-The additional `android_api35_tablet` AVD uses API 35. Lock it as above; choose and lock a free port from the clone range below before starting it.
-
-List the AVDs with:
-
-```bash
-ANDROID_SDK_ROOT=/run/media/nico/200GB_DATA/android-emulator-sdk \
-ANDROID_AVD_HOME=/run/media/nico/200GB_DATA/android-emulator-avds \
-/run/media/nico/200GB_DATA/android-emulator-sdk/emulator/emulator -list-avds
-```
-
-After acquiring the target's lock, check `adb devices -l`. Reuse a running emulator only while holding its matching lock. For a headless API 35 instance:
-
-```bash
-/home/nico/.codex/skills/android-lab/scripts/start-emulator.sh \
-  android_api35 5556
-```
-
-The launcher runs in the foreground and does not acquire locks; keep the matching lock holder alive for the entire workflow.
-
-On API 30+ images, emulator 37.x's modem simulator has an upstream data race (`ChannelMonitor` in `modem_simulator/channel_monitor`) that segfaults between 1 in 16 and 1 in 4 cold boots with exit status 139, about 13 seconds after `Emulator is performing a full startup`. It is not a graphics crash, `hw.gsmModem = no` does not avoid it, and 37.2.12 ships the same code. The launcher relaunches up to four times when the emulator segfaults before Android finishes booting, so expect a brief `adb` disconnect and a `relaunching` line in its output. Wait for `sys.boot_completed` again after a relaunch. A crash after boot is returned to the caller as status 139. This includes a frequent, harmless segfault during `adb emu kill`.
-
-When waiting for boot, poll `sys.boot_completed` and stop if the launcher's background task has exited. Do not detect a dead emulator with `pgrep -f <AVD_NAME>`: it matches the waiting shell's own command line, and `android_api35` also matches `android_api35_tablet`.
-
-Use `android_api26` and port `5558` for Android 8.0, API 26, when that version is supported by the target app. Boot without `-wipe-data` to preserve installed apps and the updated WebView. Use `-wipe-data` only when a factory reset is intended, then reinstall the WebView update below before renderer tests.
-
-### Minimum supported Android tests
-
-Check the target module's Gradle configuration for its effective `minSdk`/`minSdkVersion`, including variant overrides. Choose an emulator matching that minimum; the existing API 26 AVD provides minimum-version coverage only for apps whose minimum is 26. If the needed system image is not installed, report the coverage gap rather than substituting another API level.
-
-Verify `ro.build.version.sdk` and `ro.build.version.release` before testing; the existing API 26 target should report `26` and `8.0.0`. Use the selected variant's actual application ID, launch component and instrumentation runner. Cover the affected flow, including renderer startup for WebView UI tests and applicable native services, notifications or lifecycle behavior.
-
-For WebView-based apps, the shared API 26 AVD has Chrome 119.0.6045.193 installed as its active WebView provider. Verify it with `adb -s SERIAL shell dumpsys webviewupdate`. The factory system image contains WebView 69, so newly created clones and wiped AVDs need the same update. Install the APK bundled in this skill's `assets/` directory after boot, substituting the owned device's serial:
+The factory API 26 image ships WebView 69. `android_api26` has Chrome 119.0.6045.193 as its WebView provider instead, which survives restarts but not `-wipe-data`. Fresh API 26 clones need it before renderer tests:
 
 ```bash
 adb -s SERIAL install -r '/home/nico/.codex/skills/android-lab/assets/com.android.chrome_119.0.6045.193-604519327_minAPI24_maxAPI28(x86,x86_64)(nodpi)_apkmirror.com.apk'
 adb -s SERIAL shell dumpsys webviewupdate
 ```
 
-For this API 26 baseline, confirm that the current WebView package is `com.android.chrome`, version `119.0.6045.193`, before renderer tests. This update persists across normal restarts but not `-wipe-data`. Fresh clones do not inherit it. Do not count native-only tests as renderer coverage or add app compatibility code merely to accommodate the factory WebView. Use the target project's WebView requirements on other API levels. Report the OS and WebView versions used for tests.
+Do not count native-only tests as renderer coverage, or add app compatibility code merely for the factory WebView.
 
-### Extra emulators when devices are busy
+### Clones when devices are busy
 
-Agents may create temporary clones when every suitable emulator is occupied. A clone means a fresh AVD using the same installed system-image package and hardware profile, with its own writable data. Do not copy a running AVD's userdata, snapshots, or lock files, and do not issue ADB commands to the occupied source.
+When every suitable emulator is locked, create a temporary clone: a fresh AVD from the same system image and hardware profile. Never copy a running AVD's data or touch the occupied source.
 
-- Choose a unique name such as `android_api26_<task-id>`. Acquire its lock with `hold-lock.sh "$AVD_NAME"` before creating or starting it.
-- Use `avdmanager create avd` from the emulator SDK with `ANDROID_AVD_HOME` set to the lab's AVD home. For an API 26 Pixel clone, use `--name "$AVD_NAME" --package 'system-images;android-26;google_apis;x86_64' --device pixel`. Answer `no` to the custom hardware prompt. Use the task's required API level; never use `--force` to overwrite an existing AVD. Check disk space and memory first.
-- Select an unused even console port from 5560 through 5682. Hold the port lock with `hold-lock.sh port-<PORT>` for the whole workflow and check that both the console port and the following ADB port are unused before launching. A lock alone does not prove a port is free. Ports 5556 and 5558 are reserved for the base AVDs.
-- Launch headlessly with the flags above, using the clone's name and selected port. Wait for boot, verify the AVD name with `adb -s emulator-PORT emu avd name`, and check its API level before installing. Target every ADB command explicitly.
-- When finished, stop only the clone you own, wait for its emulator process to exit, and delete that temporary AVD with `avdmanager delete avd --name "$AVD_NAME"`. Release its device and port locks afterward by killing their holder PIDs. Leave other agents' AVDs and the shared system images intact. Never delete lock files.
+1. Pick a unique name such as `android_api35_<task>` and lock it before creating it. Check disk space and memory.
+2. Create it with the emulator SDK's `cmdline-tools/latest/bin/avdmanager create avd --name "$AVD_NAME" --package 'system-images;android-35;google_apis;x86_64' --device pixel`, with `ANDROID_AVD_HOME` set. Answer `no` to the custom hardware prompt, and never use `--force`. Set `hw.gpu.enabled = yes` and `hw.gpu.mode = swangle` in its `config.ini`.
+3. Lock a free even console port from 5560–5682 with `port-PORT`, check that it and the next port are unused, and start the clone with the launcher. Verify `adb -s emulator-PORT emu avd name` and the API level before installing.
+4. When finished, stop it, wait for the launcher to exit, run `avdmanager delete avd --name "$AVD_NAME"`, then release both locks.
+
+## WebView inspection
+
+For a debuggable WebView build on any device you hold:
+
+```bash
+pid=$(adb -s SERIAL shell pidof "$APP_ID")
+port=$(adb -s SERIAL forward tcp:0 "localabstract:webview_devtools_remote_$pid")
+```
+
+`tcp:0` picks a free local port and prints it, so you never take over another agent's forward. If the socket is missing, look for `webview_devtools_remote` in `adb shell cat /proc/net/unix`. Discover pages at `http://127.0.0.1:$port/json` and select the app's page by URL; the first page may be a background WebView. Playwright attaches with `chromium.connectOverCDP(url, { noDefaults: true })`; without `noDefaults` it fails with "Browser context management is not supported". Raw CDP over the page's `webSocketDebuggerUrl` also works. Recreate the forward when the app restarts, and remove only yours with `adb -s SERIAL forward --remove tcp:$port`.

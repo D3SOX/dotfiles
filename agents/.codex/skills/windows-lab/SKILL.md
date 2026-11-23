@@ -5,11 +5,9 @@ description: Test and debug Windows desktop apps in this machine's local Windows
 
 # Windows lab
 
-Read the target repository's instructions and identify the intended source/build before testing. Discover its Windows packaging, executable, data directory, and test workflow rather than assuming a framework or project layout. Use task-specific guest directories and test profiles; existing guest files may belong to another task.
+Read the target repository's instructions and identify the intended source and build before testing. Discover its Windows packaging, executable, data directory and test workflow rather than assuming a framework or layout. Use task-specific guest directories and test profiles; existing guest files may belong to another task.
 
 ## Local setup
-
-Verified on 2026-10-14. Recheck configuration and versions when they matter.
 
 | Resource | Local value |
 |---|---|
@@ -17,60 +15,50 @@ Verified on 2026-10-14. Recheck configuration and versions when they matter.
 | Compose configuration | `/run/media/nico/200GB_DATA/windows-vm/compose.yml` |
 | Guest | Windows 11 Pro; account from Compose `USERNAME` |
 | Configured resources | 8 GB RAM, 18 vCPUs, 150 GB guest disk |
-| Browser console | `http://127.0.0.1:8007` |
+| Browser console | `http://127.0.0.1:8007/?autoconnect=1&resize=scale` |
 | SSH | `127.0.0.1:2222`, Windows PowerShell 5.1 default shell |
-| RDP | `127.0.0.1:3390`, TCP and UDP |
 | Host shared folder | `/run/media/nico/200GB_DATA/electron/artifacts` |
 | Guest shared folder | `\\host.lan\Data` |
 | Persistent VM storage | `/run/media/nico/Media/windows-lab-vm-storage` |
 | OEM setup | `/run/media/nico/200GB_DATA/windows-vm/oem/install.bat` |
-| SSH known hosts | `/run/media/nico/200GB_DATA/windows-vm/known_hosts` |
 
-The shared-folder path is historical; it works for any project. The guest's C: drive is persistent; `/shared` is the Docker mount backing the guest's SMB share, not a Windows path. The OEM setup enables OpenSSH, selects Windows PowerShell as the SSH shell, and disables sleep/hibernation. Do not rerun provisioning just to start a test.
+The shared folder's path is historical; it works for any project. The guest's C: drive is persistent. The OEM setup enables OpenSSH with Windows PowerShell as its shell and disables sleep; do not rerun provisioning to start a test.
 
-Credentials live in the Compose service's `environment.USERNAME` and `environment.PASSWORD`. Read them at runtime through the helper below. Do not copy passwords into the skill, scripts, command arguments, or evidence. Avoid dumping the full Compose file or container environment.
+The guest keeps its timezone on UTC because QEMU's clock is UTC, and Windows Time starts automatically. Keep both. If network or TLS requests hang, compare the guest clock with `date -u` first.
 
-## Ownership and lifecycle
+Node.js 24 with npm, Git and Visual Studio Build Tools 2026 are installed; pnpm and bun are not. `python.exe` is only the Microsoft Store stub, so node-gyp needs a real Python. Identify the OS by `BuildNumber`; the registry `ProductName` says Windows 10.
 
-The container and desktop are shared. Hold `/tmp/windows-lab-vm.lock` throughout guest access, testing, restoration, and shutdown:
+## Lock and lifecycle
 
-```sh
-bash -c 'exec 9>>/tmp/windows-lab-vm.lock; flock -n -E 75 9 || exit 75; echo LAB_LOCK_ACQUIRED pid=$$; exec sleep infinity'
-```
+Follow [lab locks](references/locks.md) with `/home/nico/.codex/skills/windows-lab/scripts/hold-lock.sh vm` for all guest access, testing, restoration and shutdown. Don't stop another task's processes or overwrite its files.
 
-Run the holder as a separate long-running background command (its own exec session in Codex, `run_in_background` in Claude Code). Continue after `LAB_LOCK_ACQUIRED pid=<PID>` and record the PID; exit 75 means occupied. While holding the lock, run commands directly; do not wrap them in `flock`, since your own holder makes that fail with 75. When done, release it by killing the recorded PID and confirm with `flock -n /tmp/windows-lab-vm.lock true`. Release it before ending your turn unless you continue lab work in the same session. Never kill holders by pattern (`pkill -f`), never use an ad-hoc `flock FILE COMMAND` holder (killing `flock` leaves its child holding the lock), and never delete a lock file to bypass its holder. This lock is a new coordination convention; inspect existing lab sessions and the desktop before treating a previously running VM as idle. Do not stop another task's processes or overwrite its files.
-
-Inspect the existing container, then start it if stopped:
+Inspect the container, then start it if stopped:
 
 ```sh
-docker inspect windows --format '{{.State.Status}} {{json .HostConfig.PortBindings}} {{json .Mounts}}'
+docker inspect windows --format '{{.State.Status}}'
 docker start windows
-docker logs --tail 15 windows
 ```
 
-If the container is missing, inspect the existing Compose setup before recreating it. Preserve its storage mount and credentials. Do not create a second VM sharing the same writable disk or reinstall Windows to obtain a different OS version.
-
-Boot can take several minutes. Docker's "Windows started successfully" message, a connected noVNC page, and an open SSH port do not establish guest readiness. Early SSH attempts have returned connection resets, banner timeouts, or connected without completing a command. Use bounded retries of a short readiness command, inspect the desktop, and allow the guest to finish signing in. The OEM `ssh-ready.txt` marker records provisioning, not current boot readiness.
+If the container is missing, inspect the existing Compose setup before recreating it. Keep its storage mount and credentials. Never create a second VM on the same disk or reinstall Windows to get another OS version.
 
 ## PowerShell access
 
-The host has `sshpass` and Python with PyYAML. The helper uses the existing credentials and sends UTF-16LE encoded PowerShell, avoiding Bash/zsh expansion and nested SSH quoting:
+Credentials live in the Compose service's `environment`. The helper reads them at runtime and sends UTF-16LE encoded PowerShell, avoiding shell expansion and nested SSH quoting. Never copy the password into commands, scripts or evidence, or dump the Compose file or container environment.
 
 ```sh
-python /home/nico/.codex/skills/windows-lab/scripts/vm-ssh.py \
-  --command 'Write-Output READY; Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version,BuildNumber,OSArchitecture; query user'
-
-python /home/nico/.codex/skills/windows-lab/scripts/vm-ssh.py \
-  --script /absolute/host/path/check.ps1 --timeout 60
+H=/home/nico/.codex/skills/windows-lab/scripts/vm-ssh.py
+python $H --wait-ready 600
+python $H --command 'Get-CimInstance Win32_OperatingSystem | Select-Object Caption,BuildNumber'
+python $H --script /absolute/host/path/check.ps1 --timeout 300
 ```
 
-`--script` reads a host file and executes its contents in the SSH session; it does not upload that file. The helper propagates SSH/PowerShell's exit code and returns 124 on timeout. A transport timeout does not prove a crash or stop the guest job: inspect its task/PID before retrying a mutation. For native programs, explicitly check `$LASTEXITCODE` in PowerShell and `exit` with that value when it must control the SSH result.
+`--wait-ready SECONDS` retries until the guest runs commands, which takes several minutes after `docker start`, and prints `READY`. Docker's start message, the console and an open SSH port do not mean the guest is ready. `--script` runs a host file's contents; it does not upload the file. `--forward PORT` forwards host `127.0.0.1:PORT` to the guest's loopback port until you kill it, for example for a `--remote-debugging-port`.
 
-Do not assume the guest has a project's SDK, Git, package manager, or native dependencies. Node.js was available at `C:\Program Files\nodejs\node.exe` during earlier work; verify it and any required toolchain. Linux `node_modules` and native binaries are not Windows build inputs.
+The helper returns PowerShell's exit code, or 124 on timeout (default 120 seconds). A timeout does not stop the guest job or prove a crash: inspect its process before retrying a mutation. For native programs, check `$LASTEXITCODE` and `exit` with it when it must decide the result.
 
 ## Transfers and desktop tests
 
-Create a unique host directory under the shared folder, for example `windows-lab/APP-TASK`, and its guest workspace at `C:\windows-lab\APP-TASK`. Copy ZIPs or build artifacts through the share, then extract locally for execution:
+Create a host directory under the shared folder, such as `windows-lab/APP-TASK`, and a guest workspace at `C:\windows-lab\APP-TASK`. Copy artifacts through the share and extract them locally before running them:
 
 ```powershell
 $share = '\\host.lan\Data\windows-lab\APP-TASK'
@@ -81,21 +69,25 @@ Copy-Item (Join-Path $share 'app.zip') (Join-Path $work 'app.zip')
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 ```
 
-Use the project's complete packaging output. Wait for post-build steps to finish, preserve the configured package directory structure, and include icons, preloads, native modules, and other runtime resources. An extracted installer payload verifies its app files; it does not establish that installation, shortcuts, registry changes, or upgrades work. Noninteractive installer launches can wait on invisible dialogs; inspect the desktop before starting another installer.
+Use the project's complete packaging output, including icons, preloads, native modules and other runtime resources. An extracted installer payload verifies its app files, not installation, shortcuts, registry changes or upgrades. Noninteractive installer launches can wait on invisible dialogs; check the desktop before starting another installer. Linux `node_modules` and native binaries are not Windows build inputs.
 
-For GUI launches, browser control, native close actions, and optional Electron inspection, read [references/desktop-testing.md](references/desktop-testing.md). SSH alone does not guarantee an app is visible in the interactive desktop session.
+For GUI launches, screenshots, native close actions and Electron inspection, read [desktop testing](references/desktop-testing.md). Processes started over SSH run outside the interactive desktop.
 
 ## Evidence and cleanup
 
-Record the build/source, guest OS build, executable version, profile, launch flags, and actual observed outcome. Windows 11 results do not establish Windows 10 compatibility. For timing-sensitive failures, include an uninstrumented run with stock graphics settings; debuggers, logging, and Task Manager can change timing.
+Record the build or source, guest OS build, executable version, profile, launch flags and observed outcome. Windows 11 results do not establish Windows 10 compatibility. For timing-sensitive failures, include an uninstrumented run with stock graphics settings, since debuggers, logging and Task Manager change timing. Distinguish a disappearing window, a normal exit, an installer or bootstrapper exit and a native crash.
 
-Distinguish a disappearing window, a normal process exit, an installer/bootstrapper exit, and a native crash. Preserve the initial failure and focused verification logs/screenshots/recordings in the task's shared artifact directory, with personal data removed. A passing launch process is insufficient when an app hands off to an existing instance or spawns a replacement.
+Save screenshots and recordings you show the user to `~/Pictures/agent-captures/<project>/`, with personal data removed. When done:
 
-Restore temporary app replacements and settings, unregister your temporary scheduled tasks, stop only your test processes, and remove your disposable profiles/workspaces after saving evidence. Preserve existing installations and user data. If you started the VM, stop it when it is no longer needed; if it was already running, check for other active users/tasks before stopping it. Leave it running only for an active owner or an explicit request, and state that in the handoff.
+- Stop only your test processes, unregister your scheduled tasks and restore temporary app replacements and settings.
+- Remove what your run created in the guest: your workspace and profiles, and protocol handlers, shortcuts, taskbar pins and `%APPDATA%` data the app registered there. Keep earlier installations and user data.
+- Delete your share task folder, naming it with a literal path.
+
+Then stop the VM, including when it was already running, unless `hold-lock.sh --status vm` shows another agent waiting or the user asked to keep it running; say so in your handoff.
 
 ```sh
 docker stop --timeout 120 windows
 docker inspect windows --format '{{.State.Status}} running={{.State.Running}}'
 ```
 
-Wait for `exited running=false` before reporting shutdown and releasing the lock. Keep the VM disk and shared artifact folder intact.
+Wait for `exited running=false` before releasing the lock.

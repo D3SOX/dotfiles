@@ -2,7 +2,7 @@
 
 ## Access and installation
 
-The iPad is connected by USB to **`ssh nico-laptop`**, not to the agent host or macOS VM. Acquire the local and laptop iPad locks described in SKILL.md before device work. Read [../local.md](../local.md) and substitute its `IPAD_UDID` in the commands below. Check presence and identity with the laptop's existing pymobiledevice3 installation:
+The iPad is connected by USB to **`ssh nico-laptop`**, not to the agent host or macOS VM. Take the local and laptop `ipad` locks described in SKILL.md before device work, and substitute `IPAD_UDID` from [../local.md](../local.md) in the commands below. If the iPad isn't listed, ask the user with your question tool to plug it into the laptop. Check presence and identity with the laptop's existing pymobiledevice3 installation:
 
 ```sh
 ssh nico-laptop 'uv tool run --from pymobiledevice3 pymobiledevice3 usbmux list --usb --simple'
@@ -13,12 +13,12 @@ The second command returns personal identifiers; select only the needed model, P
 
 Last verified 2026-09-28:
 
-- Model: **iPad12,1**, OS: **iPadOS 26.7 (23H24)**. A previous user estimate of “27” was inaccurate; confirm actual values.
+- Model: **iPad12,1**, OS: **iPadOS 26.7 (23H24)**. Confirm current values.
 - Signing can change the bundle ID suffix; discover the target app's installed identity rather than assuming its production bundle ID.
 - Developer Mode, signing-identity trust and Safari Web Inspector were enabled. Recheck only if relevant to an access failure.
 - Bluetooth headphones, a phone hotspot and another screen for QR codes were available. AirPlay and an external keyboard/trackpad were not; availability can change.
 
-`iloader-bin` from AUR has successfully signed and installed the IPAs. Put packages in `~/Downloads` on the laptop; the user performs signing/installing. SideStore documentation is not evidence that SideStore was physically tested.
+The user signs and installs IPAs with `iloader` (AUR package `iloader-bin`) on the laptop. Put packages in `~/Downloads/apple-lab/` there and list only `*.ipa` files in it; the rest of `~/Downloads` is personal. iloader's logs in `~/.local/share/me.nabdev.iloader/logs` on the laptop show what it provisioned, such as App Groups. SideStore documentation is not evidence that SideStore was physically tested.
 
 Ask the user to install over the existing app using the same Apple account/settings, **without uninstalling**. Preserve app data and user downloads. Do not assume a free signing slot exists for a separate probe app. Replacing the normal app with a diagnostic probe needs explicit authorization and a prepared restore package.
 
@@ -47,7 +47,7 @@ The discovery endpoint is `http://127.0.0.1:9331/json/list`. Keep only one evalu
 Use the bundled Node 24+ evaluator, with a JS expression or async IIFE in a temporary file:
 
 ```sh
-node ~/.codex/skills/apple-lab/scripts/evaluate-webview.mjs /tmp/ios-probe.js
+node ~/.codex/skills/apple-lab/scripts/evaluate-webview.mjs "$TMPDIR/ios-probe.js"
 ```
 
 Optional flags: `--endpoint http://127.0.0.1:PORT`, `--target TARGET_ID`, `--user-gesture`. The helper auto-selects only when exactly one localhost WebView exists. For another app origin or multiple targets, select the app's target explicitly with `--target`. The helper polls async results because this CDP bridge does not reliably support `awaitPromise`; it exits nonzero on JavaScript errors and timeouts. It does not acquire locks or open the app.
@@ -73,7 +73,7 @@ Record original settings and app state, including route, active tab and playback
 For app-specific traces, use the laptop's syslog bridge in an owned foreground session, with the current process name or PID:
 
 ```sh
-ssh nico-laptop 'uv tool run --from pymobiledevice3 pymobiledevice3 syslog live --udid IPAD_UDID --process-name APP_PROCESS' > /tmp/apple-lab-TASK-native.log
+ssh nico-laptop 'uv tool run --from pymobiledevice3 pymobiledevice3 syslog live --udid IPAD_UDID --process-name APP_PROCESS' > ~/.local/state/apple-lab/APP/TASK/native.log
 ```
 
 Confirm the installed app's process name before relying on the filter. A WebContent or system PiP failure may require a separate narrowly scoped capture. Check current `--help` for filtering options and do not publish unrelated device logs. This capture can remain running after disconnecting Web Inspector for a lifecycle test; stop only your capture afterward.
@@ -91,7 +91,7 @@ Disconnect **both the CDP client and inspector service/tunnel** before timing ba
 - **Auto-Lock:** the observed iPad offered 2 minutes, not 1; the user's original setting was Never. Read the current setting and restore it after testing.
 - **Local network:** check iPad and laptop are on the same Wi-Fi and the app has Local Network permission. USB connectivity alone does not provide Wi-Fi reachability.
 
-For unattended work, avoid lock/passcode, permission revocation, network changes and disruptive native prompts that require the absent user. Resume simulator or source work instead. Physical iPhone, minimum-OS and unavailable accessory coverage remain separate.
+Physical iPhone, minimum-OS and unavailable accessory coverage remain separate.
 
 ## Finish
 

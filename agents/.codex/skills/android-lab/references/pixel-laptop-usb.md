@@ -1,85 +1,42 @@
 # Pixel USB through the laptop
 
-This is the preferred route whenever the Pixel is plugged into Nico's laptop with USB debugging authorized. It worked when direct Tailscale APK transfers to the phone suffered heavy packet loss. SSH carries files and commands to the laptop; the laptop's ADB controls the phone over USB.
+Use this route whenever the Pixel is plugged into `nico-laptop` with USB debugging authorized. SSH carries files and commands to the laptop, whose ADB (`/usr/bin/adb`) controls the phone over USB. No `adb connect` is needed.
 
-```text
-SSH alias:       nico-laptop
-Remote ADB:      /usr/bin/adb
-Android user:   0
-```
+Replace `PIXEL_USB_SERIAL` with its value from [../local.md](../local.md), and `APP_ID` and `LAUNCH_COMPONENT` with the selected build's values. Choose a task-specific name in place of `TASK`.
 
-Read [../local.md](../local.md) and replace `PIXEL_USB_SERIAL` below with its private value before executing commands. Prefer the SSH alias over the recorded IP in that file. No `adb connect` is needed for USB. Use the selected build's application ID and launch component in place of `APP_ID` and `LAUNCH_COMPONENT` below. Choose a task-specific remote APK filename in place of `TASK`; reuse it only within that task.
+## Locks
 
-## Acquire both locks
+Take the local `pixel` lock, then the laptop's `/tmp/android-lab-pixel.lock` with the inline remote holder from [lab locks](locks.md#locks-on-nico-laptop).
 
-Acquire the local Pixel lock as described in the main skill, then acquire `/tmp/android-lab-pixel.lock` on the laptop before any device commands. Both hosts may have agents using the phone.
-
-Run the remote holder as a separate long-running background command. It holds the lock in a single remote process, which exits when the SSH connection's terminal closes:
+## Transfer, install and control
 
 ```bash
-ssh -tt -o BatchMode=yes nico-laptop \
-  "bash -c 'exec 9>>/tmp/android-lab-pixel.lock; flock -n -E 75 9 || exit 75; echo DEVICE_LOCK_ACQUIRED remote_pid=\$\$; exec sleep infinity'"
-```
-
-Continue only after the remote `DEVICE_LOCK_ACQUIRED` appears, and record both the local holder PID and the `remote_pid`. Keep both holders running throughout the work. If either lock is busy, release any lock acquired for this attempt and wait or use a free emulator. Do not wrap device commands in `flock`. Never delete lock files or terminate another agent's holder.
-
-## Transfer, install, and control
-
-Confirm the USB device is available and check the current Android user before installing. Install only for user 0; do not touch users 10 or 11.
-
-```bash
-ssh -o BatchMode=yes nico-laptop '/usr/bin/adb devices -l'
 ssh -o BatchMode=yes nico-laptop \
   '/usr/bin/adb -s PIXEL_USB_SERIAL shell am get-current-user'
-scp PATH_TO_APK nico-laptop:/tmp/android-pixel-TASK.apk
+rsync --inplace --no-whole-file PATH_TO_APK nico-laptop:/tmp/android-pixel-TASK.apk
 ssh -o BatchMode=yes nico-laptop \
   '/usr/bin/adb -s PIXEL_USB_SERIAL install --user 0 -r /tmp/android-pixel-TASK.apk'
 ssh -o BatchMode=yes nico-laptop \
   '/usr/bin/adb -s PIXEL_USB_SERIAL shell am start --user 0 -n LAUNCH_COMPONENT'
 ```
 
-For subsequent APK transfers, `rsync --inplace --no-whole-file PATH_TO_APK nico-laptop:/tmp/android-pixel-TASK.apk` can reuse unchanged bytes. Wait for the transfer to finish before installing.
+`rsync` reuses unchanged bytes on later transfers. Require the install's `Success` output and check the package's version and `lastUpdateTime` with `dumpsys package APP_ID`: a wireless `--fastdeploy` attempt once exited 0 while leaving the old build installed.
 
-Require the install's `Success` output and verify the selected package's version/build and `lastUpdateTime` with `adb shell dumpsys package APP_ID`. A prior wireless `--fastdeploy` attempt exited 0 after only `Performing Streamed Install` while leaving the old build installed. Do not infer installation from that exit status alone.
+Run other ADB commands the same way, including instrumentation, logcat, input and package inspection. For screenshots, don't allocate a TTY: `ssh ... '/usr/bin/adb -s PIXEL_USB_SERIAL exec-out screencap -p' > FILE.png`.
 
-Run other ADB operations through the same SSH command and explicit USB serial, including instrumentation, logcat, input events, screenshots, and package inspection. Keep binary screenshot output in a file with `ssh ... '... exec-out screencap -p' > /tmp/pixel.png`; do not allocate a TTY for binary output.
+## WebView inspection from this host
 
-## Inspect a WebView from this host
-
-For a debuggable WebView-based build, find the current app PID and its WebView debugging socket on the laptop. The socket is typically `webview_devtools_remote_<PID>`; verify it in `/proc/net/unix`. Recreate the forward if the app process restarts.
-
-```bash
-ssh -o BatchMode=yes nico-laptop \
-  '/usr/bin/adb -s PIXEL_USB_SERIAL shell pidof APP_ID'
-ssh -o BatchMode=yes nico-laptop \
-  '/usr/bin/adb -s PIXEL_USB_SERIAL shell cat /proc/net/unix'
-```
-
-The following ports worked previously. Check that they are free and choose alternatives if occupied. Replace `APP_PID` with the verified PID, then create the ADB forward:
-
-```bash
-ssh -o BatchMode=yes nico-laptop \
-  '/usr/bin/adb -s PIXEL_USB_SERIAL forward --no-rebind tcp:41093 localabstract:webview_devtools_remote_APP_PID'
-```
-
-Keep this SSH tunnel in a separate running exec session:
+Find the app's PID and create a forward on the laptop as in the main skill's WebView section, running the `adb` commands through SSH; `forward tcp:0` prints the laptop port. Then tunnel it to this host as a separate long-running command, using a free local port:
 
 ```bash
 ssh -N -o BatchMode=yes -o ExitOnForwardFailure=yes \
-  -L 127.0.0.1:9237:127.0.0.1:41093 nico-laptop
+  -L 127.0.0.1:LOCAL_PORT:127.0.0.1:LAPTOP_PORT nico-laptop
 ```
 
-Local CDP tools can now discover pages at `http://127.0.0.1:9237/json`. Keep the tunnel bound to loopback.
+Local CDP tools then discover pages at `http://127.0.0.1:LOCAL_PORT/json`. Recreate the forward if the app process restarts.
 
-For screen-lock tests, verify Android's power state with `dumpsys power`. `document.hidden` can remain false temporarily while Android is inactive. After waking and dismissing the keyguard, launch the activity again to restore the full app from background or picture-in-picture.
+For screen-lock tests, check Android's power state with `dumpsys power`; `document.hidden` can stay false for a while after the screen turns off. After waking and dismissing the keyguard, launch the activity again to bring the app back from background or picture-in-picture.
 
 ## Cleanup
 
-Restore the user's original settings and app state, including route and playback when applicable, and preserve existing app data/downloads. Remove test-only packages and transferred APKs created by this test. Remove only the ADB forward created for this session, for example:
-
-```bash
-ssh -o BatchMode=yes nico-laptop \
-  '/usr/bin/adb -s PIXEL_USB_SERIAL forward --remove tcp:41093'
-```
-
-Close the SSH tunnel after all device commands finish. Release the remote lock with `ssh -o BatchMode=yes nico-laptop 'kill REMOTE_PID'` using the recorded `remote_pid`, then stop the local SSH holder command and release the local lock as described in the main skill. Confirm both locks are free with `flock -n /tmp/android-lab-pixel.lock true` on each host.
+Restore the user's settings and app state, including route and playback, and keep existing app data and downloads. Remove test-only packages, the transferred APK, and only your own ADB forward (`forward --remove tcp:LAPTOP_PORT`). Close the tunnel, then release the remote lock and the local one.
