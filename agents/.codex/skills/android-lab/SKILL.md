@@ -29,7 +29,7 @@ Set `ANDROID_SERIAL` to your locked device for connected tasks such as `connecte
 
 ## Physical Pixel
 
-The Pixel 8 Pro is rooted and runs LineageOS; read `ro.build.version.release` instead of assuming an Android version. Root-dependent tools are fine when they help the task; check the available root access before relying on it.
+The Pixel 8 Pro runs LineageOS (Android 17 on 2026-11-23; read `ro.build.version.release` for the current one) and is rooted with APatch, so `adb shell su -c CMD` works. Root-dependent tools are fine when they help the task.
 
 USB through the laptop is faster and more reliable for APK transfers, so check it first:
 
@@ -37,12 +37,12 @@ USB through the laptop is faster and more reliable for APK transfers, so check i
 ssh -o BatchMode=yes -o ConnectTimeout=5 nico-laptop '/usr/bin/adb devices -l'
 ```
 
-If `PIXEL_USB_SERIAL` is listed as `device`, use the [laptop USB workflow](references/pixel-laptop-usb.md). Otherwise try `adb connect PIXEL_ADB_ADDRESS` over Tailscale. Port `5555` works only when TCP ADB is enabled; Wireless debugging uses a changing port the user must supply. If neither route works and the task needs the physical Pixel, ask the user with your question tool to plug it into the laptop, and continue emulator work meanwhile.
+If `PIXEL_USB_SERIAL` is listed as `device`, use the [laptop USB workflow](references/pixel-laptop-usb.md). Otherwise try `adb connect PIXEL_ADB_ADDRESS` over Tailscale. Port `5555` works only when TCP ADB is enabled, which the user does with the action of the phone's ADB over Network Toggle module; Wireless debugging uses a changing port the user must supply. If neither route works and the task needs the physical Pixel, ask the user with your question tool to plug it into the laptop, and continue emulator work meanwhile.
 
 On either route:
 
-- Run `am get-current-user` before installing. Install and launch only for Android user 0, never users 10 or 11: `install --user 0 -r PATH_TO_APK`, then `am start --user 0 -n "$LAUNCH_COMPONENT"`.
-- CorePatch disabled signature verification on the earlier Android 16 setup, so debug and release builds installed over each other. If an install now fails with a signature mismatch, ask the user before uninstalling the app or clearing its data.
+- Run `am get-current-user` before installing. Install and launch only for Android user 0, never another user such as the Private space (user 10): `install --user 0 -r PATH_TO_APK`, then `am start --user 0 -n "$LAUNCH_COMPONENT"`.
+- CorePatch (in the Vector Xposed framework) disables signature checks, so debug and release builds install over each other without losing data; verified on Android 17 on 2026-11-23. If an install fails with a signature mismatch anyway, check that `adb shell su -c "/data/adb/lspd/cli modules ls"` lists `com.coderstory.toolkit` as enabled, and ask the user before uninstalling the app or clearing its data.
 - The phone holds personal notifications, accounts and files. Collapse the shade before screenshots, and check the app's notifications with `adb shell cmd notification list | rg -F -- "$APP_ID"` instead of opening the shade. Never put Pixel captures in PRs, issues, releases or other public places; for public proof, reproduce on an emulator with test data.
 - Record the original value of any setting you change, and restore it. Force-stop is not a durability test for background work, since Android prevents restart until the user opens the app again.
 
