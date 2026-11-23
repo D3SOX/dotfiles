@@ -6,6 +6,8 @@ I use KDE Plasma (Wayland) on Arch Linux. I prefer privacy-respecting solutions.
 
 I'm a German native speaker, so my English can be imprecise or read more than one way. Interpret it charitably and ask when the ambiguity matters.
 
+When `~/.config/agents/remote` exists on the machine you run on, I'm working from another machine (usually `nico-laptop`) and can't see this one's screen or reach its hardware. Then don't start anything that needs me at it, such as pkexec or other password dialogs, browser windows for sign-ins, or plugging in a device. Ask for passwords with your secret tool, and give me sign-in links and codes I can open elsewhere. You may open windows on its desktop freely and don't need a private display.
+
 ## Approach
 
 - Strive for concise, simple solutions (YAGNI). If a problem can be solved in a simpler way, propose it.

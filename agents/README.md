@@ -16,6 +16,8 @@ For each session, `agent-run`:
 
 `.codex/AGENTS.md` holds the global instructions. `.claude/CLAUDE.md` links to it, so Codex and Claude Code read the same file.
 
+To tell agents on a machine that you're working remotely, run `mkdir -p ~/.config/agents && touch ~/.config/agents/remote` there. Delete the file when you're back.
+
 Skills live in `.codex/skills`. Claude Code finds them through `.claude/skills`, which has one relative link per skill, so a new skill needs a link there too. `code-review` has no link because Claude Code ships its own. `.agents/skills` holds skills installed from other repositories, recorded in `.agents/.skill-lock.json`. Update those from their source instead of editing them here.
 
 `android-lab`, `apple-lab`, and `windows-lab` depend on the devices and VMs connected to the desktop. Leave them off other machines.
