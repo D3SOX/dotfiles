@@ -34,7 +34,13 @@ After all device work and setting restoration is complete, release the lock with
 
 ## Physical Pixel
 
-The physical device is a Pixel 8 Pro running Android 16. It can connect directly over Tailscale or by USB through `ssh nico-laptop`. When wireless ADB is unavailable or APK transfers are slow, use the [laptop USB workflow](references/pixel-laptop-usb.md) if the Pixel is plugged into the laptop. That workflow requires locks on both hosts.
+The physical device is a Pixel 8 Pro running Android 16. It can connect by USB through `ssh nico-laptop` or directly over Tailscale. Try the laptop first, since USB is faster and more reliable for APK transfers:
+
+```bash
+ssh -o BatchMode=yes -o ConnectTimeout=5 nico-laptop '/usr/bin/adb devices -l'
+```
+
+If `PIXEL_USB_SERIAL` is listed as `device`, use the [laptop USB workflow](references/pixel-laptop-usb.md), which requires locks on both hosts. If the laptop is unreachable or the Pixel is missing, `unauthorized`, or `offline` there, use the direct connection below.
 
 The Pixel is rooted. Agents may use root-dependent tools and commands when they help with the assigned task, including privileged inspection, debugging, and testing. Verify the available root access on the device before relying on it; the device locks and setting-restoration rules still apply.
 

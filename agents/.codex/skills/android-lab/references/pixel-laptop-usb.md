@@ -1,6 +1,6 @@
 # Pixel USB through the laptop
 
-Use this route when the Pixel is plugged into Nico's laptop with USB debugging authorized. It worked when direct Tailscale APK transfers to the phone suffered heavy packet loss. SSH carries files and commands to the laptop; the laptop's ADB controls the phone over USB.
+This is the preferred route whenever the Pixel is plugged into Nico's laptop with USB debugging authorized. It worked when direct Tailscale APK transfers to the phone suffered heavy packet loss. SSH carries files and commands to the laptop; the laptop's ADB controls the phone over USB.
 
 ```text
 SSH alias:       nico-laptop
