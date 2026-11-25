@@ -4,7 +4,7 @@ alias yt2mp3="yt-dlp -i --extract-audio --audio-format mp3 --embed-thumbnail --a
 alias ytdl="yt-dlp -i -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]'"
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
-    alias clear="clear && pfetch"
+    alias clear="clear && fastfetch -c pfetch"
 fi
 
 alias ls="eza -lhg --color=always --group-directories-first --icons=always"

@@ -107,7 +107,7 @@ eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
-    pfetch
+    fastfetch -c pfetch
 fi
 
 # bun completions

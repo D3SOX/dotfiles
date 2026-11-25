@@ -1,0 +1,26 @@
+// Mimics pfetch's layout and colors.
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "data",
+    "source": "$1       /\\\n$1      /  \\\n$1     /\\   \\\n$2    /      \\\n$2   /   ,,   \\\n$2  /   |  |  -\\\n$2 /_-''    ''-_\\",
+    "color": { "1": "bold_cyan", "2": "bold_blue" },
+    "padding": { "left": 0, "right": 3 }
+  },
+  "display": {
+    "separator": "",
+    "key": { "width": 8 },
+    "color": { "keys": "bold_blue" },
+    "size": { "binaryPrefix": "jedec", "maxPrefix": "MB", "ndigits": 0, "spaceBeforeUnit": "never" }
+  },
+  "modules": [
+    { "type": "title", "color": { "user": "bold_magenta", "at": "bold_default", "host": "bold_magenta" } },
+    { "type": "os", "key": "os", "format": "{name}" },
+    { "type": "host", "key": "host", "format": "{name} {version}" },
+    { "type": "kernel", "key": "kernel", "format": "{release}" },
+    { "type": "uptime", "key": "uptime", "format": "{?days}{days}d {?}{hours}h {minutes}m" },
+    { "type": "packages", "key": "pkgs", "format": "{all}" },
+    { "type": "memory", "key": "memory", "format": "{used~0,-1} / {total~0,-1}" },
+    "break"
+  ]
+}

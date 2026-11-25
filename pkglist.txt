@@ -407,7 +407,6 @@ pdf4qt
 pdfarranger
 pdfmixtool
 pdftricks
-pfetch-git
 phonon-qt6-mpv
 php-gd
 php-sqlite
