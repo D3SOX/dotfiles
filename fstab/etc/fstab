@@ -25,3 +25,9 @@ UUID=29df2812-d4e6-462e-9589-daf945749a93   /run/media/nico/EXTERNAL_DATA    ext
 
 # /dev/nvme1n1p1 LABEL=HOME_EXPANSION
 UUID=a71e5312-fb70-410b-bf09-e2f16674e606   /run/media/nico/HOME_EXPANSION   ext4   rw,nosuid,nodev,noatime,nodiratime                                                                      0 2 
+
+# /dev/nvme0n1p3 LABEL=200GB_DATA
+UUID=731cae1a-fe30-41e8-959b-ae9230866448 /run/media/nico/200GB_DATA ext4 rw,nosuid,nodev,relatime,errors=remount-ro,nofail 0 2
+
+# swap
+/run/media/nico/HOME_EXPANSION/swapfile none swap defaults 0 0
