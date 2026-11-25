@@ -21,8 +21,6 @@ alias mkdir="mkdir -v"
 alias chmod="chmod -c"
 alias chown="chown -c"
 alias upload="curl --upload-file"
-alias sxconf="$EDITOR ~/.config/sxhkd/sxhkdrc"
-alias bconf="$EDITOR ~/.config/bspwm/bspwmrc"
 alias rrsync="rsync -uvrP"
 alias sstart="sudo systemctl start"
 alias srestart="sudo systemctl restart"
@@ -42,7 +40,6 @@ alias gp="git push"
 alias gspp='() { sid=$(git stash push -q -m gspp && git stash list | head -1 | cut -d: -f1); git pull && [ -n "$sid" ] && git stash pop "$sid"; }'
 alias gsu="git submodule update --init --recursive"
 alias ":q"="exit"
-alias type-clipboard='sh -c "sleep 3; xdotool type \"$(xclip -o -sel clip)\""'
 alias reboot-windows="sudo grub-reboot 'Windows Boot Manager (on /dev/nvme1n1p1)' && sudo reboot"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias flatpak=rpak

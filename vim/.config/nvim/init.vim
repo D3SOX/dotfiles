@@ -21,7 +21,6 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'vimwiki/vimwiki'                            " Vim wiki
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
-Plugin 'kovetskiy/sxhkd-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'lambdalisue/suda.vim'
 Plugin 'christoomey/vim-tmux-navigator'
