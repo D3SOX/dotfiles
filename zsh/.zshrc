@@ -113,9 +113,6 @@ fi
 # rpak completions (also used for flatpak, which is aliased to rpak)
 (( $+commands[rpak] )) && source <(rpak completion zsh)
 
-# bun completions
-[ -s "/home/nico/.bun/_bun" ] && source "/home/nico/.bun/_bun"
-
 # Use beam shape cursor on startup.
 echo -ne '\e[5 q'
 

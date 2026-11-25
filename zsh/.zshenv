@@ -1,9 +1,7 @@
 typeset -U PATH path
-export BUN_INSTALL="$HOME/.bun"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 path=(
     "$PNPM_HOME"
-    "$BUN_INSTALL/bin"
     "$HOME/.local/bin"
     $path
     "$HOME/.yarn/bin"
