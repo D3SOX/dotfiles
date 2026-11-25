@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# paru PKGBUILD review — thin launcher (no input injection / no ydotool).
+exec nvim -S /home/nico/.config/paru/nvim-review.vim "$@"

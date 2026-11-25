@@ -35,30 +35,45 @@ let @/ = 'diff'
 call search(@/, 'w')
 set hlsearch
 
-" ZZ quits immediately; any extra Z from a triple-tap is drained here / in the
-" wrapper — no timeoutlen wait on a normal double-tap.
-nnoremap ZZ :call <SID>ParuQuit(0)<CR>
-nnoremap ZQ :call <SID>ParuQuit(1)<CR>
-" If the file is closed first, don't leave a lonely NERDTree behind.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+" ZZ/ZQ quit the whole review. Handled manually so ZZ never hangs waiting for
+" a third Z (ambiguous ZZ/ZZZ maps + timeout caused that). Extra Z already in
+" the queue (from a fast ZZZ) is dropped; we do not wait, so Enter reaches paru.
+nnoremap <silent> Z :<C-u>call <SID>ParuZLeader()<CR>
 
-function! s:ParuQuit(force) abort
-  " Brief drain so a third Z typed with ZZ doesn't leak to paru.
-  let l:until = reltimefloat(reltime()) + 0.12
-  while reltimefloat(reltime()) < l:until
+function! s:ParuChar(c) abort
+  return type(a:c) == v:t_number ? nr2char(a:c) : a:c
+endfunction
+
+function! s:ParuAbsorbQueuedZ() abort
+  while 1
     let l:c = getchar(0)
     if l:c is# 0
-      sleep 10m
+      break
+    endif
+    let l:ch = s:ParuChar(l:c)
+    if l:ch ==# 'Z' || l:ch ==# 'z'
       continue
     endif
-    " Got a key — keep draining a bit longer in case of more
-    let l:until = reltimefloat(reltime()) + 0.08
+    break
   endwhile
-  if a:force
-    qa!
-  else
-    wqa
-  endif
 endfunction
+
+function! s:ParuZLeader() abort
+  let l:ch = s:ParuChar(getchar())
+  if l:ch ==# 'Q'
+    call s:ParuAbsorbQueuedZ()
+    qa!
+    return
+  endif
+  if l:ch !=# 'Z'
+    call feedkeys('Z' . l:ch, 'in!')
+    return
+  endif
+  call s:ParuAbsorbQueuedZ()
+  wqa
+endfunction
+
+" If the file is closed first, don't leave a lonely NERDTree behind.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 
 redraw!
