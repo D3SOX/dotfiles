@@ -3,12 +3,9 @@ cups.path                          enabled disabled
 acpid.service                      enabled disabled
 ananicy-cpp.service                enabled disabled
 avahi-daemon.service               enabled disabled
-bluetit.service                    enabled disabled
 bluetooth.service                  enabled disabled
-cpupower.service                   enabled disabled
 cups.service                       enabled disabled
 dmemcg-booster-system.service      enabled disabled
-ebtables.service                   enabled disabled
 fail2ban.service                   enabled disabled
 getty@.service                     enabled enabled
 gpm.service                        enabled disabled
@@ -20,9 +17,12 @@ NetworkManager-wait-online.service enabled disabled
 NetworkManager.service             enabled disabled
 plasmalogin.service                enabled disabled
 portmaster.service                 enabled disabled
-preload.service                    enabled disabled
+power-profiles-daemon.service      enabled disabled
+scx_loader.service                 enabled disabled
+sshd.service                       enabled disabled
 systemd-resolved.service           enabled enabled
 systemd-timesyncd.service          enabled enabled
+tailscaled.service                 enabled disabled
 avahi-daemon.socket                enabled disabled
 cups.socket                        enabled disabled
 libvirtd-admin.socket              enabled disabled
@@ -37,7 +37,8 @@ virtlogd-admin.socket              enabled disabled
 virtlogd.socket                    enabled disabled
 remote-fs.target                   enabled enabled
 fstrim.timer                       enabled disabled
+paccache.timer                     enabled disabled
 plocate-updatedb.timer             enabled disabled
 reflector.timer                    enabled disabled
 
-40 unit files listed.
+41 unit files listed.
