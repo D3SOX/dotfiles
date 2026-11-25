@@ -79,7 +79,6 @@ dart-sass
 dash
 dashbinsh
 ddcutil
-ddev-bin
 debuginfod
 devtools
 dialog
@@ -130,7 +129,6 @@ faudio
 fd
 ferdium-nightly
 ffmpeg
-ffmpeg4.4
 ffmpegthumbs
 file
 filebrowser-bin
@@ -164,7 +162,6 @@ gawk
 gcc
 gcc-fortran
 gcc15
-gconf
 gettext
 gimagereader-qt
 git
@@ -210,7 +207,6 @@ hunspell-en_us
 i2c-tools
 icoutils
 id3v2
-ifplugd
 immich-go
 inetutils
 inkscape
@@ -463,7 +459,6 @@ portmaster-bin
 power-profiles-daemon
 powerdevil
 powerline-fonts
-preload
 print-manager
 prismlauncher
 protontricks-git
