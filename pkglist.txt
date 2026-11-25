@@ -614,7 +614,7 @@ vulkan-radeon
 vulkan-tools
 wasabi-wallet-bin
 wayland-protocols
-waypipe-git
+waypipe
 webkitgtk-6.0
 wget
 which
