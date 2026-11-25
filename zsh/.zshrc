@@ -110,6 +110,9 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
     fastfetch -c pfetch
 fi
 
+# rpak completions (also used for flatpak, which is aliased to rpak)
+(( $+commands[rpak] )) && source <(rpak completion zsh)
+
 # bun completions
 [ -s "/home/nico/.bun/_bun" ] && source "/home/nico/.bun/_bun"
 
