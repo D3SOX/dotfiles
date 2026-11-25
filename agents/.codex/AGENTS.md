@@ -39,6 +39,7 @@ When `~/.config/agents/remote` exists on the machine you run on, I'm working fro
 - Use semantic commit messages by default. When merging another branch, use Git's default commit message.
 - Make sure all commits are GPG signed (you don't have to verify it after committing, Git is already configured). If signing times out, ask me with your question tool whether to retry, and retry when I confirm. Without a question tool, stop and tell me to say continue to retry.
 - When solving issues with commits that are not part of a PR, add a resolves #n to the commit message body of the first matching commit. Do not add it to commits in a PR.
+- When a task also needs a related repository, work in its checkout next to yours (for example, another folder of the same T3 project): fetch its origin and branch from origin's default branch. If there is none, ask me instead of cloning it or creating a worktree.
 
 ## Dependencies
 
