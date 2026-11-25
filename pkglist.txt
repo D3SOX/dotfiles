@@ -639,13 +639,10 @@ xdg-desktop-portal-kde
 xdg-ninja
 xdg-user-dirs
 xdotool
-xf86-input-evdev
 xmlstarlet
 xorg-server-xvfb
-xorg-xfontsel
 xorg-xinput
 xorg-xkill
-xorg-xlsfonts
 xorg-xrandr
 xorg-xwininfo
 xournalpp
