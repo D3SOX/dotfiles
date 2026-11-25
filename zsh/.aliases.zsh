@@ -109,12 +109,3 @@ ssh-portforward() {
     ssh -N -o ExitOnForwardFailure=yes "${forwards[@]}" -- "$ssh_host"
 }
 alias ssh-pfw='ssh-portforward'
-
-# Do a dummy git commit to trigger the PGP sign modal
-alias dummygc="mkdir ~/testgit && cd ~/testgit && git init && touch a && git add a && git commit -m 'a' && cd ~ && rm -rf ~/testgit"
-
-# Load machine-local credentials when available.
-[[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/claudex/secrets.zsh" ]] && source "${XDG_CONFIG_HOME:-$HOME/.config}/claudex/secrets.zsh"
-
-# Launch Claude Code with GPT-5.6 Sol through the local Codex bridge.
-alias claudex='ANTHROPIC_BASE_URL=http://127.0.0.1:8317 ANTHROPIC_AUTH_TOKEN="${CODEX_BRIDGE_TOKEN:?Set CODEX_BRIDGE_TOKEN in ~/.config/claudex/secrets.zsh}" CLAUDE_CODE_SUBAGENT_MODEL=gpt-5.6-sol CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1 CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY=3 ENABLE_TOOL_SEARCH=false claude --dangerously-skip-permissions --model gpt-5.6-sol'
