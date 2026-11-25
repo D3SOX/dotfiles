@@ -325,7 +325,6 @@ lrzip
 lshw
 ludusavi-bin
 lutris
-lxappearance
 lzop
 m4
 make
@@ -629,7 +628,6 @@ wireplumber
 wireshark-qt
 wl-clipboard
 wmctrl
-wmname
 woff2-font-awesome
 wootility
 wooting-bg-service
@@ -645,7 +643,6 @@ xf86-input-evdev
 xmlstarlet
 xorg-server-xvfb
 xorg-xfontsel
-xorg-xinit
 xorg-xinput
 xorg-xkill
 xorg-xlsfonts
