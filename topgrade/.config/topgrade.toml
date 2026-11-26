@@ -65,6 +65,7 @@ pre_sudo = true
 [commands]
 #"Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 #"Spicetify stuff" = "~/scripts/update-spicetify.sh"
+# Drop once topgrade has its own step: https://github.com/topgrade-rs/topgrade/issues/2542
 "Android SDK" = "$HOME/Android/Sdk/cmdline-tools/latest/bin/android --no-metrics --sdk=$HOME/Android/Sdk sdk update"
 
 [brew]
