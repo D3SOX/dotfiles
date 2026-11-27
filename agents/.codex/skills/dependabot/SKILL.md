@@ -21,5 +21,6 @@ with one push.
   assessment. If an update cannot be fixed or validated, or permissions block
   delivery, report the blocker. Do not silently merge a subset, force-push,
   or create a batch PR without approval.
-- Verify the remote result and each PR's merged status. Summarize merged
+- Verify the remote result and each PR's merged status, then delete the
+  remote branches of the merged PRs that still exist. Summarize merged
   updates, migrations or fixes, validation results, and any blockers.
