@@ -33,5 +33,9 @@ autonomy unless the user requests local work or an assessment.
   - If the bot rewrites the branch while you work, redo the merge and fixes on
     its new head instead of force-pushing over it.
 - Before merging, verify the upstream head is an ancestor of the PR head.
-- In the final report, add the conflicts, how you resolved them, and the
-  relevant upstream changes.
+- Add two sections to full-send's final report, and keep both even when the
+  merge was clean:
+  - **Upstream changes:** a summary of what the merged upstream commits bring,
+    grouped (e.g. new features, performance, fixes in areas the fork changed),
+    with PR links. The conflict list does not replace it.
+  - **Conflicts:** each conflict and how you resolved it.
